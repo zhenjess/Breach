@@ -95,41 +95,51 @@
 
 <body>
 
-    <header>
-        <!-- navbar html here -->
-        <nav className="navbar">
-            <a className="logo">Breach</a>
-            <button classNmae="nav-toggle" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggle-icon"></span>
-            </button>
-            
-            <!-- Select2 country search bar -->
-            <span class="navbar-text">
-                Country:
-            </span>
-            <div class="searchWrapper float-right">
-                <form class="form-inline">
-                    <select name="country"></select>
-                </form>
-            </div>
-            <!-- Dropdown menu for data period -->
-            <span class="navbar-text">
-                Time Period:
-            </span>
-            <form class="form-control-sm">
-                <div class="form-row align-items-center" id="dataPeriod">
-                    <div class="col-auto my-1">
-                        <select class="custom-select mr-sm-2 form-control-sm" id="inlineFormCustomSelect" autocomplete="off">
-                            <option selected value="year">Year</option>       
-                            <option value="2016">2016</option>
-                            <option value="2015">2015</option>
-                            <option value="2014">2014</option>              
-                        </select>
-                    </div>
-                </div>
+<header>
+    <!-- Sticky navbar -->
+    <nav className="navbar" style="background-color: #37474F;" id="top">
+        <a className="navbar">Breach</a>
+        <button className="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+                <li className="nav-item">
+                    <a className="nav-link" href="#" data-toggle="modal" data-target="#aboutModal">About</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Select2 country search bar -->
+        <span className="navbar-text">
+            Country:
+        </span>
+        <div className="searchWrapper float-right">
+            <form className="form-inline">
+                <select name="country"></select>
             </form>
-        </nav>
-    </header>
+        </div>
+        <!-- Dropdown menu for data period -->
+        <span className="navbar-text">
+            Time Period:
+        </span>
+        <form className="form-control-sm">
+            <div className="form-row align-items-center" id="dataPeriod">
+                <div className="col-auto my-1">
+                    <select className="custom-select mr-sm-2 form-control-sm" id="inlineFormCustomSelect"
+                        autocomplete="off">
+                        <option selected value="Year">Year</option>
+             
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </form>
+    </nav>
+</header>
 
     <div id="map-holder"></div>
     <script type="text/javascript">

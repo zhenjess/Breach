@@ -41,8 +41,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Yanone+Kaffeesatz:200" rel="stylesheet">
 
-    <title>World Breach Report</title>
-
     <style>
         body {
             margin: 0;
@@ -91,43 +89,48 @@
             /* country label background colour */
         }
     </style>
+
+    <title>World Breach Report</title>
 </head>
 
 <body>
 
-    <!-- navbar html here -->
-    <nav className="navbar">
-        <a className="logo">Breach</a>
-        <button classNmae="nav-toggle" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggle-icon"></span>
-        </button>
+    <header>
+        <!-- navbar html here -->
+        <nav className="navbar">
+            <a className="logo">Breach</a>
+            <button classNmae="nav-toggle" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggle-icon"></span>
+            </button>
+            
+            <!-- Select2 country search bar -->
+            <span class="navbar-text">
+                Country:
+            </span>
+            <div class="searchWrapper float-right">
+                <form class="form-inline">
+                    <select name="country"></select>
+                </form>
+            </div>
+            <!-- Dropdown menu for data period -->
+            <span class="navbar-text">
+                Time Period:
+            </span>
+            <form class="form-control-sm">
+                <div class="form-row align-items-center" id="dataPeriod">
+                    <div class="col-auto my-1">
+                        <select class="custom-select mr-sm-2 form-control-sm" id="inlineFormCustomSelect" autocomplete="off">
+                            <option selected value="year">Year</option>       
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>              
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </nav>
+    </header>
 
-<!-- Select2 country search bar -->
-<span class="navbar-text">
-    Country:
-</span>
-<div class="searchWrapper float-right">
-    <form class="form-inline">
-        <select name="country"></select>
-    </form>
-</div>
-<!-- Dropdown menu for data period -->
-<span class="navbar-text">
-    Time Period:
-</span>
-<form class="form-control-sm">
-    <div class="form-row align-items-center" id="dataPeriod">
-        <div class="col-auto my-1">
-            <select class="custom-select mr-sm-2 form-control-sm" id="inlineFormCustomSelect" autocomplete="off">
-                <option selected value="year">Year</option>       
-                <option value="2016">2016</option>
-                <option value="2015">2015</option>
-                <option value="2014">2014</option>              
-            </select>
-        </div>
-    </div>
-</form>
-    </nav>
     <div id="map-holder"></div>
     <script type="text/javascript">
 

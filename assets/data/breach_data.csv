@@ -1,4 +1,4 @@
-organization,id,group,source,location,continent,industry,year,records,date
+organization,id,group,source,country,continent,industry,year,records,date
 CyberVor,1,Account Access,Malicious Outsider,Global,Global,Technology,2014,1200000000,8/5/2014
 eBay,2,Identity Theft,Malicious Outsider,United States,North America,Retail,2014,145000000,5/21/2014
 Home Depot,3,Financial Access,Malicious Outsider,United States,North America,Retail,2014,109000000,9/2/2014

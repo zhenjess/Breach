@@ -4,3 +4,4 @@ document.addEventListener("DOMContentLoaded", () => {
     // ReactDOM.render(<h1>React is working</h1>, rootDiv);
     rootDiv.innerHTML = "works"
 });
+

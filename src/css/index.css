@@ -1,0 +1,21 @@
+html, body {
+    height: 100vh;
+}
+
+body {
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+}
+
+.navbar-text {
+    padding-left: 1em;
+}
+
+.searchArea {
+    padding-left: 1em;
+    width: 15vw;
+}
+

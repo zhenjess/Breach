@@ -55,5 +55,20 @@ class Map extends Graph {
                 .style('left', d3.event.clientX - 150 + 'px');
         };
 
+        let moveToolTip = function(d) {
+            showToolTip(d);
+            tooltip
+                .style('top', d3.event.clientY - 100 + 'px')
+                .style('left', d3.event.clientX - 150 + 'px');
+        };
+
+        let hideToolTip = function(d) {
+            tooltip
+                .transition()
+                .duration(300)
+                .style('visibility', 'hidden');
+        };
+
+        
     }
 }

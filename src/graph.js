@@ -35,7 +35,7 @@ class Graph {
         let xAxisCall = d3
             .axisBottom(this.xScale)
             .ticks(ticks)
-            .tickFormat(d3.format(".0%"));
+            .tickFormat(d3.format("2014"));
         this.graph
             .append("g")
             .attr("transform", `translate(0, ${HEIGHT})`)

@@ -1,0 +1,29 @@
+organization,id,type,source,location,continent,industry,year,records
+Equifax,301,Identity Theft,Malicious Outsider,United States,North America,Financial,2017,143000000
+River City Media,302,Nuisance,Malicious Insider,United States,North America,Technology,2017,1340000000
+Deep Root Analytics / Republican National Committee (RNC),303,Identity Theft,Accidental Loss,United States,North America,Government,2017,198000000
+Alteryx,304,Identity Theft,Malicious Outsider,United States,North America,Financial,2017,123000000
+Center for Election Systems at Kennesaw State University,305,Identity Theft,Malicious Outsider,United States,North America,Government,2017,7500000
+Disqus,306,Account Access,Hacktivist,United States,North America,Technology,2017,17500000
+RootsWeb,307,Identity Theft,Malicious Outsider,United States,North America,Technology,2017,300000
+Yahoo,308,Account Access,Hacktivist,United States,North America,Technology,2017,32000000
+Uber,309,Account Access,Hacktivist,United States,North America,Technology,2017,57000000
+Wonga,310,Financial Access,Malicious Outsider,United Kingdom,Europe,Financial,2017,270000
+Snapchat,311,Identity Theft,Malicious Outsider,United States,North America,Technology,2017,1700000
+Spambot,312,Account Access,Malicious Insider,United States,North America,Technology,2017,711000000
+CEX,313,Nuisance,Malicious Insider,United States,North America,Retail,2017,2000000
+Al.type,314,Nuisance,Malicious Outsider,United States,North America,Technology,2017,31000000
+Cellebrite,315,Identity Theft,Hacktivist,Israel,Asia,Technology,2017,3000000
+Waterly,316,Account Access,Malicious Outsider,Israel,Asia,Technology,2017,1000000
+Swedish Transport Agency,317,Nuisance,Accidental Loss,Sweden,Europe,Government,2017,3000000
+Hong Kong Registration & Electoral Office,318,Identity Theft,Malicious Insider,China,Asia,Government,2017,3700000
+DaFont,319,Account Access,Hacktivist,United States,North America,Technology,2017,700000
+Bell,320,Account Access,Hacktivist,United States,North America,Technology,2017,1900000
+Zomato,321,Identity Theft,Hacktivist,India,Asia,Technology,2017,17000000
+Imgur,322,Nuisance,Hacktivist,United States,North America,Technology,2017,1700000
+TIO Networks,323,Nuisance,Hacktivist,United States,North America,Financial,2017,1600000
+Malaysian telcos & MVNOs,324,Account Access,Hacktivist,Malaysia,Asia,Technology,2017,46200000
+Malaysian medical practitioners,325,Account Access,Hacktivist,Malaysia,Asia,Healthcare,2017,81309
+Instagram,326,Account Access,Hacktivist,United States,North America,Technology,2017,6000000
+Viacom,327,Account Access,Hacktivist,United States,North America,Technology,2017,3000000
+SVR Tracking,328,Identity Theft,Accidental Loss,United States,North America,Technology,2017,540000

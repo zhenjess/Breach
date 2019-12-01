@@ -1,0 +1,44 @@
+organization,id,type,source,location,continent,industry,year,records
+Desjardins Group,373,Identity Theft,Malicious Insider,Canada,North America,Financial,2019,2900000
+US Customs and Border Protection,374,Identity Theft,Hacktivist,United States,North America,Government,2019,100000
+Quest Diagnostics,375,Identity Theft,Malicious Outsider,United States,North America,Healthcare,2019,11900000
+Australian National University,376,Identity Theft,Hacktivist,Australia,Australia,Education,2019,200000
+Canva,377,Account Access,Hacktivist,Australia,Australia,Technology,2019,139000000
+First American Financial Corporation,378,Identity Theft,Malicious Outsider,United States,North America,Financial,2019,885000000
+Chtrbox,379,Existential Data,Malicious Outsider,India,Asia,Technology,2019,49000000
+WiFi Finder,380,Existential Data,Malicious Outsider,United States,North America,Technology,2019,2000000
+Toyota,381,Identity Theft,Hacktivist,Global,Global,Other,2019,3100000
+BreedReady,382,Identity Theft,Malicious Outsider,China,Asia,Technology,2019,1800000
+Vårdguiden,383,Existential Data,Malicious Outsider,Sweden,Europe,Healthcare,2019,2700000
+Dubsmash,384,Account Access,Hacktivist,India,Asia,Technology,2019,162000000
+ShareThis,385,Account Access,Hacktivist,United States,North America,Technology,2019,41000000
+HauteLook,386,Account Access,Hacktivist,United States,North America,Retail,2019,28000000
+Animoto,387,Account Access,Hacktivist,United States,North America,Technology,2019,25000000
+EyeEm,388,Account Access,Hacktivist,Germany,Europe,Technology,2019,22000000
+8fit,389,Account Access,Hacktivist,Germany,Europe,Technology,2019,20000000
+Whitepages,390,Account Access,Hacktivist,United States,North America,Technology,2019,18000000
+Fotolog,391,Account Access,Hacktivist,United States,North America,Technology,2019,16000000
+Armor Games,392,Account Access,Hacktivist,United States,North America,Technology,2019,11000000
+BookMate,393,Account Access,Hacktivist,United Kingdom,Europe,Technology,2019,8000000
+CoffeeMeetsBagel,394,Account Access,Hacktivist,United States,North America,Technology,2019,6000000
+Artsy,395,Account Access,Hacktivist,United States,North America,Technology,2019,1000000
+DataCamp,396,Account Access,Hacktivist,United States,North America,Technology,2019,700000
+Ixigo,397,Account Access,Malicious Outsider,India,Asia,Other,2019,18000000
+YouNow,398,Account Access,Hacktivist,United States,North America,Technology,2019,40000000
+Houzz,399,Account Access,Hacktivist,United States,North America,Retail,2019,57000000
+Ge.tt,400,Account Access,Hacktivist,United States,North America,Technology,2019,1800000
+Coinmama,401,Account Access,Hacktivist,Israel,Asia,Financial,2019,450000
+Roll20,402,Account Access,Hacktivist,United States,North America,Technology,2019,4000000
+Stronghold Kingdoms,403,Account Access,Hacktivist,United States,North America,Technology,2019,5000000
+Petflow,404,Account Access,Malicious Outsider,United States,North America,Retail,2019,1000000
+500px,405,Account Access,Hacktivist,United States,North America,Technology,2019,14800000
+Blur,406,Account Access,Accidental Loss,United States,North America,Technology,2019,2400000
+Blank Media Games,407,Identity Theft,Hacktivist,United States,North America,Technology,2019,7600000
+Indian Jobseekers,408,Identity Theft,Malicious Outsider,India,Asia,Technology,2019,275265298
+Bulgarian National Revenue Agency,409,Identity Theft,Hacktivist,Bulgaria,Europe,Government,2019,5000000
+Capital One,410,Identity Theft,Hacktivist,United States,North America,Financial,2019,100000000
+Suprema,411,Identity Theft,Malicious Outsider,South Korea,Asia,Technology,2019,27800000
+Facebook,412,Identity Theft,Malicious Outsider,United States,North America,Technology,2019,419000000
+UCLA Health,413,Identity Theft,Hacktivist,United States,North America,Healthcare,2019,4500000
+DoorDash,414,Identity Theft,Malicious Outsider,United States,North America,Other,2019,4900000
+BriansClub,415,Identity Theft,Hacktivist,United States,North America,Technology,2019,26000000

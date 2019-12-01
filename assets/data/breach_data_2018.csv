@@ -1,0 +1,45 @@
+organization,id,type,source,location,continent,industry,year,records
+Click2Gov,329,Nuisance,Hacktivist,United States,North America,Financial,2018,300000
+SingHealth,330,Identity Theft,Hacktivist,Singapore,Asia,Healthcare,2018,1500000
+GovPayNow.com,331,Identity Theft,Malicious Outsider,United States,North America,Financial,2018,14000000
+Cathay Pacific Airways,332,Identity Theft,Hacktivist,Global,Global,Other,2018,9400000
+Chinese resume leak,333,Identity Theft,Malicious Outsider,China,Asia,Technology,2018,202000000
+WordPress,334,Nuisance,Malicious Outsider,United States,North America,Technology,2018,76500000
+Google+,335,Identity Theft,Malicious Outsider,United States,North America,Technology,2018,52500000
+Quora,336,Account Access,Hacktivist,United States,North America,Technology,2018,100000000
+Marriott Hotels,337,Identity Theft,Hacktivist,United States,North America,Retail,2018,383000000
+NMBS,338,Identity Theft,Accidental Loss,United Kingdom,Europe,Other,2018,1460000
+Facebook,339,Identity Theft,Hacktivist,United States,North America,Technology,2018,50000000
+Panerabread,340,Identity Theft,Malicious Outsider,United States,North America,Retail,2018,37000000
+Aadhaar,341,Identity Theft,Accidental Loss,India,Asia,Government,2018,1000000000
+Dixons Carphone,342,Identity Theft,Hacktivist,United Kingdom,Europe,Technology,2018,10000000
+MyHeritage,343,Account Access,Hacktivist,Israel,Asia,Technology,2018,92283889
+Saks and Lord & Taylor,344,Identity Theft,Hacktivist,United States,North America,Retail,2018,5000000
+Careem,345,Identity Theft,Hacktivist,Dubai,Asia,Technology,2018,14000000
+Texas voter records,346,Account Access,Malicious Outsider,United States,North America,Technology,2018,14800000
+British Airways,347,Identity Theft,Hacktivist,Global,Global,Other,2018,380000
+T-Mobile,348,Identity Theft,Hacktivist,United States,North America,Technology,2018,2000000
+MyFitnessPal,349,Account Access,Hacktivist,United States,North America,Technology,2018,150000000
+Health South East,350,Identity Theft,Hacktivist,Norway,Europe,Healthcare,2018,3000000
+Nametests,351,Account Access,Malicious Outsider,United States,North America,Technology,2018,120000000
+Ticketmaster,352,Identity Theft,Hacktivist,United Kingdom,Europe,Technology,2018,40000
+Firebase,353,Account Access,Malicious Outsider,United States,North America,Technology,2018,100000000
+Aadhaar,354,Identity Theft,Malicious Outsider,India,Asia,Government,2018,1100000000
+Grindr,355,Account Access,Malicious Outsider,United States,North America,Technology,2018,3000000
+Orbitz,356,Existential Data,Hacktivist,Global,Global,Technology,2018,880000
+MBM Company,357,Account Access,Malicious Outsider,United States,North America,Retail,2018,1300000
+LocalBlox,358,Identity Theft,Malicious Outsider,United States,North America,Technology,2018,48000000
+Twitter,359,Account Access,Malicious Outsider,United States,North America,Technology,2018,330000000
+ViewFines,360,Account Access,Accidental Loss,Kenya,Africa,Other,2018,934000
+TicketFly,361,Account Access,Hacktivist,United States,North America,Technology,2018,27000000
+Amazon,362,Account Access,Accidental Loss,United States,North America,Retail,2018,5000000
+Amazon,363,Account Access,Malicious Outsider,United States,North America,Technology,2018,100000
+Urban Massage,364,Account Access,Malicious Outsider,United States,North America,Technology,2018,309000
+Dell,365,Account Access,Hacktivist,United States,North America,Technology,2018,100000
+High Tail Hall,366,Account Access,Hacktivist,United States,North America,Technology,2018,411000
+SKY Brasil,367,Nuisance,Malicious Outsider,Brazil,South America,Technology,2018,32000000
+Vision Direct,368,Identity Theft,Hacktivist,United Kingdom,Europe,Retail,2018,100000
+Healthcare.gov,369,Identity Theft,Hacktivist,United States,North America,Healthcare,2018,75000
+CMS,370,Identity Theft,Hacktivist,United States,North America,Healthcare,2018,93689
+Facebook,371,Account Access,Hacktivist,United States,North America,Technology,2018,29000000
+Newegg,372,Identity Theft,Hacktivist,United States,North America,Retail,2018,45000000

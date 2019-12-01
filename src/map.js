@@ -27,7 +27,33 @@ class Map extends Graph {
 
     circles(metric) {
         //tooltip
+
+        let tooltip = d3
+            .select('body')
+            .append('div')
+            .style('visibility', 'hidden')
+            .attr('class', 'tooltip')
+            .style('background-color', 'black')
+            .style('border-radius', '5px')
+            .style('padding', '10px')
+            .style('color', 'white')
+            .style('z-index', '999999999')
+            .style('position', 'absolute')
+            .style('display', 'block')
         
+        let that = this;
+        let showToolTip = function(d) {
+            tooltip.transition().duration(300);
+            tooltip
+                .style('visibility', 'visible')
+                .html(
+                    `
+                    <strong>Country:</strong>${d.country} (${d.continent})<br/>
+                    `
+                )
+                .style('top', d3.event.clientY - 100 + 'px')
+                .style('left', d3.event.clientX - 150 + 'px');
+        };
 
     }
 }

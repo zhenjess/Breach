@@ -100,7 +100,7 @@ function bubbleChart() {
         return -Math.pow(d.radius, 2.0) * forceStrength;
     }
 
-    //create force layout
+    //create force layout and simulation to add force to it
     var simulation = d3.forceSimulation()
         .velocityDecay(0.2)
         .force('x', d3.forceX().strength(forceStrength).x(center.x))
@@ -108,15 +108,16 @@ function bubbleChart() {
         .force('charge', d3.forceManyBody().strength(charge))
         .on('tick', ticked);
 
+    //@v4 to prevent automatic force
     simulation.stop();
 
-    var fillColor = d3.scaleOrdinal()
-
-        .domain(['Account Access', 'Identity Theft', 'Financial Access', 'Nuisance', 'Existential Data'])
-        .range(['#ec1919', '#f48438', '#292bb0', '#16ab11', '#bed02b']);
-    var fillColorGeo = d3.scaleOrdinal()
-        .domain(['Global', 'North America', 'South America', 'Europe', 'Asia', 'Australia'])
-        .range(['#ec1919', '#f48438', '#292bb0', '#16ab11', '#bed02b', '#00f9ff']);
+    //add color to bubbles
+    // var fillColor = d3.scaleOrdinal()
+    //     .domain(['Account Access', 'Identity Theft', 'Financial Access', 'Nuisance', 'Existential Data'])
+    //     .range(['#ec1919', '#f48438', '#292bb0', '#16ab11', '#bed02b']);
+    var fillColorByContinent = d3.scaleOrdinal()
+        .domain(['Global', 'Asia', 'Africa', 'Australia', 'Europe', 'North America', "South America"])
+        .range(['#ec1919', "#ff1f5a", '#00f9ff', "#7cbd1e", "#2fc5cc", "#303481", "#ff5b44"]);
 
 
     function createNodes(rawData) {

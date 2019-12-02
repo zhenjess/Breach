@@ -148,7 +148,6 @@ function bubbleChart() {
                 type: d.type,
                 source: d.source,
                 industry: d.industry,
-                group: d.group,
                 year: d.year,
                 continent: d.continent,
                 x: Math.random() * 900,

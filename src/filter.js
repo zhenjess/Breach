@@ -37,7 +37,7 @@ class Filter {
                     .html(
                         `
                             <div class="tooltip__inner">
-                                <p class="tooltip__city"><strong>Location: </strong><span>${
+                                <p class="tooltip__location"><strong>Location: </strong><span>${
                                         d.location
                                         }</span></p>
                             </div>

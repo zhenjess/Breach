@@ -2,8 +2,8 @@
 
 function bubbleChart() {
     //constants for sizing
-    var width = 950;
-    var height = 600;
+    var width = window.innerWidth;
+    var height = 400;
 
     //tooltip for mouseover functionality
     var tooltip = floatingTooltip('breach_tooltip', 250);
@@ -196,8 +196,8 @@ function bubbleChart() {
         var bubblesE = bubbles.enter().append('circle')
             .classed('bubble', true)
             .attr('r', 0)
-            .attr('fill', function (d) { return fillColor(d.group); })
-            .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
+            .attr('fill', function (d) { return fillColorByContinent(d.group); })
+            .attr('stroke', function (d) { return d3.rgb(fillColorByContinent(d.group)).darker(); })
             .attr('stroke-width', 2)
             .on('mouseover', showDetail)
             .on('mouseout', hideDetail);
@@ -400,7 +400,7 @@ function bubbleChart() {
     function hideDetail(d) {
         //reset outline
         d3.select(this)
-            .attr('stroke', d3.rgb(fillColor(d.group)).darker());
+            .attr('stroke', d3.rgb(fillColorByContinent(d.group)).darker());
 
         tooltip.hideTooltip();
     }

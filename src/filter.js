@@ -40,9 +40,6 @@ class Filter {
                                 <p class="tooltip__city"><strong>Location: </strong><span>${
                                         d.location
                                         }</span></p>
-                                <p class="tooltip__detail"><strong>Breach Risk Score:</strong> <span>${
-                                        d.happinessScore
-                                        }/10</span></p>
                             </div>
                         `
                     );

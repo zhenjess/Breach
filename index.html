@@ -14,106 +14,136 @@
 
 </html> -->
 
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <!-- Required meta tags -->
-    <meta charset='UTF-8' />
-    <meta name="viewport" content="initial-scale=1.0, width=device-width, shrink-to-fit=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- Custom CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/nav.css">
-
+<!doctype html>
+<html>
+    
+    <head>
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
     <title>Global Data Breaches Visualization</title>
+    <meta name="description" content="2014-2019 Global Data Breaches">
+    <meta name="author" content="Jessica Zhen">
+        
+    <!-- Custom CSS -->
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/chart.css">
+
+    <style>
+        #right_float_middle {
+            margin-top: 75px;
+            margin-left: 20px;   
+            overflow: hidden;    
+            display: inline-block;
+        }
+
+
+        #charts_container {
+            width: 100%;
+            overflow: hidden;
+            display: block;
+        }
+    </style>
+
 </head>
 
+<!--  
+
+-->
+
 <body>
-    <div class="modal-bg">
-        <div class="modal">
-            <div class="modal-close__btn">
-                <i class="modal-close__btn-single fa fa-times"></i>
-            </div>
-            <h1 class="main_header">Global Data Breaches Visualization</h1>
-            <div class="text">
-                <p class="main__description"> 
-                    The <strong>Global Data Breaches Visualization</strong> is a 
-                    dynamic visualization that shows who is getting hacked and what 
-                    is the source of the breach incident.
-                </p>
-                <p class="main__description">
-                    This visualization focuses on <strong>breach incidents per: source, type, sector, location</strong>:
-                    where an estimate of 10 million data records are lost or stolen around the world on a daily basis.
-                    As the amount of data produced around the world increases, the amount of data breach incidents also fluctuates. 
-                    North America is by far the main victim of data breaches and the main offender of data breaches is malicious outsiders.
-                </p>
-                <p class="main__description">
-                    This data visualization is to allow you to better understand data breaches through the years by customizing the statistics.
-                </p>
-            </div>
-            <br>
-            <div class="sources">
-                <p class="source__content">
-                    Data provided by <a href="https://breachlevelindex.com" target="_blank" class="source__link"></a>
-                    <br/>
-                    Visualization created by <a href="https://www.jzhen.io" target="_blank" class="source__link">Jessica Zhen</a>
-                </p>
-                <br/>
-            </div>
+
+    <div class="container">
+
+        <h1>2014-2019 Global Data Breaches Statistics</h1>
+        <p>A Breach incident is when sensitive, protected or confidential data has potentially 
+            been viewed, stolen or used by an individual unauthorized to do so.</p>      
+        <br>
+        <p>
+            An estimate of 10 million data records are lost or stolen around the world on a daily basis.
+            As the amount of data produced around the world increases, the amount of data breach incidents also fluctuates.
+            North America is by far the main victim of data breaches and the main offender of data breaches is malicious outsiders.
+        </p>
+        <br>
+        <p>
+            This data visualization is to allow you to better understand data breaches through the years by customizing the
+            statistics.
+        </p>
+        <div id="toolbar">
+            <a href="#" id="all" class="button active">All Data Breaches</a>
+            <a href="#" id="year" class="button">Breaches by Year</a>
+            <a href="#" id="type" class="button">Breaches by Type</a>
+            <a href="#" id="source" class="button">Breaches by Source</a>
+            <a href="#" id="industry" class="button">Breaches by Industry</a>
         </div>
+
+    </div> <!-- close the container div -->
+
+    <div id="charts_container">
+
+        <div id="vis"></div>
+
+
+        <!-- <div id="right_float_middle"> <p> Random Text </p> </div> -->
+
+        <!-- 
+  <div class="footer">
+    <p>Prototype</p>
+    <strong>Data Visualization Final Project</strong>
+  </div>
+-->
+        <div id="right_float_middle">
+            <svg width="500" height="500">
+                <circle cx="125" cy="100" r="100" stroke="black" stroke-width="4" fill="none" stroke-dasharray="5" />
+                <!-- CyberVor 1.2 Billion Records -->
+                <circle cx="125" cy="50" r="40" stroke="black" stroke-width="4" fill="none" stroke-dasharray="5" />
+                <!-- AliExpress 500 Million Records -->
+                <circle cx="125" cy="25" r="20" stroke="black" stroke-width="4" fill="none" stroke-dasharray="5" />
+                <!-- 17 Media 50 Million Records -->
+                <line x1="125" y1="35" x2="250" y2="35" style="stroke:rgb(72,61,139);stroke-width:2" />
+                <line x1="125" y1="100" x2="250" y2="100" style="stroke:rgb(72,61,139);stroke-width:2" />
+                <line x1="125" y1="200" x2="250" y2="200" style="stroke:rgb(72,61,139);stroke-width:2" />
+                <text x="255" y="200" font-weight="bold">1.2 Billion Records</text>
+                <text x="255" y="100" font-weight="bold">500 Million Records</text>
+                <text x="255" y="40" font-weight="bold">50 Million Records</text>
+            </svg>
+
+            <svg width="1000" height="600">
+                <!-- <text x="1" y="15" font-weight="bold">Continents of Data Breaches</text>
+                <circle cx="20" cy="40" r="15" stroke="black" stroke-width="2" fill="#ec1919" />
+                <text x="40" y="45" font-weight="bold">Account Access</text>
+                <circle cx="170" cy="40" r="15" stroke="black" stroke-width="2" fill="#f48438" />
+                <text x="190" y="45" font-weight="bold">Identity Theft</text>
+                <circle cx="300" cy="40" r="15" stroke="black" stroke-width="2" fill="#292bb0" />
+                <text x="320" y="45" font-weight="bold">Financial Access</text>
+                <circle cx="455" cy="40" r="15" stroke="black" stroke-width="2" fill="#16ab11" />
+                <text x="475" y="45" font-weight="bold">Nuisance</text>
+                <circle cx="560" cy="40" r="15" stroke="black" stroke-width="2" fill="#bed02b" />
+                <text x="580" y="45" font-weight="bold">Existential Data</text> -->
+
+                <text x="1" y="130" font-weight="bold">Trends and Patterns</text>
+                <text x="20" y="150">1. Through the years 2014-2019, there is an upward trend in the number of
+                    reported data records breached. As the amount of data produced around the world increases, 
+                    the amount of data breach incidents also fluctuates. </text>
+                <text x="20" y="170">2. Identity theft is the most prevalent data breach type tracked.</text>
+                <text x="20" y="190">3. Data Breaches are heavily conducted by those considered to be malicious
+                    outsiders.</text>
+            </svg>
+        </div>
+
+
+
+        <br style="clear:both;" />
+
+    </div> <!-- Close the Charts Container Div -->
+
     </div>
 
-    <div class="main__container">
-        <div class="header__container">
-            <div class="header__content">
-                <h1 class="main__header">Global Data Breaches Visualization</h1>
-            </div>
-            <div class="header">
-                <div class="header__btn-group btn-group">
-                    <a href="#" data-text="Breach Incidents per Year" class="btn-graphGdp header-graph__btn active">Breach Incidents per Year
-                        <p class="nav__dropdown"><strong>Breaches</strong> x<br /><strong>Breaches per Year</strong></p>
-                    </a>
-                    &nbsp;&nbsp;
-                    <a href="#" data-text="Type" class="btn-graphType header-graph__btn">Type
-                        <p class="nav__dropdown"><strong>Breaches</strong> x<br /><strong>Type</strong></p>
-                    </a>
-                    &nbsp;&nbsp;
-                    <a href="#" data-text="Source" class="btn-graphSource header-graph__btn">Source
-                        <p class="nav__dropdown"><strong>Breaches</strong> x<br /><strong>Source</strong></p>
-                    </a>
-                    &nbsp;&nbsp;
-                    <a href="#" data-text="Sector" class="btn-graphSector header-graph__btn">Sector
-                        <p class="nav__dropdown"><strong>Breaches</strong> x<br /><strong>Sector</strong></p>
-                    </a>
-                    &nbsp;&nbsp;
-                </div>
-                <div class="header__link-wrapper">
-                    <a href="/" class="header__link" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="/" target="_blank" class="header__link">
-                        <i class="fab fa-github-square"></i>
-                    </a>
-                    <a href="/" target="_blank" class="header__link">
-                        <i class="fab fa-angellist"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-                
-        <div class="graph__container">
-            <svg class="graph"></svg>
-        </div>
-    </div>
-    <!-- External JavaScript Libraries -->
-    <script src="src/js/libs/d3.v5.min.js"></script>
-    <script src="src/js/libs/topojson.min.js"></script>
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script src="src/tooltip.js"></script>
+    <script src="src/chart.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="./dist/bundle.js"></script>
+
 </body>
-</html>
 
+</html>

@@ -1,4 +1,5 @@
 /* Inspired by and Referred to https://bost.ocks.org/mike/chart/ for bubble chart*/
+import * as d3 from "d3";
 
 function bubbleChart() {
     //constants for sizing

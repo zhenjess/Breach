@@ -4,6 +4,8 @@
  * Most styling is expected to come from CSS
  * so check out bubble_chart.css for more details.
  */
+import * as d3 from "d3";
+
 function floatingTooltip(tooltipId, width) {
     // Local variable to hold tooltip div for
     // manipulation in other functions.

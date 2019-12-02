@@ -69,6 +69,31 @@ class Map extends Graph {
                 .style('visibility', 'hidden');
         };
 
-        
+        //render graph
+        this.graph
+            .selectAll('circle')
+            .data(Object.values(this.data))
+            .enter()
+            .append('circle')
+            .attr(
+                'class', 
+                d => 
+                `country ${d.class} continent-${d.continent.split('').join('-')} country-bubble`
+            )
+            .attr('fill', d => {
+                if (d.continent === 'Africa') {
+                    return '#ff5b44';
+                } else if (d.continent === 'Asia') {
+                    return '#ff1f5a';
+                } else if (d.continent === 'Europe') {
+                    return '#2fc5cc';
+                } else if (d.continent === 'North America') {
+                    return '#7cbd1e';
+                } else if (d.continent === 'South America') {
+                    return '#303481';
+                } else {
+                    return '#5d3081';
+                }
+            })
     }
 }

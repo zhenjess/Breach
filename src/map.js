@@ -204,6 +204,34 @@ class Map extends Graph {
     }
 
     updateDate(dataType) {
-        
+        d3.json('dist/data/countries.json').then(data => {
+            this.graph
+                .selectAll('.country-bubble')
+                .transition()
+                .duration(500)
+                .ease(ANIMATION_EASING)
+                .attr('cx', d => {
+                    return this.xScale(d[dataType] / 156) + 25;
+                });
+
+                this.updateAxisLabel(dataType);
+        });
+    }
+
+    updateAxisLabel(type) {
+        //xLabel
+        let label;
+        if (type === 'graphType') {
+            label = 'Breach Type';
+        } else if (type === 'graphSource') {
+            label = 'Breach Source';
+        } else if (type = 'graphSector') {
+            label = 'Industry Specific Breach';
+        } else if (type = 'year') {
+            label = 'Year';
+        }
+        this.chart.select('.x-axis-label').text(`${label}`);
     }
 }
+
+export default Map;

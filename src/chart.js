@@ -192,11 +192,7 @@ function bubbleChart() {
         bubbles = svg.selectAll('.bubble')
             .data(nodes, function (d) { return d.id; });
 
-
-
-
-
-
+        //create new circles where 1 circle.bubble for each object in nodes array
         var bubblesE = bubbles.enter().append('circle')
             .classed('bubble', true)
             .attr('r', 0)
@@ -206,20 +202,20 @@ function bubbleChart() {
             .on('mouseover', showDetail)
             .on('mouseout', hideDetail);
 
-
+        //@v4 merge original empty selection and enter selection
         bubbles = bubbles.merge(bubblesE);
 
 
-
+        //to make bubbles appear
         bubbles.transition()
             .duration(2000)
             .attr('r', function (d) { return d.radius; });
 
 
-
+        //simulation's nodes set to run automatically
         simulation.nodes(nodes);
 
-
+        //initially start as 1 bubble group
         groupBubbles();
     };
 
@@ -244,10 +240,17 @@ function bubbleChart() {
         return yearCenters[d.year].x;
     }
 
+    function nodeTypePos(d) {
+        return typeCenters[d.type].x;
+    }
+    
     function nodeSourcePos(d) {
         return sourceCenters[d.source].x;
     }
 
+    function nodeIndustryPos(d) {
+        return industryCenters[d.industry].x;
+    }
 
     /*
      * Sets visualization in "single group mode".
@@ -258,10 +261,10 @@ function bubbleChart() {
     function groupBubbles() {
         hideYearTitles();
 
-
+        //reset 'x' force to draw bubbles to the center
         simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
 
-
+        //can reset alpha value and restart simulation
         simulation.alpha(1).restart();
     }
 

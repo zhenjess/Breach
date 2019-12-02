@@ -141,5 +141,69 @@ class Map extends Graph {
                 )
                 .attr('opacity', '0.8');
         };
+
+        let legend = this.graph
+            .selectAll('.legend')
+            .data(Object.values(continents))
+            .enter()
+            .append('g')
+            .attr('class', 'legend')
+            .attr('position', 'absolute')
+            .attr('transform', `translate(${WIDTH - 130}, ${HEIGHT - 120})`);
+
+        legend
+            .append('rect')
+            .attr('x', 0)
+            .attr('y', function(d, i) {
+                return 20 * i;
+            })
+            .attr('width', 20)
+            .attr('height', 20)
+            .style('fill', function(d) {
+                if (d.continent === 'Africa') {
+                    return '#ff5b44';
+                } else if (d.continent === 'Asia') {
+                    return '#ff1f5a';
+                } else if (d.continent === 'Europe') {
+                    return '#2fc5cc';
+                } else if (d.continent === 'North America') {
+                    return '#7cbd1e';
+                } else if (d.continent === 'South America') {
+                    return '#303481';
+                } else {
+                    return '#5d3081';
+                }
+            })
+            .on('hoverOver', d => continentsFocusOn(d.continent))
+            .on('noHover', d => continentsFocusOff(d.continent));
+        
+        legend
+            .append('text')
+            .attr('x', 25)
+            .attr('text-anchor', 'start')
+            .attr('dy', '1em')
+            .attr('class', d => `legend-${d.continent.split(' ').join('-')}`)
+            .attr('y', function(d, i) {
+                return 20 * i;
+            })
+            .text(function(d) {
+                return d.continent;
+            })
+            .attr('font-size', '12px')
+            .on('hoverOver', d => continentsFocusOn(d.continent))
+            .on('noHover', d => continentsFocusOff(d.continent));
+
+        legend
+            .append('text')
+            .attr('x', 32)
+            .attr('dy', '-.2em')
+            .attr('y', -10)
+            .text('Continent')
+            .attr('font-size', '16px')
+            .style('text-align', 'left');
+    }
+
+    updateDate(dataType) {
+        
     }
 }

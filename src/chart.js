@@ -120,13 +120,17 @@ function bubbleChart() {
         .range(['#ec1919', "#ff1f5a", '#00f9ff', "#7cbd1e", "#2fc5cc", "#303481", "#ff5b44"]);
 
 
+    //convert raw data from CSV files into an array of node objects
+    //each node stores data and visualization values to visualize a bubble
+    //raw data is an array of data objects and passed in from d3.csv
     function createNodes(rawData) {
 
-
+        //use max totla_amt in data as max in scale's domain
         var maxAmount = d3.max(rawData, function (d) { return +d.records; });
 
 
-
+        //bubble size based on records loss
+        // @v4: new flattended scale names
         var radiusScale = d3.scalePow()
             .exponent(0.5)
             .range([2, 85])
@@ -134,15 +138,16 @@ function bubbleChart() {
 
 
 
-
+        //user map() to convert raw data into node data
         var myNodes = rawData.map(function (d) {
             return {
                 id: d.id,
                 radius: radiusScale(+d.records),
                 value: +d.records,
                 name: d.organization,
-
+                type: d.type,
                 source: d.source,
+                industry: d.industry,
                 group: d.group,
                 year: d.year,
                 continent: d.continent,
@@ -153,7 +158,7 @@ function bubbleChart() {
 
 
 
-
+        //sort to prevent occlusion of smaller nodes
         myNodes.sort(function (a, b) { return b.value - a.value; });
 
         return myNodes;

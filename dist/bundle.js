@@ -290,7 +290,7 @@
 
 /***/ "./src/map.js":
 /*!****************************!*\
-  !*** ./src/world_graph.js ***!
+  !*** ./src/map.js ***!
   \****************************/
 /*! exports provided: default */
 /***/ (function (module, __webpack_exports__, __webpack_require__) {
@@ -320,31 +320,31 @@
 
 
 
-        var WorldGraph =
+        var map =
                 /*#__PURE__*/
-                function (_Chart) {
-                        _inherits(WorldGraph, _Chart);
+                function (_Graph) {
+                        _inherits(map, _graph);
 
-                        function WorldGraph(selector) {
+                        function map(selector) {
                                 var _this;
 
-                                _classCallCheck(this, WorldGraph);
+                                _classCallCheck(this, map);
 
-                                _this = _possibleConstructorReturn(this, _getPrototypeOf(WorldGraph).call(this, selector));
+                                _this = _possibleConstructorReturn(this, _getPrototypeOf(map).call(this, selector));
                                 _this.svg = d3.select(selector);
 
                                 _this.xAxis();
 
-                                _this.yAxis([1, 0], "scaleLinear", 20, function () {
-                                        return d3.format(".0%");
+                                _this.yAxis([1, 0], "scaleLinear", 12, function () {
+                                        return d3.format("2014");
                                 });
 
-                                _this.getData("graphGdp");
+                                _this.getData("graphYear");
 
                                 return _this;
                         }
 
-                        _createClass(WorldGraph, [{
+                        _createClass(map, [{
                                 key: "getData",
                                 value: function getData(metric) {
                                         var that = this;
@@ -352,17 +352,6 @@
                                                 that.setData(data);
                                                 that.circles(metric);
                                         });
-                                }
-                        }, {
-                                key: "formatOrdinal",
-                                value: function formatOrdinal(num) {
-                                        var _int = parseInt(num),
-                                                digits = [_int % 10, _int % 100],
-                                                ordinals = ['st', 'nd', 'rd', 'th'],
-                                                oPattern = [1, 2, 3, 4],
-                                                tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19];
-
-                                        return oPattern.includes(digits[0]) && !tPattern.includes(digits[1]) ? _int + ordinals[digits[0] - 1] : _int + ordinals[3];
                                 }
                         }, {
                                 key: "circles",
@@ -377,7 +366,7 @@
 
                                         var showTooltip = function showTooltip(d) {
                                                 tooltip.transition().duration(200);
-                                                tooltip.style("visibility", "visible").html("\n  <strong>Country:</strong> ".concat(d.country, " (").concat(d.continent, ")<br/>\n  <strong>Happiness Ranking:</strong> ").concat(that.formatOrdinal(d.ranking), "\n")).style("top", d3.event.clientY - 100 + "px").style("left", d3.event.clientX - 160 + "px");
+                                                tooltip.style("visibility", "visible").html("\n  <strong>Country:</strong> ".concat(d.country, " (").concat(d.continent, ")<br/>")).style("top", d3.event.clientY - 100 + "px").style("left", d3.event.clientX - 160 + "px");
                                         };
 
                                         var moveTooltip = function moveTooltip(d) {
@@ -388,37 +377,35 @@
                                         var hideTooltip = function hideTooltip(d) {
                                                 tooltip.transition().duration(200).style("visibility", "hidden");
                                         }; ////////////////////////
-                                        // chart rendering
+                                        // graph rendering
                                         ////////////////////////
 
 
-                                        this.chart.selectAll("circle").data(Object.values(this.data)).enter().append("circle").attr("class", function (d) {
+                                        this.graph.selectAll("circle").data(Object.values(this.data)).enter().append("circle").attr("class", function (d) {
                                                 return "country ".concat(d["class"], " continent-").concat(d.continent.split(" ").join("-"), " country-bubble");
                                         }).attr("fill", function (d) {
                                                 if (d.continent === "Africa") {
-                                                        return "#7cbd1e";
+                                                        return '#ff5b44';
                                                 } else if (d.continent === "Asia") {
-                                                        return "#ff1f5a";
-                                                } else if (d.continent === "North America") {
-                                                        return "#303481";
-                                                } else if (d.continent === "South America") {
-                                                        return "#ff5b44";
+                                                        return '#ff1f5a';
                                                 } else if (d.continent === "Europe") {
-                                                        return "#2fc5cc";
+                                                        return '#2fc5cc';
+                                                } else if (d.continent === "North America") {
+                                                        return '#7cbd1e';
+                                                } else if (d.continent === "South America") {
+                                                        return '#303481';
                                                 } else {
-                                                        return "red";
+                                                        return '#5d3081';
                                                 }
-                                        }).attr("opacity", ".7").attr("stroke", "#CDCDCD").attr("stroke-width", "2px").attr("cx", function (d) {
+                                        }).attr("opacity", ".8").attr("stroke", "#CDCDCD").attr("stroke-width", "2px").attr("cx", function (d) {
                                                 return _this2.xScale(d[metric] / 156) + 25;
-                                        }).on("mouseover", showTooltip).on("mousemove", moveTooltip).on("mouseleave", hideTooltip).transition().delay(function (d, i) {
+                                        }).on("hoverOver", showTooltip).on("hoverOn", moveTooltip).on("noHover", hideTooltip).transition().delay(function (d, i) {
                                                 return i * _constants__WEBPACK_IMPORTED_MODULE_0__["ANIMATION_DELAY"];
                                         }).duration(_constants__WEBPACK_IMPORTED_MODULE_0__["ANIMATION_DURATION"]).ease(_constants__WEBPACK_IMPORTED_MODULE_0__["ANIMATION_EASING"]).attr("r", function (d) {
-                                                if (d.population > 800000000) {
-                                                        return d.population / 25000000;
-                                                } else if (d.population > 50000000) {
-                                                        return d.population / 10000000;
-                                                } else if (d.population > 1000000) {
-                                                        return d.population / 1500000;
+                                                if (d.records > 100000000) {
+                                                        return d.records / 25000000;
+                                                } else if (d.records > 1000000) {
+                                                        return d.records / 1500000;
                                                 } else {
                                                         return d.population / 100000;
                                                 }
@@ -435,59 +422,59 @@
                                                 ASIA: {
                                                         continent: "Asia"
                                                 },
+                                                EUROPE: {
+                                                        continent: "Europe"
+                                                },
                                                 NORTH_AMERICA: {
                                                         continent: "North America"
                                                 },
                                                 SOUTH_AMERICA: {
                                                         continent: "South America"
-                                                },
-                                                EUROPE: {
-                                                        continent: "Europe"
                                                 }
                                         };
 
-                                        var continentFocusOn = function continentFocusOn(continentName) {
-                                                _this2.chart.selectAll("circle:not(.continent-".concat(continentName.split(" ").join("-"), ")")).attr("opacity", "0.05");
+                                        var continentsFocusOn = function continentsFocusOn(continentName) {
+                                                _this2.chart.selectAll("circle:not(.continent-".concat(continentName.split(" ").join("-"), ")")).attr("opacity", "0.1");
                                         };
 
-                                        var continentFocusOff = function continentFocusOff(continentName) {
-                                                _this2.chart.selectAll("circle:not(.continent-".concat(continentName.split(" ").join("-"), ")")).attr("opacity", "0.7");
+                                        var continentsFocusOff = function continentsFocusOff(continentName) {
+                                                _this2.chart.selectAll("circle:not(.continent-".concat(continentName.split(" ").join("-"), ")")).attr("opacity", "0.8");
                                         };
 
-                                        var legend = this.chart.selectAll(".legend").data(Object.values(continents)).enter().append("g").attr("class", "legend").attr("position", "absolute").attr("transform", "translate(".concat(_constants__WEBPACK_IMPORTED_MODULE_0__["WIDTH"] - 130, ", ").concat(_constants__WEBPACK_IMPORTED_MODULE_0__["HEIGHT"] - 120, ")"));
+                                        var legend = this.graph.selectAll(".legend").data(Object.values(continents)).enter().append("g").attr("class", "legend").attr("position", "absolute").attr("transform", "translate(".concat(_constants__WEBPACK_IMPORTED_MODULE_0__["WIDTH"] - 130, ", ").concat(_constants__WEBPACK_IMPORTED_MODULE_0__["HEIGHT"] - 120, ")"));
                                         legend.append("rect").attr("x", 0).attr("y", function (d, i) {
-                                                return 20 * i;
-                                        }).attr("width", 20).attr("height", 20).style("fill", function (d) {
+                                                return 12 * i;
+                                        }).attr("width", 12).attr("height", 12).style("fill", function (d) {
                                                 if (d.continent === "Africa") {
-                                                        return "#7cbd1e";
+                                                        return '#ff5b44';
                                                 } else if (d.continent === "Asia") {
-                                                        return "#ff1f5a";
-                                                } else if (d.continent === "North America") {
-                                                        return "#303481";
-                                                } else if (d.continent === "South America") {
-                                                        return "#ff5b44";
+                                                        return '#ff1f5a';
                                                 } else if (d.continent === "Europe") {
-                                                        return "#2fc5cc";
+                                                        return '#2fc5cc';
+                                                } else if (d.continent === "North America") {
+                                                        return '#7cbd1e';
+                                                } else if (d.continent === "South America") {
+                                                        return '#303481';
                                                 } else {
-                                                        return "red";
+                                                        return '#5d3081';
                                                 }
-                                        }).on("mouseover", function (d) {
-                                                return continentFocusOn(d.continent);
-                                        }).on("mouseleave", function (d) {
-                                                return continentFocusOff(d.continent);
+                                        }).on("hoverOver", function (d) {
+                                                return continentsFocusOn(d.continent);
+                                        }).on("noHover", function (d) {
+                                                return continentsFocusOff(d.continent);
                                         });
                                         legend.append("text").attr("x", 25).attr("text-anchor", "start").attr("dy", "1em").attr("class", function (d) {
                                                 return "legend-".concat(d.continent.split(" ").join("-"));
                                         }).attr("y", function (d, i) {
-                                                return 20 * i;
+                                                return 12 * i;
                                         }).text(function (d) {
                                                 return d.continent;
-                                        }).attr("font-size", "12px").on("mouseover", function (d) {
-                                                return continentFocusOn(d.continent);
-                                        }).on("mouseleave", function (d) {
-                                                return continentFocusOff(d.continent);
+                                        }).attr("font-size", "12px").on("hoverOver", function (d) {
+                                                return continentsFocusOn(d.continent);
+                                        }).on("noHover", function (d) {
+                                                return continentsFocusOff(d.continent);
                                         });
-                                        legend.append("text").attr("x", 31).attr("dy", "-.2em").attr("y", -10).text("Continent").attr("font-size", "17px").style("text-align", "left");
+                                        legend.append("text").attr("x", 32).attr("dy", "-.2em").attr("y", -10).text("Continent").attr("font-size", "16px").style("text-align", "left");
                                 }
                         }, {
                                 key: "updateData",
@@ -508,26 +495,24 @@
                                         // xLabel
                                         var label;
 
-                                        if (type === 'graphSocialSupport') {
-                                                label = 'Social Support';
-                                        } else if (type === "graphFreedom") {
-                                                label = 'Freedom';
-                                        } else if (type === "graphGenerosity") {
-                                                label = 'Generosity';
-                                        } else if (type === "graphLifeExpectancy") {
-                                                label = 'Life Expectancy';
-                                        } else if (type === 'graphGdp') {
-                                                label = 'GDP Per Capita ($)';
+                                        if (type === 'graphType') {
+                                                label = 'Breach Type';
+                                        } else if (type === "graphSource") {
+                                                label = 'Breach Source';
+                                        } else if (type === "graphSector") {
+                                                label = 'Industry Specific Breach';
+                                        } else if (type === 'year') {
+                                                label = 'Year';
                                         }
 
-                                        this.chart.select(".x-axis-label").text("".concat(label));
+                                        this.graph.select(".x-axis-label").text("".concat(label));
                                 }
                         }]);
 
-                        return WorldGraph;
+                        return map;
                 }(_chart__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (WorldGraph);
+/* harmony default export */ __webpack_exports__["default"] = (map);
 
         /***/
 })

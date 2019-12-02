@@ -155,10 +155,10 @@ class Map extends Graph {
             .append('rect')
             .attr('x', 0)
             .attr('y', function(d, i) {
-                return 20 * i;
+                return 12 * i;
             })
-            .attr('width', 20)
-            .attr('height', 20)
+            .attr('width', 12)
+            .attr('height', 12)
             .style('fill', function(d) {
                 if (d.continent === 'Africa') {
                     return '#ff5b44';
@@ -184,7 +184,7 @@ class Map extends Graph {
             .attr('dy', '1em')
             .attr('class', d => `legend-${d.continent.split(' ').join('-')}`)
             .attr('y', function(d, i) {
-                return 20 * i;
+                return 12 * i;
             })
             .text(function(d) {
                 return d.continent;
@@ -230,7 +230,7 @@ class Map extends Graph {
         } else if (type = 'year') {
             label = 'Year';
         }
-        this.chart.select('.x-axis-label').text(`${label}`);
+        this.graph.select('.x-axis-label').text(`${label}`);
     }
 }
 

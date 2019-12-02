@@ -278,15 +278,22 @@ function bubbleChart() {
     function splitBubbles() {
         showYearTitles();
 
-
         simulation.force('x', d3.forceX().strength(forceStrength).x(nodeYearPos));
+        simulation.alpha(1).restart();
+    }
 
-
+    function typeSplitBubbles() {
+        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeTypePos));
         simulation.alpha(1).restart();
     }
 
     function sourceSplitBubbles() {
         simulation.force('x', d3.forceX().strength(forceStrength).x(nodeSourcePos));
+        simulation.alpha(1).restart();
+    }
+
+    function industrySplitBubbles() {
+        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeIndustryPos));
         simulation.alpha(1).restart();
     }
 

@@ -409,13 +409,13 @@ function bubbleChart() {
             hideTypeTitles();
             hideSourceTitles();
             hideIndustryTitles();
-            showYearTitles();
+            //showYearTitles();
             splitBubbles();
         } else if (displayName === 'type') {
             hideYearTitles();
+            showTypeTitles();
             hideSourceTitles();
             hideIndustryTitles();
-            showTypeTitles();
             typeSplitBubbles();
         } else if (displayName == 'source') {
             hideYearTitles();
@@ -426,6 +426,7 @@ function bubbleChart() {
         } else if (displayName == 'industry') {
             hideYearTitles();
             hideTypeTitles();
+            hideSourceTitles();
             showIndustryTitles();
             industrySplitBubbles();
         } else {

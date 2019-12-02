@@ -2,11 +2,6 @@
 import * as d3 from "d3";
 import floatingTooltip from "./tooltip";
 
-//load data
-d3.csv('data/breach_data.csv', display);
-
-//setup buttons
-setupButtons();
 
 //bubble chart
 
@@ -499,4 +494,8 @@ function addCommas(nStr) {
     return x1 + x2;
 }
 
+//load data
+d3.csv('data/breach_data.csv', display);
 
+//setup buttons
+setupButtons();

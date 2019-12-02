@@ -85,3 +85,5 @@ function floatingTooltip(tooltipId, width) {
         updatePosition: updatePosition
     };
 }
+
+export default floatingTooltip;

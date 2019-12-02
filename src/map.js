@@ -95,5 +95,29 @@ class Map extends Graph {
                     return '#5d3081';
                 }
             })
+            .attr('opacity', '0.8')
+            .attr('stroke', '#CDCDCD')
+            .attr('stroke-width', '2px')
+            .attr('cx', d => {
+                return this.xScale(d[metric] / 156) + 25;
+            })
+            .on('hoverOver', showTooltip)
+            .on('hoverOn', moveToolTip)
+            .on('noHover', hideToolTip)
+            .transition()
+            .delay((d, i) => i * ANIMATION_DELAY)
+            .duration(ANIMATION_DURATION)
+            .ease(ANIMATION_EASING)
+            .attr('r', d => {
+                if (d.records > 100000000) {
+                    return d.records / 25000000;
+                } else if (d.records > 1000000) {
+                    return d.records / 1500000;
+                } else {
+                    return d.records / 100000;
+                }
+            });
+        //legend
+        
     }
 }

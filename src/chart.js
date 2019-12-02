@@ -407,19 +407,37 @@ function bubbleChart() {
 
     chart.toggleDisplay = function (displayName) {
         if (displayName === 'year') {
+            hideTypeTitles();
             hideSourceTitles();
+            hideIndustryTitles();
+            showYearTitles();
             splitBubbles();
+        } else if (displayName === 'type') {
+            hideYearTitles();
+            hideSourceTitles();
+            hideIndustryTitles();
+            showTypeTitles();
+            typeSplitBubbles();
         } else if (displayName == 'source') {
             hideYearTitles();
+            hideTypeTitles();
             showSourceTitles();
+            hideIndustryTitles();
             sourceSplitBubbles();
+        } else if (displayName == 'industry') {
+            hideYearTitles();
+            hideTypeTitles();
+            showIndustryTitles();
+            industrySplitBubbles();
         } else {
+            hideTypeTitles();
             hideSourceTitles();
+            hideIndustryTitles();
             groupBubbles();
         }
     };
 
-
+    //return chart function from closure
     return chart;
 }
 
@@ -435,7 +453,7 @@ function display(error, data) {
     myBubbleChart('#vis', data);
 }
 
-
+//sets up layout buttons to allow for toggle between view modes
 function setupButtons() {
     d3.select('#toolbar')
         .selectAll('.button')
@@ -457,7 +475,7 @@ function setupButtons() {
         });
 }
 
-
+//helper function converts number to string
 function addCommas(nStr) {
     nStr += '';
     var x = nStr.split('.');
@@ -470,5 +488,9 @@ function addCommas(nStr) {
 
     return x1 + x2;
 }
-d3.csv('data/security_breach_data.csv', display);
+
+//load data
+d3.csv('data/breach_data.csv', display);
+
+//setup buttons
 setupButtons();

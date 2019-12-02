@@ -118,6 +118,28 @@ class Map extends Graph {
                 }
             });
         //legend
-        
+        let continents = {
+            AFRICA: { continents: 'Africa' },
+            ASIA: { continents: 'Asia' },
+            EUROPE: { continents: 'Europe' },
+            NORTH_AMERICA: { continents: 'North America' },
+            SOUTH_AMERICA: { continents: 'South America' }
+        };
+
+        let continentsFocusOn = continentName => {
+            this.graph
+                .selectAll(
+                    `circle:not(.continent-${continentName.split('').join('-')})`
+                )
+                .attr('opacity', '0.1');
+        };
+
+        let continentsFocusOff = continentName => {
+            this.graph
+                .selectAll(
+                    `circle:not(.continent-${continentName.split('').join('-')})`
+                )
+                .attr('opacity', '0.8');
+        };
     }
 }

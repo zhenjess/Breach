@@ -308,9 +308,7 @@ function bubbleChart() {
      * Shows Year title displays.
      */
     function showYearTitles() {
-
-
-        var yearsData = d3.keys(yearsTitleX);
+       var yearsData = d3.keys(yearsTitleX);
         var years = svg.selectAll('.year')
             .data(yearsData);
 
@@ -321,6 +319,24 @@ function bubbleChart() {
             .attr('text-anchor', 'middle')
             .text(function (d) { return d; });
     }
+
+    function hideTypeTitles() {
+        svg.selectAll('.type').remove();
+    }
+
+    function showTypeTitles() {
+        var typeData = d3.keys(typeTitleX);
+        var types = svg.selectAll('.type')
+            .data(typeData);
+
+        types.enter().append('text')
+            .attr('class', 'type')
+            .attr('x', function (d) { return typeTitleX[d]; })
+            .attr('y', 40)
+            .attr('text-anchor', 'middle')
+            .text(function (d) { return d; });
+    }
+
     function hideSourceTitles() {
         svg.selectAll('.source').remove();
     }
@@ -333,6 +349,23 @@ function bubbleChart() {
         sources.enter().append('text')
             .attr('class', 'source')
             .attr('x', function (d) { return sourceTitleX[d]; })
+            .attr('y', 40)
+            .attr('text-anchor', 'middle')
+            .text(function (d) { return d; });
+    }
+
+    function hideIndustryTitles() {
+        svg.selectAll('.industry').remove();
+    }
+
+    function showIndustryTitles() {
+        var industryData = d3.keys(industryTitleX);
+        var industries = svg.selectAll('.industry')
+            .data(industryData);
+
+        industries.enter().append('text')
+            .attr('class', 'industry')
+            .attr('x', function (d) { return industryTitleX[d]; })
             .attr('y', 40)
             .attr('text-anchor', 'middle')
             .text(function (d) { return d; });
@@ -365,7 +398,7 @@ function bubbleChart() {
      * Hides tooltip
      */
     function hideDetail(d) {
-
+        //reset outline
         d3.select(this)
             .attr('stroke', d3.rgb(fillColor(d.group)).darker());
 

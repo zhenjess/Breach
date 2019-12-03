@@ -120,7 +120,7 @@ function bubbleChart() {
     //     .range(['#ec1919', '#f48438', '#292bb0', '#16ab11', '#bed02b']);
     var fillColorByContinent = d3.scaleOrdinal()
         .domain(['Global', 'Asia', 'Africa', 'Australia', 'Europe', 'North America', 'South America'])
-        .range(['#ec1919', '#ff1f5a', '#00f9ff', '#7cbd1e', '#2fc5cc', '#303481', '#ff5b44']);
+        .range(['#19ecc2', '#ff1f5a', '#ec7b19', '#7cbd1e', '#2fc5cc', '#303481', '#ecec19']);
 
 
     //convert raw data from CSV files into an array of node objects

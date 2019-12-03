@@ -42,7 +42,7 @@ function bubbleChart() {
         "Nuisance": { x: 5 * width / 6, y: height / 2 }
     }
 
-    var typeTitleX = {
+    var typesTitleX = {
         "Account Access": width / 6,
         "Existential Data": 2 * width / 6 + 30,
         "Financial Access": 3 * width / 6 + 15,
@@ -61,7 +61,7 @@ function bubbleChart() {
     };
 
 
-    var sourceTitleX = {
+    var sourcesTitleX = {
         "Malicious Outsider": width / 6,
         "Malicious Insider": 2 * width / 6 + 30,
         "State Sponsored": 3 * width / 6 + 15,
@@ -80,7 +80,7 @@ function bubbleChart() {
         "Other": { x: 7 * width / 6, y: height / 2 }
     };
 
-    var industryTitleX = {
+    var industriesTitleX = {
         "Technology": width / 6,
         "Retail": 2 * width / 6 + 30,
         "Financial": 3 * width / 6 + 15,

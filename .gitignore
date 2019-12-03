@@ -3,3 +3,4 @@
 .DS_Store
 npm-debug.log
 bundle.js
+bundle.js.map

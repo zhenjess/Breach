@@ -48,7 +48,7 @@ This project will be implemented with the following technologies:
 
 + `JavaScript` for general application logic
 + `D3.js` for DOM manipulation and rendering
-+  Webpack
++ Webpack
 + Babel
 + HTML5
 + CSS3

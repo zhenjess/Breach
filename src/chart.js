@@ -2,7 +2,6 @@
 import * as d3 from "d3";
 import floatingTooltip from "./tooltip";
 
-
 //bubble chart
 
 function bubbleChart() {
@@ -247,7 +246,7 @@ function bubbleChart() {
     function nodeTypePos(d) {
         return typeCenters[d.type].x;
     }
-    
+
     function nodeSourcePos(d) {
         return sourceCenters[d.source].x;
     }
@@ -312,7 +311,7 @@ function bubbleChart() {
      * Shows Year title displays.
      */
     function showYearTitles() {
-       var yearsData = d3.keys(yearsTitleX);
+        var yearsData = d3.keys(yearsTitleX);
         var years = svg.selectAll('.year')
             .data(yearsData);
 
@@ -499,3 +498,4 @@ d3.csv('data/breach_data.csv', display);
 
 //setup buttons
 setupButtons();
+

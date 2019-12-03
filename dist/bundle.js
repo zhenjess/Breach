@@ -26759,7 +26759,7 @@ function bubbleChart() {
   //raw data is an array of data objects and passed in from d3.csv
 
   function createNodes(rawData) {
-    //use max totla_amt in data as max in scale's domain
+    //use max record losses in data as max in scale's domain
     var maxAmount = d3__WEBPACK_IMPORTED_MODULE_0__["max"](rawData, function (d) {
       return +d.records;
     }); //bubble size based on records loss
@@ -26811,9 +26811,9 @@ function bubbleChart() {
     }); //create new circles where 1 circle.bubble for each object in nodes array
 
     var bubblesE = bubbles.enter().append('circle').classed('bubble', true).attr('r', 0).attr('fill', function (d) {
-      return fillColorByContinent(d.group);
+      return fillColorByContinent(d.continent);
     }).attr('stroke', function (d) {
-      return d3__WEBPACK_IMPORTED_MODULE_0__["rgb"](fillColorByContinent(d.group)).darker();
+      return d3__WEBPACK_IMPORTED_MODULE_0__["rgb"](fillColorByContinent(d.continent)).darker();
     }).attr('stroke-width', 2).on('mouseover', showDetail).on('mouseout', hideDetail); //@v4 merge original empty selection and enter selection
 
     bubbles = bubbles.merge(bubblesE); //to make bubbles appear
@@ -26890,22 +26890,19 @@ function bubbleChart() {
     showYearTitles();
     simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeYearPos));
     simulation.alpha(1).restart();
-  }
+  } // function typeSplitBubbles() {
+  //     simulation.force('x', d3.forceX().strength(forceStrength).x(nodeTypePos));
+  //     simulation.alpha(1).restart();
+  // }
+  // function sourceSplitBubbles() {
+  //     simulation.force('x', d3.forceX().strength(forceStrength).x(nodeSourcePos));
+  //     simulation.alpha(1).restart();
+  // }
+  // function industrySplitBubbles() {
+  //     simulation.force('x', d3.forceX().strength(forceStrength).x(nodeIndustryPos));
+  //     simulation.alpha(1).restart();
+  // }
 
-  function typeSplitBubbles() {
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeTypePos));
-    simulation.alpha(1).restart();
-  }
-
-  function sourceSplitBubbles() {
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeSourcePos));
-    simulation.alpha(1).restart();
-  }
-
-  function industrySplitBubbles() {
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeIndustryPos));
-    simulation.alpha(1).restart();
-  }
   /*
    * Hides Year title displays.
    */
@@ -26927,49 +26924,49 @@ function bubbleChart() {
     }).attr('y', 40).attr('text-anchor', 'middle').text(function (d) {
       return d;
     });
-  }
+  } // function hideTypeTitles() {
+  //     svg.selectAll('.type').remove();
+  // }
+  // function showTypeTitles() {
+  //     var typeData = d3.keys(typeTitleX);
+  //     var types = svg.selectAll('.type')
+  //         .data(typeData);
+  //     types.enter().append('text')
+  //         .attr('class', 'type')
+  //         .attr('x', function (d) { return typeTitleX[d]; })
+  //         .attr('y', 40)
+  //         .attr('text-anchor', 'middle')
+  //         .text(function (d) { return d; });
+  // }
+  // function hideSourceTitles() {
+  //     svg.selectAll('.source').remove();
+  // }
+  // function showSourceTitles() {
+  //     var sourceData = d3.keys(sourceTitleX);
+  //     var sources = svg.selectAll('.source')
+  //         .data(sourceData);
+  //     sources.enter().append('text')
+  //         .attr('class', 'source')
+  //         .attr('x', function (d) { return sourceTitleX[d]; })
+  //         .attr('y', 40)
+  //         .attr('text-anchor', 'middle')
+  //         .text(function (d) { return d; });
+  // }
+  // function hideIndustryTitles() {
+  //     svg.selectAll('.industry').remove();
+  // }
+  // function showIndustryTitles() {
+  //     var industryData = d3.keys(industryTitleX);
+  //     var industries = svg.selectAll('.industry')
+  //         .data(industryData);
+  //     industries.enter().append('text')
+  //         .attr('class', 'industry')
+  //         .attr('x', function (d) { return industryTitleX[d]; })
+  //         .attr('y', 40)
+  //         .attr('text-anchor', 'middle')
+  //         .text(function (d) { return d; });
+  // }
 
-  function hideTypeTitles() {
-    svg.selectAll('.type').remove();
-  }
-
-  function showTypeTitles() {
-    var typeData = d3__WEBPACK_IMPORTED_MODULE_0__["keys"](typeTitleX);
-    var types = svg.selectAll('.type').data(typeData);
-    types.enter().append('text').attr('class', 'type').attr('x', function (d) {
-      return typeTitleX[d];
-    }).attr('y', 40).attr('text-anchor', 'middle').text(function (d) {
-      return d;
-    });
-  }
-
-  function hideSourceTitles() {
-    svg.selectAll('.source').remove();
-  }
-
-  function showSourceTitles() {
-    var sourceData = d3__WEBPACK_IMPORTED_MODULE_0__["keys"](sourceTitleX);
-    var sources = svg.selectAll('.source').data(sourceData);
-    sources.enter().append('text').attr('class', 'source').attr('x', function (d) {
-      return sourceTitleX[d];
-    }).attr('y', 40).attr('text-anchor', 'middle').text(function (d) {
-      return d;
-    });
-  }
-
-  function hideIndustryTitles() {
-    svg.selectAll('.industry').remove();
-  }
-
-  function showIndustryTitles() {
-    var industryData = d3__WEBPACK_IMPORTED_MODULE_0__["keys"](industryTitleX);
-    var industries = svg.selectAll('.industry').data(industryData);
-    industries.enter().append('text').attr('class', 'industry').attr('x', function (d) {
-      return industryTitleX[d];
-    }).attr('y', 40).attr('text-anchor', 'middle').text(function (d) {
-      return d;
-    });
-  }
   /*
    * Function called on mouseover to display the
    * details of a bubble in the tooltip.
@@ -26978,7 +26975,7 @@ function bubbleChart() {
 
   function showDetail(d) {
     d3__WEBPACK_IMPORTED_MODULE_0__["select"](this).attr('stroke', 'black');
-    var content = '<span class="name">Title: </span><span class="value">' + d.name + '</span><br/>' + '<span class="name">Amount: </span><span class="value">' + addCommas(d.value) + '</span><br/>' + '<span class="name">Year: </span><span class="value">' + d.year + '</span>';
+    var content = '<span class="name">Organization: </span><span class="value">' + d.name + '</span><br/>' + '<span class="name">Breached Records: </span><span class="value">' + addCommas(d.value) + '</span><br/>' + '<span class="name">Year: </span><span class="value">' + d.year + '</span>';
     tooltip.showTooltip(content, d3__WEBPACK_IMPORTED_MODULE_0__["event"]);
   }
   /*
@@ -26988,39 +26985,44 @@ function bubbleChart() {
 
   function hideDetail(d) {
     //reset outline
-    d3__WEBPACK_IMPORTED_MODULE_0__["select"](this).attr('stroke', d3__WEBPACK_IMPORTED_MODULE_0__["rgb"](fillColorByContinent(d.group)).darker());
+    d3__WEBPACK_IMPORTED_MODULE_0__["select"](this).attr('stroke', d3__WEBPACK_IMPORTED_MODULE_0__["rgb"](fillColorByContinent(d.continent)).darker());
     tooltip.hideTooltip();
   }
 
   chart.toggleDisplay = function (displayName) {
+    // if (displayName === 'year') {
+    //     hideTypeTitles();
+    //     hideSourceTitles();
+    //     hideIndustryTitles();
+    //     //showYearTitles();
+    //     splitBubbles();
+    // } else if (displayName === 'type') {
+    //     hideYearTitles();
+    //     showTypeTitles();
+    //     hideSourceTitles();
+    //     hideIndustryTitles();
+    //     typeSplitBubbles();
+    // } else if (displayName == 'source') {
+    //     hideYearTitles();
+    //     hideTypeTitles();
+    //     showSourceTitles();
+    //     hideIndustryTitles();
+    //     sourceSplitBubbles();
+    // } else if (displayName == 'industry') {
+    //     hideYearTitles();
+    //     hideTypeTitles();
+    //     hideSourceTitles();
+    //     showIndustryTitles();
+    //     industrySplitBubbles();
+    // } else {
+    //     hideTypeTitles();
+    //     hideSourceTitles();
+    //     hideIndustryTitles();
+    //     groupBubbles();
+    // }
     if (displayName === 'year') {
-      hideTypeTitles();
-      hideSourceTitles();
-      hideIndustryTitles(); //showYearTitles();
-
       splitBubbles();
-    } else if (displayName === 'type') {
-      hideYearTitles();
-      showTypeTitles();
-      hideSourceTitles();
-      hideIndustryTitles();
-      typeSplitBubbles();
-    } else if (displayName == 'source') {
-      hideYearTitles();
-      hideTypeTitles();
-      showSourceTitles();
-      hideIndustryTitles();
-      sourceSplitBubbles();
-    } else if (displayName == 'industry') {
-      hideYearTitles();
-      hideTypeTitles();
-      hideSourceTitles();
-      showIndustryTitles();
-      industrySplitBubbles();
     } else {
-      hideTypeTitles();
-      hideSourceTitles();
-      hideIndustryTitles();
       groupBubbles();
     }
   }; //return chart function from closure

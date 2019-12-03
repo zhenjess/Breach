@@ -26638,7 +26638,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tooltip__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tooltip */ "./src/tooltip.js");
 /* Inspired by and Referred to https://bost.ocks.org/mike/chart/ for bubble chart*/
 
- //bubble chart
+
 
 function bubbleChart() {
   //constants for sizing
@@ -26673,7 +26673,7 @@ function bubbleChart() {
       y: height / 2
     },
     2019: {
-      x: 2 * width / 3 + 100,
+      x: 2 * width / 3 - 100,
       y: height / 2
     }
   }; //X locations of the year titles

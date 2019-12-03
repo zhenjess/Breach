@@ -2,7 +2,6 @@
 import * as d3 from "d3";
 import floatingTooltip from "./tooltip";
 
-//bubble chart
 
 function bubbleChart() {
     //constants for sizing
@@ -21,7 +20,7 @@ function bubbleChart() {
         2016: { x: 2 * width / 3, y: height / 2 },
         2017: { x: width / 3 - 100, y: height / 2 },
         2018: { x: width / 2 - 15, y: height / 2 },
-        2019: { x: 2 * width / 3 + 100, y: height / 2 }
+        2019: { x: 2 * width / 3 - 100, y: height / 2 }
     };
 
     //X locations of the year titles

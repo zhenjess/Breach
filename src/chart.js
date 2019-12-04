@@ -12,82 +12,82 @@ function bubbleChart() {
     var tooltip = floatingTooltip('breach_tooltip', 250);
 
     //location to move bubbles towards depending on the view mode selected
-    var center = { x: width / 2, y: height / 2 };
+    var center = { x: [width / 2], y: [height / 2] };
 
     var yearCenters = {
-        2014: { x: width / 3, y: height / 2 },
-        2015: { x: width / 2, y: height / 2 },
-        2016: { x: 2 * width / 3, y: height / 2 },
-        2017: { x: width / 3 - 100, y: height / 2 },
-        2018: { x: width / 2 - 15, y: height / 2 },
-        2019: { x: 2 * width / 3 - 100, y: height / 2 }
+        2014: { x: [width / 3], y: [height / 2] },
+        2015: { x: [width / 2], y: [height / 2] },
+        2016: { x: [(2 * width) / 3], y: [height / 2] },
+        2017: { x: [(width / 3) - 100], y: [height / 2] },
+        2018: { x: [(width / 2) - 15], y: [height / 2] },
+        2019: { x: [(2 * width / 3) - 100], y: [height / 2] }
     };
 
     //X locations of the year titles
     var yearsTitleX = {
         2014: 160,
-        2015: width / 3 - 100,
-        2016: width / 2,
-        2017: width / 1.5,
-        2018: width - 160,
-        2019: 2 * width / 3 + 125
+        2015: [(width / 3) - 100],
+        2016: [width / 2],
+        2017: [width / 1.5],
+        2018: [width - 160],
+        2019: [(2 * width / 3) + 125]
     };
 
     //X locations of the breach types
     var typeCenters = {
-        "Account Access": { x: width / 6, y: height / 2 },
-        "Existential Data": { x: 2 * width / 6, y: height / 2 },
-        "Financial Access": { x: 3 * width / 6, y: height / 2 },
-        "Identity Theft": { x: 4 * width / 6, y: height / 2 },
-        "Nuisance": { x: 5 * width / 6, y: height / 2 }
+        "Account Access": { x: [width / 6], y: [height / 2] },
+        "Existential Data": { x: [(2 * width) / 6], y: [height / 2] },
+        "Financial Access": { x: [(3 * width) / 6], y: [height / 2] },
+        "Identity Theft": { x: [(4 * width) / 6], y: [height / 2] },
+        "Nuisance": { x: [(5 * width) / 6], y: [height / 2] }
     }
 
     var typesTitleX = {
-        "Account Access": width / 6,
-        "Existential Data": 2 * width / 6 + 30,
-        "Financial Access": 3 * width / 6 + 15,
-        "Identity Theft": 4 * width / 6 + 25,
-        "Nuisance": 5 * width / 6 + 35
+        "Account Access": [width / 6],
+        "Existential Data": [(2 * width / 6) + 30],
+        "Financial Access": [(3 * width / 6) + 15],
+        "Identity Theft": [(4 * width / 6) + 25],
+        "Nuisance": [(5 * width / 6) + 35]
     };
 
     // //X locations of the breach sources
 
     var sourceCenters = {
-        "Malicious Outsider": { x: width / 6, y: height / 2 },
-        "Malicious Insider": { x: 2 * width / 6, y: height / 2 },
-        "State Sponsored": { x: 3 * width / 6, y: height / 2 },
-        "Accidental Loss": { x: 4 * width / 6, y: height / 2 },
-        "Hacktivist": { x: 5 * width / 6, y: height / 2 }
+        "Malicious Outsider": { x: [width / 6], y: [height / 2] },
+        "Malicious Insider": { x: [(2 * width) / 6], y: [height / 2] },
+        "State Sponsored": { x: [(3 * width) / 6], y: [height / 2] },
+        "Accidental Loss": { x: [(4 * width) / 6], y: [height / 2] },
+        "Hacktivist": { x: [(5 * width) / 6], y: [height / 2] }
     };
 
 
     var sourcesTitleX = {
-        "Malicious Outsider": width / 6,
-        "Malicious Insider": 2 * width / 6 + 30,
-        "State Sponsored": 3 * width / 6 + 15,
-        "Accidental Loss": 4 * width / 6 + 25,
-        "Hacktivist": 5 * width / 6 + 35
+        "Malicious Outsider": [width / 6],
+        "Malicious Insider": [(2 * width / 6) + 30],
+        "State Sponsored": [(3 * width / 6) + 15],
+        "Accidental Loss": [(4 * width / 6) + 25],
+        "Hacktivist": [(5 * width / 6) + 35]
     };
 
     // //X locations of the industry specific breaches
     var industryCenters = {
-        "Technology": { x: width / 6, y: height / 2 },
-        "Retail": { x: 2 * width / 6, y: height / 2 },
-        "Financial": { x: 3 * width / 6, y: height / 2 },
-        "Education": { x: 4 * width / 6, y: height / 2 },
-        "Healthcare": { x: 5 * width / 6, y: height / 2 },
-        "Government": { x: 6 * width / 6, y: height / 2 },
-        "Other": { x: 7 * width / 6, y: height / 2 }
+        "Technology": { x: [width / 6], y: [height / 2] },
+        "Retail": { x: [(2 * width) / 6], y: [height / 2] },
+        "Financial": { x: [(3 * width) / 6], y: [height / 2] },
+        "Education": { x: [(4 * width) / 6], y: [height / 2] },
+        "Healthcare": { x: [(5 * width) / 6], y: [height / 2] },
+        "Government": { x: [(6 * width) / 6], y: [height / 2] },
+        "Other": { x: [(7 * width) / 6], y: [height / 2] }
     };
 
     var industriesTitleX = {
-        "Technology": width / 6,
-        "Retail": 2 * width / 6 + 30,
-        "Financial": 3 * width / 6 + 15,
-        "Education": 4 * width / 6 + 25,
-        "Healthcare": 5 * width / 6 + 35,
-        "Government": 6 * width / 6 + 10,
-        "Other": 7 * width / 6 + 20
+        "Technology": [width / 6],
+        "Retail": [(2 * width / 6) + 30],
+        "Financial": [(3 * width / 6) + 15],
+        "Education": [(4 * width / 6) + 25],
+        "Healthcare": [(5 * width / 6) + 35],
+        "Government": [(6 * width / 6) + 10],
+        "Other": [(7 * width / 6) + 20]
     };
 
     //@4 strength to apply to the position forces

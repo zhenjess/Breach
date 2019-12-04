@@ -28,12 +28,17 @@ a, a:visited, a:active {
 
 
 #vis {
-  width: 90px;
-  height: 900px;
+  width: 940px;
+  height: 600px;
   clear: both;
   margin-bottom: 10px;
 }
 
+/* #charts_container {
+    height: 200vh;
+    width: 150vw;
+    margin-top: 25px;
+} */
 
 #toolbar {
   margin-top: 10px;

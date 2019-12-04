@@ -27047,7 +27047,6 @@ function bubbleChart() {
 
   chart.toggleDisplay = function (displayName) {
     if (displayName === 'year') {
-      showYearTitles();
       hideTypeTitles();
       hideSourceTitles();
       hideIndustryTitles();

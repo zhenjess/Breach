@@ -129,7 +129,9 @@ function bubbleChart() {
     function createNodes(rawData) {
 
         //use max record losses in data as max in scale's domain
-        var maxAmount = d3.max(rawData, function (d) { return +d.records; });
+        var maxAmount = d3.max(rawData, function(d) { 
+            return +d.records; 
+        });
 
 
         //bubble size based on records loss
@@ -142,7 +144,7 @@ function bubbleChart() {
 
 
         //user map() to convert raw data into node data
-        var myNodes = rawData.map(function (d) {
+        var myNodes = rawData.map(function(d) {
             return {
                 id: d.id,
                 radius: radiusScale(+d.records),
@@ -161,7 +163,9 @@ function bubbleChart() {
 
 
         //sort to prevent occlusion of smaller nodes
-        myNodes.sort(function (a, b) { return b.value - a.value; });
+        myNodes.sort(function(a, b) { 
+            return (b.value - a.value); 
+        });
 
         return myNodes;
     }
@@ -192,14 +196,20 @@ function bubbleChart() {
 
 
         bubbles = svg.selectAll('.bubble')
-            .data(nodes, function (d) { return d.id; });
+            .data(nodes, function(d) { 
+                return d.id; 
+            });
 
         //create new circles where 1 circle.bubble for each object in nodes array
         var bubblesE = bubbles.enter().append('circle')
             .classed('bubble', true)
             .attr('r', 0)
-            .attr('fill', function (d) { return fillColorByContinent(d.continent); })
-            .attr('stroke', function (d) { return d3.rgb(fillColorByContinent(d.continent)).darker(); })
+            .attr('fill', function(d) { 
+                return fillColorByContinent(d.continent); 
+            })
+            .attr('stroke', function(d) { 
+                return d3.rgb(fillColorByContinent(d.continent)).darker(); 
+            })
             .attr('stroke-width', 2)
             .on('mouseover', showDetail)
             .on('mouseout', hideDetail);
@@ -211,7 +221,9 @@ function bubbleChart() {
         //to make bubbles appear
         bubbles.transition()
             .duration(2000)
-            .attr('r', function (d) { return d.radius; });
+            .attr('r', function(d) { 
+                return d.radius; 
+            });
 
 
         //simulation's nodes set to run automatically
@@ -230,8 +242,12 @@ function bubbleChart() {
      */
     function ticked() {
         bubbles
-            .attr('cx', function (d) { return d.x; })
-            .attr('cy', function (d) { return d.y; });
+            .attr('cx', function(d) { 
+                return d.x; 
+            })
+            .attr('cy', function(d) { 
+                return d.y; 
+            });
     }
 
     /*
@@ -279,7 +295,6 @@ function bubbleChart() {
      */
     function splitBubbles() {
         showYearTitles();
-
         simulation.force('x', d3.forceX().strength(forceStrength).x(nodeYearPos));
         simulation.alpha(1).restart();
     }
@@ -297,10 +312,14 @@ function bubbleChart() {
 
         years.enter().append('text')
             .attr('class', 'year')
-            .attr('x', function (d) { return yearsTitleX[d]; })
+            .attr('x', function(d) { 
+                return yearsTitleX[d]; 
+            })
             .attr('y', 40)
             .attr('text-anchor', 'middle')
-            .text(function (d) { return d; });
+            .text(function(d) { 
+                return d; 
+            });
     }
 
     //type
@@ -322,10 +341,14 @@ function bubbleChart() {
 
         types.enter().append('text')
             .attr('class', 'type')
-            .attr('x', function (d) { return typesTitleX[d]; })
+            .attr('x', function(d) { 
+                return typesTitleX[d]; 
+            })
             .attr('y', 40)
             .attr('text-anchor', 'middle')
-            .text(function (d) { return d; });
+            .text(function(d) { 
+                return d;
+            });
     }
 
     //source
@@ -346,7 +369,9 @@ function bubbleChart() {
 
         sources.enter().append('text')
             .attr('class', 'source')
-            .attr('x', function (d) { return sourcesTitleX[d]; })
+            .attr('x', function(d) { 
+                return sourcesTitleX[d]; 
+            })
             .attr('y', 40)
             .attr('text-anchor', 'middle')
             .text(function (d) { return d; });
@@ -368,10 +393,14 @@ function bubbleChart() {
 
         industries.enter().append('text')
             .attr('class', 'industry')
-            .attr('x', function (d) { return industriesTitleX[d]; })
+            .attr('x', function(d) { 
+                return industriesTitleX[d]; 
+            })
             .attr('y', 40)
             .attr('text-anchor', 'middle')
-            .text(function (d) { return d; });
+            .text(function(d) { 
+                return d; 
+            });
     }
 
 
@@ -410,7 +439,6 @@ function bubbleChart() {
 
     chart.toggleDisplay = function (displayName) {
         if (displayName === 'year') {
-            showYearTitles();
             hideTypeTitles();
             hideSourceTitles();
             hideIndustryTitles();
@@ -462,7 +490,7 @@ function display(error, data) {
 function setupButtons() {
     d3.select('#toolbar')
         .selectAll('.button')
-        .on('click', function () {
+        .on('click', function() {
 
             d3.selectAll('.button').classed('active', false);
 

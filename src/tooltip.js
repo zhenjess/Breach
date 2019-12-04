@@ -63,14 +63,14 @@ function floatingTooltip(tooltipId, width) {
         var ttleft = ((curX - wscrX + xOffset * 2 + ttw) > window.innerWidth) ?
             curX - ttw - xOffset * 2 : curX + xOffset;
 
-        if (ttleft < wscrX + xOffset) {
+        if (ttleft < (wscrX + xOffset)) {
             ttleft = wscrX + xOffset;
         }
 
         var tttop = ((curY - wscrY + yOffset * 2 + tth) > window.innerHeight) ?
             curY - tth - yOffset * 2 : curY + yOffset;
 
-        if (tttop < wscrY + yOffset) {
+        if (tttop < (wscrY + yOffset)) {
             tttop = curY + yOffset;
         }
 

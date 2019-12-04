@@ -26828,6 +26828,7 @@ function bubbleChart() {
         source: d.source,
         industry: d.industry,
         year: d.year,
+        location: d.location,
         continent: d.continent,
         x: Math.random() * 900,
         y: Math.random() * 800
@@ -27031,7 +27032,7 @@ function bubbleChart() {
 
   function showDetail(d) {
     d3__WEBPACK_IMPORTED_MODULE_0__["select"](this).attr('stroke', 'black');
-    var content = '<span class="name">Organization: </span><span class="value">' + d.name + '</span><br/>' + '<span class="name">Breached Records: </span><span class="value">' + addCommas(d.value) + '</span><br/>' + '<span class="name">Year: </span><span class="value">' + d.year + '</span>';
+    var content = '<span class="name">Organization: </span><span class="value">' + d.name + '</span><br/>' + '<span class="name">Breached Records: </span><span class="value">' + addCommas(d.value) + '</span><br/>' + '<span class="name">Country: </span><span class="value">' + d.location + '</span><br/>' + '<span class="name">Year: </span><span class="value">' + d.year + '</span>';
     tooltip.showTooltip(content, d3__WEBPACK_IMPORTED_MODULE_0__["event"]);
   }
   /*

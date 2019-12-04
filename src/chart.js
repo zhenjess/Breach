@@ -154,6 +154,7 @@ function bubbleChart() {
                 source: d.source,
                 industry: d.industry,
                 year: d.year,
+                location: d.location,
                 continent: d.continent,
                 x: Math.random() * 900,
                 y: Math.random() * 800
@@ -374,7 +375,9 @@ function bubbleChart() {
             })
             .attr('y', 40)
             .attr('text-anchor', 'middle')
-            .text(function (d) { return d; });
+            .text(function(d) { 
+                return d; 
+            });
     }
 
     function industrySplitBubbles() {
@@ -418,6 +421,9 @@ function bubbleChart() {
             '</span><br/>' +
             '<span class="name">Breached Records: </span><span class="value">' +
             addCommas(d.value) +
+            '</span><br/>' +
+            '<span class="name">Country: </span><span class="value">' +
+            d.location +
             '</span><br/>' +
             '<span class="name">Year: </span><span class="value">' +
             d.year +

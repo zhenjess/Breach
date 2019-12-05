@@ -6,7 +6,7 @@ import floatingTooltip from "./tooltip";
 function bubbleChart() {
     //constants for sizing
     let width = window.innerWidth;
-    let height = 900;
+    let height = 400;
 
     //tooltip for mouseover functionality
     let tooltip = floatingTooltip('breach_tooltip', 250);

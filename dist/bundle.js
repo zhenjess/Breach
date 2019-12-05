@@ -26972,6 +26972,7 @@ function bubbleChart() {
 
   function typeSplitBubbles() {
     showTypeTitles();
+    hideYearTitles();
     simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeTypePos));
     simulation.alpha(1).restart();
   }
@@ -26999,6 +27000,8 @@ function bubbleChart() {
 
   function sourceSplitBubbles() {
     showSourceTitles();
+    hideYearTitles();
+    hideTypeTitles();
     simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeSourcePos));
     simulation.alpha(1).restart();
   }
@@ -27022,6 +27025,10 @@ function bubbleChart() {
   }
 
   function industrySplitBubbles() {
+    showIndustryTitles();
+    hideYearTitles();
+    hideTypeTitles();
+    hideSourceTitles();
     simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeIndustryPos));
     simulation.alpha(1).restart();
   }

@@ -285,7 +285,7 @@ function bubbleChart() {
         simulation.alpha(1).restart();
     }
 
-    document.getElementById('all').addEventListener('click', function () {
+    document.getElementById('all').addEventListener('click', function() {
         groupBubbles();
     });
 
@@ -337,6 +337,7 @@ function bubbleChart() {
     //type
     function typeSplitBubbles() {
         showTypeTitles();
+        hideYearTitles();
         simulation.force('x', d3.forceX().strength(forceStrength).x(nodeTypePos));
         simulation.alpha(1).restart();
     }
@@ -370,6 +371,8 @@ function bubbleChart() {
     //source
     function sourceSplitBubbles() {
         showSourceTitles();
+        hideYearTitles();
+        hideTypeTitles();
         simulation.force('x', d3.forceX().strength(forceStrength).x(nodeSourcePos));
         simulation.alpha(1).restart();
     }
@@ -400,6 +403,10 @@ function bubbleChart() {
     }
 
     function industrySplitBubbles() {
+        showIndustryTitles();
+        hideYearTitles();
+        hideTypeTitles();
+        hideSourceTitles();
         simulation.force('x', d3.forceX().strength(forceStrength).x(nodeIndustryPos));
         simulation.alpha(1).restart();
     }

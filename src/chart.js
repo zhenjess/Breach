@@ -6,7 +6,7 @@ import floatingTooltip from "./tooltip";
 function bubbleChart() {
     //constants for sizing
     let width = window.innerWidth;
-    let height = 400;
+    let height = 900;
 
     //tooltip for mouseover functionality
     let tooltip = floatingTooltip('breach_tooltip', 250);
@@ -277,7 +277,10 @@ function bubbleChart() {
      */
     function groupBubbles() {
         hideYearTitles();
-
+        hideTypeTitles();
+        hideSourceTitles();
+        hideIndustryTitles();
+        
         //reset 'x' force to draw bubbles to the center
         simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
 
@@ -299,6 +302,9 @@ function bubbleChart() {
     
     function splitBubbles() {
         showYearTitles();
+        hideTypeTitles();
+        hideSourceTitles();
+        hideIndustryTitles();
         simulation.force('x', d3.forceX().strength(forceStrength).x(nodeYearPos));
         simulation.alpha(1).restart();  
     }
@@ -338,6 +344,9 @@ function bubbleChart() {
     function typeSplitBubbles() {
         showTypeTitles();
         hideYearTitles();
+        hideTypeTitles();
+        hideSourceTitles();
+        hideIndustryTitles();
         simulation.force('x', d3.forceX().strength(forceStrength).x(nodeTypePos));
         simulation.alpha(1).restart();
     }
@@ -373,6 +382,7 @@ function bubbleChart() {
         showSourceTitles();
         hideYearTitles();
         hideTypeTitles();
+        hideIndustryTitles();
         simulation.force('x', d3.forceX().strength(forceStrength).x(nodeSourcePos));
         simulation.alpha(1).restart();
     }

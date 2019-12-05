@@ -5,8 +5,9 @@ import floatingTooltip from "./tooltip";
 
 function bubbleChart() {
     //constants for sizing
-    let width = window.innerWidth;
-    let height = 900;
+    // let width = window.innerWidth;
+    let width = 1900;
+    let height = 1200;
 
     //tooltip for mouseover functionality
     let tooltip = floatingTooltip('breach_tooltip', 250);
@@ -483,35 +484,37 @@ function bubbleChart() {
     }
 
     chart.toggleDisplay = function(displayName) {
-        if (displayName === 'Breaches by Year') {
+        if (displayName === '#all') {
+            hideYearTitles();
+            hideTypeTitles();
+            hideSourceTitles();
+            hideIndustryTitles();
+            groupBubbles();
+        } else if (displayName === '#year') {
             showYearTitles();
             hideTypeTitles();
             hideSourceTitles();
             hideIndustryTitles();
             splitBubbles();
-        } else if (displayName === 'Breaches by Type') {
+        } else if (displayName === '#type') {
             hideYearTitles();
             showTypeTitles();
             hideSourceTitles();
             hideIndustryTitles();
             typeSplitBubbles();
-        } else if (displayName === 'Breaches by Source') {
+        } else if (displayName === '#source') {
             hideYearTitles();
             hideTypeTitles();
             showSourceTitles();
             hideIndustryTitles();
             sourceSplitBubbles();
-        } else if (displayName === 'Breaches by Indsutry') {
+        } else if (displayName === '#industry') {
             hideYearTitles();
             hideTypeTitles();
             hideSourceTitles();
             showIndustryTitles();
             industrySplitBubbles();
         } else {
-            hideYearTitles();
-            hideTypeTitles();
-            hideSourceTitles();
-            hideIndustryTitles();
             groupBubbles();
         }
     };

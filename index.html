@@ -37,17 +37,23 @@
 
     <style>
         #right_float_middle {
-            margin-top: 10px;
-            margin-left: 150px;   
-            overflow: hidden;    
-            display: inline-block;
+            margin-top: 350px;     
+            overflow: hidden;           
+            display: inline-flex;
         }
 
 
         #charts_container {
-            width: 100%;
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            width: 100%; 
             overflow: hidden;
-            display: block;
+            display: contents;
+            justify-content: center;
+            flex-direction: row;
         }
     </style>
 
@@ -55,10 +61,7 @@
 
 
 
-<body>
-    <!-- <div id="root"> -->
-        <!-- </div> -->
-        
+<body>        
     <div class="container">
             
         <h1>2014-2019 Global Data Breaches</h1>
@@ -102,11 +105,11 @@
     <div id="charts_container">
 
         <div id="vis">
-            <svg width="1200" height="50"></svg>
+            <svg width="1600" height="50"></svg>
         </div>
 
         <div id="right_float_middle">
-            <svg width="500" height="300" margin-top="315">
+            <svg width="500" height="250">
 
                 <circle cx="125" cy="100" r="100" stroke="black" stroke-width="4" fill="none" stroke-dasharray="5" />
                 <!-- CyberVor 1.2 Billion Records -->
@@ -126,7 +129,7 @@
                 <text x="255" y="45" font-weight="bold">50 Million Records</text>
             </svg>
 
-            <svg width="900" height="600">
+            <svg width="900" height="250">
                 <text x="1" y="15" font-weight="bold">Continents of the World</text>
                 <circle cx="800" cy="40" r="15" stroke="black" stroke-width="2" fill='#19ecc2' />
                 <text x="825" y="45" font-weight="bold">Global</text>

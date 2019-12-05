@@ -26643,7 +26643,7 @@ __webpack_require__.r(__webpack_exports__);
 function bubbleChart() {
   //constants for sizing
   var width = window.innerWidth;
-  var height = 400; //tooltip for mouseover functionality
+  var height = 900; //tooltip for mouseover functionality
 
   var tooltip = Object(_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"])('breach_tooltip', 250); //location to move bubbles towards depending on the view mode selected
 
@@ -26681,10 +26681,10 @@ function bubbleChart() {
   var yearsTitleX = {
     2014: 160,
     2015: [width / 3 - 100],
-    2016: [width / 2],
-    2017: [width / 1.5],
-    2018: [width - 160],
-    2019: [2 * width / 3 + 125]
+    2016: [width / 3 + 130],
+    2017: [width / 2 + 120],
+    2018: [2 * width / 3 + 125],
+    2019: [width - 160]
   }; //X locations of the breach types
 
   var typeCenters = {
@@ -26801,9 +26801,6 @@ function bubbleChart() {
   var simulation = d3__WEBPACK_IMPORTED_MODULE_0__["forceSimulation"]().velocityDecay(0.2).force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(center.x)).force('y', d3__WEBPACK_IMPORTED_MODULE_0__["forceY"]().strength(forceStrength).y(center.y)).force('charge', d3__WEBPACK_IMPORTED_MODULE_0__["forceManyBody"]().strength(charge)).on('tick', ticked); //@v4 to prevent automatic force
 
   simulation.stop(); //add color to bubbles
-  // var fillColor = d3.scaleOrdinal()
-  //     .domain(['Account Access', 'Identity Theft', 'Financial Access', 'Nuisance', 'Existential Data'])
-  //     .range(['#ec1919', '#f48438', '#292bb0', '#16ab11', '#bed02b']);
 
   var fillColorByContinent = d3__WEBPACK_IMPORTED_MODULE_0__["scaleOrdinal"]().domain(['Global', 'Asia', 'Africa', 'Australia', 'Europe', 'North America', 'South America']).range(['#19ecc2', '#ff1f5a', '#ec7b19', '#7cbd1e', '#2fc5cc', '#303481', '#ecec19']); //convert raw data from CSV files into an array of node objects
   //each node stores data and visualization values to visualize a bubble
@@ -26862,7 +26859,7 @@ function bubbleChart() {
       return d.id;
     }); //create new circles where 1 circle.bubble for each object in nodes array
 
-    var bubblesE = bubbles.enter().append('circle').classed('bubble', true).attr('r', 0).attr('fill', function (d) {
+    var bubblesE = bubbles.enter().append('circle').classed('bubble', true).attr('r', 0.001).attr('fill', function (d) {
       return fillColorByContinent(d.continent);
     }).attr('stroke', function (d) {
       return d3__WEBPACK_IMPORTED_MODULE_0__["rgb"](fillColorByContinent(d.continent)).darker();
@@ -26942,9 +26939,17 @@ function bubbleChart() {
     showYearTitles();
     simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeYearPos));
     simulation.alpha(1).restart();
-  }
-  /*Hides Year title displays.*/
+  } //const yrButton = d3.select('#year')
+  // yrButton.onclick = splitBubbles;
+  //yrButton.onclick = () => console.log('hello');
+  // document.getElementById('year')
 
+
+  document.getElementById('year').addEventListener('click', function () {
+    // //     document.getElementById('year').innerHTML = "Hello World";
+    splitBubbles();
+  });
+  /*Hides Year title displays.*/
 
   function hideYearTitles() {
     svg.selectAll('.year').remove();
@@ -27122,7 +27127,11 @@ function addCommas(nStr) {
 
 d3__WEBPACK_IMPORTED_MODULE_0__["csv"]('data/breach_data.csv', display); //setup buttons
 
-setupButtons();
+setupButtons(); // debugger
+// document.getElementById('year').addEventListener('click', function () {
+//     //     document.getElementById('year').innerHTML = "Hello World";
+//     console.log("Hello World");
+// });
 
 /***/ }),
 

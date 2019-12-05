@@ -5,16 +5,16 @@ import floatingTooltip from "./tooltip";
 
 function bubbleChart() {
     //constants for sizing
-    var width = window.innerWidth;
-    var height = 400;
+    let width = window.innerWidth;
+    let height = 900;
 
     //tooltip for mouseover functionality
-    var tooltip = floatingTooltip('breach_tooltip', 250);
+    let tooltip = floatingTooltip('breach_tooltip', 250);
 
     //location to move bubbles towards depending on the view mode selected
-    var center = { x: [width / 2], y: [height / 2] };
+    let center = { x: [width / 2], y: [height / 2] };
 
-    var yearCenters = {
+    let yearCenters = {
         2014: { x: [width / 3], y: [height / 2] },
         2015: { x: [width / 2], y: [height / 2] },
         2016: { x: [(2 * width) / 3], y: [height / 2] },
@@ -24,17 +24,17 @@ function bubbleChart() {
     };
 
     //X locations of the year titles
-    var yearsTitleX = {
+    let yearsTitleX = {
         2014: 160,
         2015: [(width / 3) - 100],
-        2016: [width / 2],
-        2017: [width / 1.5],
-        2018: [width - 160],
-        2019: [(2 * width / 3) + 125]
+        2016: [(width / 3) + 130],
+        2017: [(width / 2) + 120],
+        2018: [(2 * width / 3) + 125],
+        2019: [width - 160]
     };
 
     //X locations of the breach types
-    var typeCenters = {
+    let typeCenters = {
         "Account Access": { x: [width / 6], y: [height / 2] },
         "Existential Data": { x: [(2 * width) / 6], y: [height / 2] },
         "Financial Access": { x: [(3 * width) / 6], y: [height / 2] },
@@ -42,7 +42,7 @@ function bubbleChart() {
         "Nuisance": { x: [(5 * width) / 6], y: [height / 2] }
     }
 
-    var typesTitleX = {
+    let typesTitleX = {
         "Account Access": [width / 6],
         "Existential Data": [(2 * width / 6) + 30],
         "Financial Access": [(3 * width / 6) + 15],
@@ -52,7 +52,7 @@ function bubbleChart() {
 
     // //X locations of the breach sources
 
-    var sourceCenters = {
+    let sourceCenters = {
         "Malicious Outsider": { x: [width / 6], y: [height / 2] },
         "Malicious Insider": { x: [(2 * width) / 6], y: [height / 2] },
         "State Sponsored": { x: [(3 * width) / 6], y: [height / 2] },
@@ -61,7 +61,7 @@ function bubbleChart() {
     };
 
 
-    var sourcesTitleX = {
+    let sourcesTitleX = {
         "Malicious Outsider": [width / 6],
         "Malicious Insider": [(2 * width / 6) + 30],
         "State Sponsored": [(3 * width / 6) + 15],
@@ -70,7 +70,7 @@ function bubbleChart() {
     };
 
     // //X locations of the industry specific breaches
-    var industryCenters = {
+    let industryCenters = {
         "Technology": { x: [width / 6], y: [height / 2] },
         "Retail": { x: [(2 * width) / 6], y: [height / 2] },
         "Financial": { x: [(3 * width) / 6], y: [height / 2] },
@@ -80,7 +80,7 @@ function bubbleChart() {
         "Other": { x: [(7 * width) / 6], y: [height / 2] }
     };
 
-    var industriesTitleX = {
+    let industriesTitleX = {
         "Technology": [width / 6],
         "Retail": [(2 * width / 6) + 30],
         "Financial": [(3 * width / 6) + 15],
@@ -91,12 +91,12 @@ function bubbleChart() {
     };
 
     //@4 strength to apply to the position forces
-    var forceStrength = 0.03;
+    let forceStrength = 0.03;
 
     //set in create_nodes and create_vis
-    var svg = null;
-    var bubbles = null;
-    var nodes = [];
+    let svg = null;
+    let bubbles = null;
+    let nodes = [];
 
     //charge function applied to nodes when there is a collision
     function charge(d) {
@@ -104,7 +104,7 @@ function bubbleChart() {
     }
 
     //create force layout and simulation to add force to it
-    var simulation = d3.forceSimulation()
+    let simulation = d3.forceSimulation()
         .velocityDecay(0.2)
         .force('x', d3.forceX().strength(forceStrength).x(center.x))
         .force('y', d3.forceY().strength(forceStrength).y(center.y))
@@ -115,10 +115,8 @@ function bubbleChart() {
     simulation.stop();
 
     //add color to bubbles
-    // var fillColor = d3.scaleOrdinal()
-    //     .domain(['Account Access', 'Identity Theft', 'Financial Access', 'Nuisance', 'Existential Data'])
-    //     .range(['#ec1919', '#f48438', '#292bb0', '#16ab11', '#bed02b']);
-    var fillColorByContinent = d3.scaleOrdinal()
+
+    let fillColorByContinent = d3.scaleOrdinal()
         .domain(['Global', 'Asia', 'Africa', 'Australia', 'Europe', 'North America', 'South America'])
         .range(['#19ecc2', '#ff1f5a', '#ec7b19', '#7cbd1e', '#2fc5cc', '#303481', '#ecec19']);
 
@@ -129,14 +127,14 @@ function bubbleChart() {
     function createNodes(rawData) {
 
         //use max record losses in data as max in scale's domain
-        var maxAmount = d3.max(rawData, function(d) { 
+        let maxAmount = d3.max(rawData, function(d) { 
             return +d.records; 
         });
 
 
         //bubble size based on records loss
         // @v4: new flattended scale names
-        var radiusScale = d3.scalePow()
+        let radiusScale = d3.scalePow()
             .exponent(0.5)
             .range([10, 100])
             .domain([0, maxAmount]);
@@ -144,7 +142,7 @@ function bubbleChart() {
 
 
         //user map() to convert raw data into node data
-        var myNodes = rawData.map(function(d) {
+        let myNodes = rawData.map(function(d) {
             return {
                 id: d.id,
                 radius: radiusScale(+d.records),
@@ -184,7 +182,7 @@ function bubbleChart() {
      * rawData is expected to be an array of data objects as provided by
      * a d3 loading function like d3.csv.
      */
-    var chart = function chart(selector, rawData) {
+    let chart = function chart(selector, rawData) {
 
         nodes = createNodes(rawData);
 
@@ -202,9 +200,9 @@ function bubbleChart() {
             });
 
         //create new circles where 1 circle.bubble for each object in nodes array
-        var bubblesE = bubbles.enter().append('circle')
+        let bubblesE = bubbles.enter().append('circle')
             .classed('bubble', true)
-            .attr('r', 0)
+            .attr('r', 0.001)
             .attr('fill', function(d) { 
                 return fillColorByContinent(d.continent); 
             })
@@ -294,11 +292,21 @@ function bubbleChart() {
      * tick function is set to move nodes to the
      * yearCenter of their data's year.
      */
+    
     function splitBubbles() {
         showYearTitles();
         simulation.force('x', d3.forceX().strength(forceStrength).x(nodeYearPos));
-        simulation.alpha(1).restart();
+        simulation.alpha(1).restart();  
     }
+    
+   //const yrButton = d3.select('#year')
+    // yrButton.onclick = splitBubbles;
+    //yrButton.onclick = () => console.log('hello');
+    // document.getElementById('year')
+    document.getElementById('year').addEventListener('click', function() {
+    // //     document.getElementById('year').innerHTML = "Hello World";
+      splitBubbles();
+    });
 
     /*Hides Year title displays.*/
     function hideYearTitles() {
@@ -336,8 +344,8 @@ function bubbleChart() {
 
     /* Shows Type title displays.*/
     function showTypeTitles() {
-        var typesData = d3.keys(typesTitleX);
-        var types = svg.selectAll('.type')
+        let typesData = d3.keys(typesTitleX);
+        let types = svg.selectAll('.type')
             .data(typesData);
 
         types.enter().append('text')
@@ -364,8 +372,8 @@ function bubbleChart() {
     }
 
     function showSourceTitles() {
-        var sourcesData = d3.keys(sourcesTitleX);
-        var sources = svg.selectAll('.source')
+        let sourcesData = d3.keys(sourcesTitleX);
+        let sources = svg.selectAll('.source')
             .data(sourcesData);
 
         sources.enter().append('text')
@@ -390,8 +398,8 @@ function bubbleChart() {
     }
 
     function showIndustryTitles() {
-        var industriesData = d3.keys(industriesTitleX);
-        var industries = svg.selectAll('.industry')
+        let industriesData = d3.keys(industriesTitleX);
+        let industries = svg.selectAll('.industry')
             .data(industriesData);
 
         industries.enter().append('text')
@@ -416,7 +424,7 @@ function bubbleChart() {
 
         d3.select(this).attr('stroke', 'black');
 
-        var content = '<span class="name">Organization: </span><span class="value">' +
+        let content = '<span class="name">Organization: </span><span class="value">' +
             d.name +
             '</span><br/>' +
             '<span class="name">Breached Records: </span><span class="value">' +
@@ -443,7 +451,7 @@ function bubbleChart() {
         tooltip.hideTooltip();
     }
 
-    chart.toggleDisplay = function (displayName) {
+    chart.toggleDisplay = function(displayName) {
         if (displayName === 'year') {
             hideTypeTitles();
             hideSourceTitles();
@@ -481,7 +489,7 @@ function bubbleChart() {
 }
 
 
-var myBubbleChart = bubbleChart();
+let myBubbleChart = bubbleChart();
 
 
 function display(error, data) {
@@ -500,11 +508,11 @@ function setupButtons() {
 
             d3.selectAll('.button').classed('active', false);
 
-            var button = d3.select(this);
+            let button = d3.select(this);
 
             button.classed('active', true);
 
-            var buttonId = button.attr('id');
+            let buttonId = button.attr('id');
 
             myBubbleChart.toggleDisplay(buttonId);
         });
@@ -513,10 +521,10 @@ function setupButtons() {
 //helper function converts number to string
 function addCommas(nStr) {
     nStr += '';
-    var x = nStr.split('.');
-    var x1 = x[0];
-    var x2 = x.length > 1 ? '.' + x[1] : '';
-    var rgx = /(\d+)(\d{3})/;
+    let x = nStr.split('.');
+    let x1 = x[0];
+    let x2 = x.length > 1 ? '.' + x[1] : '';
+    let rgx = /(\d+)(\d{3})/;
     while (rgx.test(x1)) {
         x1 = x1.replace(rgx, '$1' + ',' + '$2');
     }
@@ -530,3 +538,8 @@ d3.csv('data/breach_data.csv', display);
 //setup buttons
 setupButtons();
 
+// debugger
+// document.getElementById('year').addEventListener('click', function () {
+//     //     document.getElementById('year').innerHTML = "Hello World";
+//     console.log("Hello World");
+// });

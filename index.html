@@ -18,7 +18,9 @@
 <html>
     
 <head>
-        <!-- Required meta tags -->
+
+    
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <title>Global Data Breaches Visualization</title>
     <meta name="description" content="2014-2019 Global Data Breaches">
@@ -28,9 +30,10 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width, shrink-to-fit=no">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/chart.css">
-
+<!-- 
+    <script src='https://d3js.org/d3.v4.min.js'></script>
     <script src="src/tooltip.js"></script>
-    <script src="dist/bundle.js"></script>
+    <script src="dist/bundle.js"></script> -->
 
     <style>
         #right_float_middle {
@@ -53,21 +56,20 @@
 
 
 <body>
-    <!-- <div id="root">
-        <script src="./src/chart.js"></script>
-    </div> -->
-
+    <!-- <div id="root"> -->
+        <!-- </div> -->
+        
     <div class="container">
-
+            
         <h1>2014-2019 Global Data Breaches</h1>
-        <p>A Breach incident is when sensitive, protected or confidential data has potentially 
-            been viewed, stolen or used by an individual unauthorized to do so.</p>      
-        </n>
-        <p>
-            An estimate of 10 million data records are lost or stolen around the world on a daily basis.
-            As the amount of data produced around the world increases, the amount of data breach incidents also fluctuates.
-            North America is by far the main victim of data breaches and the main offender of data breaches is malicious outsiders.
-        </p>
+            <p>A Breach incident is when sensitive, protected or confidential data has potentially 
+                been viewed, stolen or used by an individual unauthorized to do so.</p>      
+            </n>
+            <p>
+                An estimate of 10 million data records are lost or stolen around the world on a daily basis.
+                As the amount of data produced around the world increases, the amount of data breach incidents also fluctuates.
+                North America is by far the main victim of data breaches and the main offender of data breaches is malicious outsiders.
+            </p>
         </n>
         <p>
             This data visualization is to allow you to better understand data breaches through the years by customizing the
@@ -75,19 +77,30 @@
         </p>
         <br>
         <div id="toolbar">
-            <a href="#" id="all" class="button active">All Data Breaches</a>
-            <a href="#" id="year" class="button">Breaches by Year</a>
-            <a href="#" id="type" class="button">Breaches by Type</a>
-            <a href="#" id="source" class="button">Breaches by Source</a>
-            <a href="#" id="industry" class="button">Breaches by Industry</a>
+            <!-- <button  id="year">Breaches by Year</button> -->
+            <!-- <button onclick="splitBubbles()">Breaches by Year</button> -->
+            <!-- <a href="#" id="all" class="button active">All Data Breaches</a>
+                <a href="#" id="year" class="button">Breaches by Year</a>
+                <a href="#" id="type" class="button">Breaches by Type</a>
+                <a href="#" id="source" class="button">Breaches by Source</a>
+                <a href="#" id="industry" class="button">Breaches by Industry</a> -->
+            <button id="year">Breaches by Year</button>
+            <!-- <button onclick="changeColor('red')">Get red</button> -->
+                
         </div>
-
+            <!-- <script src="./src/chart.js"></script> -->
+            
+            <!-- <script>
+                function splitBubbles() {
+                    document.getElementById("year").innerHTML = "Hello World";
+                }
+        </script> -->
     </div> 
 
     <div id="charts_container">
 
         <div id="vis">
-            <svg width="1500" height="90"></svg>
+            <svg width="500" height="150"></svg>
         </div>
 
         <div id="right_float_middle">
@@ -139,6 +152,11 @@
     
     </div>
 
+
+    <script src='https://d3js.org/d3.v4.min.js'></script>
+    <script src="src/tooltip.js"></script>
+    <script src="dist/bundle.js"></script>
+    <script src="./src/chart.js" type="text/javascript"></script>  
 </body>
 
 </html>

@@ -27003,6 +27003,10 @@ function bubbleChart() {
     simulation.alpha(1).restart();
   }
 
+  document.getElementById('source').addEventListener('click', function () {
+    sourceSplitBubbles();
+  });
+
   function hideSourceTitles() {
     svg.selectAll('.source').remove();
   }
@@ -27021,6 +27025,10 @@ function bubbleChart() {
     simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeIndustryPos));
     simulation.alpha(1).restart();
   }
+
+  document.getElementById('industry').addEventListener('click', function () {
+    industrySplitBubbles();
+  });
 
   function hideIndustryTitles() {
     svg.selectAll('.industry').remove();

@@ -324,8 +324,8 @@ function bubbleChart() {
 
     /* Shows Year title displays.*/
     function showYearTitles() {
-        var yearsData = d3.keys(yearsTitleX);
-        var years = svg.selectAll('.year')
+        let yearsData = d3.keys(yearsTitleX);
+        let years = svg.selectAll('.year')
             .data(yearsData);
 
         years.enter().append('text')
@@ -342,16 +342,15 @@ function bubbleChart() {
 
     //type
     function typeSplitBubbles() {
-        showTypeTitles();
         hideYearTitles();
-        hideTypeTitles();
+        showTypeTitles();
         hideSourceTitles();
         hideIndustryTitles();
         simulation.force('x', d3.forceX().strength(forceStrength).x(nodeTypePos));
         simulation.alpha(1).restart();
     }
 
-    document.getElementById('type').addEventListener('click', function () {
+    document.getElementById('type').addEventListener('click', function() {
         typeSplitBubbles();
     });
 
@@ -387,7 +386,7 @@ function bubbleChart() {
         simulation.alpha(1).restart();
     }
 
-    document.getElementById('source').addEventListener('click', function () {
+    document.getElementById('source').addEventListener('click', function() {
         sourceSplitBubbles();
     });
 
@@ -421,7 +420,7 @@ function bubbleChart() {
         simulation.alpha(1).restart();
     }
 
-    document.getElementById('industry').addEventListener('click', function () {
+    document.getElementById('industry').addEventListener('click', function() {
         industrySplitBubbles();
     });
 
@@ -484,24 +483,25 @@ function bubbleChart() {
     }
 
     chart.toggleDisplay = function(displayName) {
-        if (displayName === 'year') {
+        if (displayName === 'Breaches by Year') {
+            showYearTitles();
             hideTypeTitles();
             hideSourceTitles();
             hideIndustryTitles();
             splitBubbles();
-        } else if (displayName === 'type') {
+        } else if (displayName === 'Breaches by Type') {
             hideYearTitles();
             showTypeTitles();
             hideSourceTitles();
             hideIndustryTitles();
             typeSplitBubbles();
-        } else if (displayName === 'source') {
+        } else if (displayName === 'Breaches by Source') {
             hideYearTitles();
             hideTypeTitles();
             showSourceTitles();
             hideIndustryTitles();
             sourceSplitBubbles();
-        } else if (displayName === 'industry') {
+        } else if (displayName === 'Breaches by Indsutry') {
             hideYearTitles();
             hideTypeTitles();
             hideSourceTitles();

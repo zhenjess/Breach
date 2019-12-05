@@ -26927,13 +26927,16 @@ function bubbleChart() {
 
     simulation.alpha(1).restart();
   }
+
+  document.getElementById('all').addEventListener('click', function () {
+    groupBubbles();
+  });
   /*
    * Sets visualization in "split by year mode".
    * The year labels are shown and the force layout
    * tick function is set to move nodes to the
    * yearCenter of their data's year.
    */
-
 
   function splitBubbles() {
     showYearTitles();
@@ -26946,7 +26949,6 @@ function bubbleChart() {
 
 
   document.getElementById('year').addEventListener('click', function () {
-    // //     document.getElementById('year').innerHTML = "Hello World";
     splitBubbles();
   });
   /*Hides Year title displays.*/
@@ -26973,6 +26975,10 @@ function bubbleChart() {
     simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeTypePos));
     simulation.alpha(1).restart();
   }
+
+  document.getElementById('type').addEventListener('click', function () {
+    typeSplitBubbles();
+  });
 
   function hideTypeTitles() {
     svg.selectAll('.type').remove();

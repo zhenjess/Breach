@@ -81,7 +81,7 @@ function bubbleChart() {
         "Other": { x: [(7 * width) / 6], y: [height / 2] }
     };
 
-    let industriesTitleX = {
+    let industrysTitleX = {
         "Technology": [width / 6],
         "Retail": [(2 * width / 6) + 30],
         "Financial": [(3 * width / 6) + 15],
@@ -412,6 +412,7 @@ function bubbleChart() {
             });
     }
 
+    //industry
     function industrySplitBubbles() {
         showIndustryTitles();
         hideYearTitles();
@@ -421,33 +422,35 @@ function bubbleChart() {
         simulation.alpha(1).restart();
     }
 
+
     document.getElementById('industry').addEventListener('click', function() {
         industrySplitBubbles();
     });
 
+    /*Hides industry title displays.*/
     function hideIndustryTitles() {
         svg.selectAll('.industry').remove();
     }
 
+    /* Shows industry title displays.*/
     function showIndustryTitles() {
-        let industriesData = d3.keys(industriesTitleX);
-        let industries = svg.selectAll('.industry')
-            .data(industriesData);
+        let industrysData = d3.keys(industrysTitleX);
+        let industrys = svg.selectAll('.industry')
+            .data(industrysData);
 
-        industries.enter().append('text')
+        industrys.enter().append('text')
             .attr('class', 'industry')
-            .attr('x', function(d) { 
-                return industriesTitleX[d]; 
+            .attr('x', function(d) {
+                return industrysTitleX[d];
             })
             .attr('y', 40)
             .attr('text-anchor', 'middle')
-            .text(function(d) { 
-                return d; 
+            .text(function(d) {
+                return d;
             });
     }
 
-
-
+    
     /*
      * Function called on mouseover to display the
      * details of a bubble in the tooltip.
@@ -515,6 +518,7 @@ function bubbleChart() {
             showIndustryTitles();
             industrySplitBubbles();
         } else {
+            hideIndustryTitles();
             groupBubbles();
         }
     };

@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
             currentBtn.classList.add('active');
         }
     });
-    const modalBg = document.querySelector('modal-bg');
+    const modalBg = document.querySelector('.modal-bg');
     modalBg.addEventListener('click', handleModalBgClick);
 });
 

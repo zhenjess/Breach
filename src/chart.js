@@ -3,11 +3,11 @@ import * as d3 from "d3";
 import floatingTooltip from "./tooltip";
 
 
-function bubbleChart(id) {
+function bubbleChart() {
     //constants for sizing
     // let width = window.innerWidth;
-    console.log(id);
-    chart(id);
+    //console.log(id);
+    //chart(id);
     let width = 1600;
     let height = 1200;
 
@@ -530,6 +530,8 @@ function bubbleChart(id) {
     //return chart function from closure
     return chart;
 }
+
+export default bubbleChart;
 
 
 let myBubbleChart = bubbleChart();

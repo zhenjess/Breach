@@ -26629,7 +26629,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************!*\
   !*** ./src/chart.js ***!
   \**********************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26640,11 +26640,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function bubbleChart(id) {
+function bubbleChart() {
   //constants for sizing
   // let width = window.innerWidth;
-  console.log(id);
-  chart(id);
+  //console.log(id);
+  //chart(id);
   var width = 1600;
   var height = 1200; //tooltip for mouseover functionality
 
@@ -27131,6 +27131,7 @@ function bubbleChart(id) {
   return chart;
 }
 
+/* harmony default export */ __webpack_exports__["default"] = (bubbleChart);
 var myBubbleChart = bubbleChart();
 
 function display(error, data) {

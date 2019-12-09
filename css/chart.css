@@ -51,11 +51,21 @@ a, a:visited, a:active {
   cursor: pointer;
   padding: 1rem;
   transition: all 200ms ease-in;
+  color: black;
 }
 
 .modal-close__btn:hover {
   color: #b62840;
   transform: rotate(-90deg);
+}
+
+.title {
+  font-size: 1.8rem;
+  line-height: 1.5rem;
+  color: initial;
+  transition: all 100ms ease-in;
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
 .modal .title {

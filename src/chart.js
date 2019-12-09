@@ -5,7 +5,7 @@ import floatingTooltip from "./tooltip";
 
 function bubbleChart() {
     //constants for sizing
-    let width = 9000;
+    let width = 2350;
     let height = 900;
 
     //tooltip for mouseover functionality
@@ -15,12 +15,18 @@ function bubbleChart() {
     let center = { x: [width / 2], y: [height / 2] };
 
     let yearCenters = {
-        2014: { x: [width / 3], y: [height / 2] },
-        2015: { x: [width / 2], y: [height / 2] },
-        2016: { x: [(2 * width) / 3], y: [height / 2] },
-        2017: { x: [(width / 3) - 100], y: [height / 2] },
-        2018: { x: [(width / 2) - 15], y: [height / 2] },
-        2019: { x: [(2 * width / 3) - 100], y: [height / 2] }
+        2014: { x: [(width / 3) - 400], y: [height / 2] },
+        2015: { x: [(width / 3) - 275], y: [height / 2] },
+        2016: { x: [(width / 3) - 150], y: [height / 2] },
+        2017: { x: [(width / 3) - 25], y: [height / 2] },
+        2018: { x: [(width / 3) + 100], y: [height / 2] },
+        2019: { x: [(width / 3) + 225], y: [height / 2] }
+        //      2014: { x: [(width / 3) - 150], y: [height / 2] },
+        // 2015: { x: [width / 3], y: [height / 2] },
+        // 2016: { x: [(width / 2) - 150], y: [height / 2] },
+        // 2017: { x: [width / 2], y: [height / 2] },
+        // 2018: { x: [(2 * width) - 100], y: [height / 2] },
+        // 2019: { x: [(2 * width) - 50], y: [height / 2] },
     };
 
     //X locations of the year titles
@@ -73,21 +79,21 @@ function bubbleChart() {
     let industryCenters = {
         "Technology": { x: [width / 6], y: [height / 2] },
         "Retail": { x: [(2 * width) / 6], y: [height / 2] },
-        "Financial": { x: [(3 * width) / 6], y: [height / 2] },
-        "Education": { x: [(4 * width) / 6], y: [height / 2] },
-        "Healthcare": { x: [(5 * width) / 6], y: [height / 2] },
-        "Government": { x: [(6 * width) / 6], y: [height / 2] },
-        "Other": { x: [(7 * width) / 6], y: [height / 2] }
+        "Financial": { x: [(2.5 * width) / 6], y: [height / 2] },
+        "Education": { x: [(3 * width) / 6], y: [height / 2] },
+        "Healthcare": { x: [(3.5 * width) / 6], y: [height / 2] },
+        "Government": { x: [(4 * width) / 6], y: [height / 2] },
+        "Other": { x: [(4.6 * width) / 6], y: [height / 2] }
     };
 
     let industrysTitleX = {
         "Technology": [width / 6],
         "Retail": [(2 * width / 6) + 30],
-        "Financial": [(3 * width / 6) + 15],
-        "Education": [(4 * width / 6) + 25],
-        "Healthcare": [(5 * width / 6) + 35],
-        "Government": [(6 * width / 6) + 10],
-        "Other": [(7 * width / 6) + 20]
+        "Financial": [(2.5 * width / 6) + 15],
+        "Education": [(3 * width / 6) + 25],
+        "Healthcare": [(3.5 * width / 6) + 35],
+        "Government": [(4 * width / 6) + 10],
+        "Other": [(4.6 * width / 6) + 20]
     };
 
     //@4 strength to apply to the position forces

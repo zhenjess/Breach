@@ -26642,7 +26642,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function bubbleChart() {
   //constants for sizing
-  var width = 9000;
+  var width = 2350;
   var height = 900; //tooltip for mouseover functionality
 
   var tooltip = Object(_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"])('breach_tooltip', 250); //location to move bubbles towards depending on the view mode selected
@@ -26653,29 +26653,35 @@ function bubbleChart() {
   };
   var yearCenters = {
     2014: {
-      x: [width / 3],
+      x: [width / 3 - 400],
       y: [height / 2]
     },
     2015: {
-      x: [width / 2],
+      x: [width / 3 - 275],
       y: [height / 2]
     },
     2016: {
-      x: [2 * width / 3],
+      x: [width / 3 - 150],
       y: [height / 2]
     },
     2017: {
-      x: [width / 3 - 100],
+      x: [width / 3 - 25],
       y: [height / 2]
     },
     2018: {
-      x: [width / 2 - 15],
+      x: [width / 3 + 100],
       y: [height / 2]
     },
     2019: {
-      x: [2 * width / 3 - 100],
+      x: [width / 3 + 225],
       y: [height / 2]
-    }
+    } //      2014: { x: [(width / 3) - 150], y: [height / 2] },
+    // 2015: { x: [width / 3], y: [height / 2] },
+    // 2016: { x: [(width / 2) - 150], y: [height / 2] },
+    // 2017: { x: [width / 2], y: [height / 2] },
+    // 2018: { x: [(2 * width) - 100], y: [height / 2] },
+    // 2019: { x: [(2 * width) - 50], y: [height / 2] },
+
   }; //X locations of the year titles
 
   var yearsTitleX = {
@@ -26757,34 +26763,34 @@ function bubbleChart() {
       y: [height / 2]
     },
     "Financial": {
-      x: [3 * width / 6],
+      x: [2.5 * width / 6],
       y: [height / 2]
     },
     "Education": {
-      x: [4 * width / 6],
+      x: [3 * width / 6],
       y: [height / 2]
     },
     "Healthcare": {
-      x: [5 * width / 6],
+      x: [3.5 * width / 6],
       y: [height / 2]
     },
     "Government": {
-      x: [6 * width / 6],
+      x: [4 * width / 6],
       y: [height / 2]
     },
     "Other": {
-      x: [7 * width / 6],
+      x: [4.6 * width / 6],
       y: [height / 2]
     }
   };
   var industrysTitleX = {
     "Technology": [width / 6],
     "Retail": [2 * width / 6 + 30],
-    "Financial": [3 * width / 6 + 15],
-    "Education": [4 * width / 6 + 25],
-    "Healthcare": [5 * width / 6 + 35],
-    "Government": [6 * width / 6 + 10],
-    "Other": [7 * width / 6 + 20]
+    "Financial": [2.5 * width / 6 + 15],
+    "Education": [3 * width / 6 + 25],
+    "Healthcare": [3.5 * width / 6 + 35],
+    "Government": [4 * width / 6 + 10],
+    "Other": [4.6 * width / 6 + 20]
   }; //@4 strength to apply to the position forces
 
   var forceStrength = 0.03; //set in create_nodes and create_vis

@@ -5,13 +5,11 @@
 **Global Data Breaches Visualization**, is an interactive data visualization based off the annual Breach Level Index Report. An estimate of 400 breach incident data points over 6 years (2014 - 2019) were 
 aggregated to give an exploratory visual of the state of breach incidents.
 
-This visualization focuses on breach incidents per: source, type, industry, location, where 
-an estimate of 10 million data records are lost or stolen around the world on a daily basis.
+This visualization focuses on breach incidents per: source, type, industry, location, where an estimate of 10 million data records are lost or stolen around the world on a daily basis.
 As the amount of data produced around the world increases, the amount of data breach incidents also fluctuates. 
 North America is by far the main victim of data breaches and the main offender of data breaches is malicious outsiders.
 
-This tool allows you to better visualize and understand data breach susceptibility through the years 
-by customizing the statistics.
+This tool allows you to better visualize and understand data breach susceptibility through the years by customizing the statistics.
 
 Data provided by [Breach Level Index](https://breachlevelindex.com/) 
 Visualization created by [Jessica Zhen] 

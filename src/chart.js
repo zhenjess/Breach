@@ -3,10 +3,12 @@ import * as d3 from "d3";
 import floatingTooltip from "./tooltip";
 
 
-function bubbleChart() {
+function bubbleChart(id) {
     //constants for sizing
     // let width = window.innerWidth;
-    let width = 1900;
+    console.log(id);
+    chart(id);
+    let width = 1600;
     let height = 1200;
 
     //tooltip for mouseover functionality
@@ -110,6 +112,7 @@ function bubbleChart() {
         .force('x', d3.forceX().strength(forceStrength).x(center.x))
         .force('y', d3.forceY().strength(forceStrength).y(center.y))
         .force('charge', d3.forceManyBody().strength(charge))
+       // .size([center.x - 50, 2000])
         .on('tick', ticked);
 
     //@v4 to prevent automatic force
@@ -189,9 +192,10 @@ function bubbleChart() {
 
 
 
-        svg = d3.select(selector)
+        svg = document.getElementById(selector)
             .append('svg')
-            .attr('width', width)
+            .attr('width', 1100)
+            console.log(svg)
             .attr('height', height);
 
 
@@ -306,7 +310,7 @@ function bubbleChart() {
         hideTypeTitles();
         hideSourceTitles();
         hideIndustryTitles();
-        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeYearPos));
+        simulation.force('x', d3.forceX().strength(forceStrength).x((nodeYearPos.x) * .80));
         simulation.alpha(1).restart();  
     }
     
@@ -347,7 +351,7 @@ function bubbleChart() {
         showTypeTitles();
         hideSourceTitles();
         hideIndustryTitles();
-        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeTypePos));
+        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeTypePos.x));
         simulation.alpha(1).restart();
     }
 
@@ -383,7 +387,7 @@ function bubbleChart() {
         hideYearTitles();
         hideTypeTitles();
         hideIndustryTitles();
-        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeSourcePos));
+        simulation.force('x', d3.forceX().strength(forceStrength).x((nodeSourcePos.x)));
         simulation.alpha(1).restart();
     }
 
@@ -418,7 +422,7 @@ function bubbleChart() {
         hideYearTitles();
         hideTypeTitles();
         hideSourceTitles();
-        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeIndustryPos));
+        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeIndustryPos.x));
         simulation.alpha(1).restart();
     }
 
@@ -487,31 +491,31 @@ function bubbleChart() {
     }
 
     chart.toggleDisplay = function(displayName) {
-        if (displayName === '#all') {
+        if (displayName === 'all') {
             hideYearTitles();
             hideTypeTitles();
             hideSourceTitles();
             hideIndustryTitles();
             groupBubbles();
-        } else if (displayName === '#year') {
+        } else if (displayName === 'year') {
             showYearTitles();
             hideTypeTitles();
             hideSourceTitles();
             hideIndustryTitles();
             splitBubbles();
-        } else if (displayName === '#type') {
+        } else if (displayName === 'type') {
             hideYearTitles();
             showTypeTitles();
             hideSourceTitles();
             hideIndustryTitles();
             typeSplitBubbles();
-        } else if (displayName === '#source') {
+        } else if (displayName === 'source') {
             hideYearTitles();
             hideTypeTitles();
             showSourceTitles();
             hideIndustryTitles();
             sourceSplitBubbles();
-        } else if (displayName === '#industry') {
+        } else if (displayName === 'industry') {
             hideYearTitles();
             hideTypeTitles();
             hideSourceTitles();

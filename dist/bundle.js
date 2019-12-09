@@ -26640,10 +26640,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function bubbleChart() {
+function bubbleChart(id) {
   //constants for sizing
-  var width = window.innerWidth;
-  var height = 900; //tooltip for mouseover functionality
+  // let width = window.innerWidth;
+  console.log(id);
+  chart(id);
+  var width = 1600;
+  var height = 1200; //tooltip for mouseover functionality
 
   var tooltip = Object(_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"])('breach_tooltip', 250); //location to move bubbles towards depending on the view mode selected
 
@@ -26777,7 +26780,7 @@ function bubbleChart() {
       y: [height / 2]
     }
   };
-  var industriesTitleX = {
+  var industrysTitleX = {
     "Technology": [width / 6],
     "Retail": [2 * width / 6 + 30],
     "Financial": [3 * width / 6 + 15],
@@ -26798,7 +26801,8 @@ function bubbleChart() {
   } //create force layout and simulation to add force to it
 
 
-  var simulation = d3__WEBPACK_IMPORTED_MODULE_0__["forceSimulation"]().velocityDecay(0.2).force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(center.x)).force('y', d3__WEBPACK_IMPORTED_MODULE_0__["forceY"]().strength(forceStrength).y(center.y)).force('charge', d3__WEBPACK_IMPORTED_MODULE_0__["forceManyBody"]().strength(charge)).on('tick', ticked); //@v4 to prevent automatic force
+  var simulation = d3__WEBPACK_IMPORTED_MODULE_0__["forceSimulation"]().velocityDecay(0.2).force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(center.x)).force('y', d3__WEBPACK_IMPORTED_MODULE_0__["forceY"]().strength(forceStrength).y(center.y)).force('charge', d3__WEBPACK_IMPORTED_MODULE_0__["forceManyBody"]().strength(charge)) // .size([center.x - 50, 2000])
+  .on('tick', ticked); //@v4 to prevent automatic force
 
   simulation.stop(); //add color to bubbles
 
@@ -26854,7 +26858,8 @@ function bubbleChart() {
 
   var chart = function chart(selector, rawData) {
     nodes = createNodes(rawData);
-    svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"](selector).append('svg').attr('width', width).attr('height', height);
+    svg = document.getElementById(selector).append('svg').attr('width', 1100);
+    console.log(svg).attr('height', height);
     bubbles = svg.selectAll('.bubble').data(nodes, function (d) {
       return d.id;
     }); //create new circles where 1 circle.bubble for each object in nodes array
@@ -26921,7 +26926,10 @@ function bubbleChart() {
 
 
   function groupBubbles() {
-    hideYearTitles(); //reset 'x' force to draw bubbles to the center
+    hideYearTitles();
+    hideTypeTitles();
+    hideSourceTitles();
+    hideIndustryTitles(); //reset 'x' force to draw bubbles to the center
 
     simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(center.x)); //can reset alpha value and restart simulation
 
@@ -26940,7 +26948,10 @@ function bubbleChart() {
 
   function splitBubbles() {
     showYearTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeYearPos));
+    hideTypeTitles();
+    hideSourceTitles();
+    hideIndustryTitles();
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeYearPos.x * .80));
     simulation.alpha(1).restart();
   } //const yrButton = d3.select('#year')
   // yrButton.onclick = splitBubbles;
@@ -26971,9 +26982,11 @@ function bubbleChart() {
 
 
   function typeSplitBubbles() {
-    showTypeTitles();
     hideYearTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeTypePos));
+    showTypeTitles();
+    hideSourceTitles();
+    hideIndustryTitles();
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeTypePos.x));
     simulation.alpha(1).restart();
   }
 
@@ -27002,7 +27015,8 @@ function bubbleChart() {
     showSourceTitles();
     hideYearTitles();
     hideTypeTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeSourcePos));
+    hideIndustryTitles();
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeSourcePos.x));
     simulation.alpha(1).restart();
   }
 
@@ -27022,30 +27036,34 @@ function bubbleChart() {
     }).attr('y', 40).attr('text-anchor', 'middle').text(function (d) {
       return d;
     });
-  }
+  } //industry
+
 
   function industrySplitBubbles() {
     showIndustryTitles();
     hideYearTitles();
     hideTypeTitles();
     hideSourceTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeIndustryPos));
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeIndustryPos.x));
     simulation.alpha(1).restart();
   }
 
   document.getElementById('industry').addEventListener('click', function () {
     industrySplitBubbles();
   });
+  /*Hides industry title displays.*/
 
   function hideIndustryTitles() {
     svg.selectAll('.industry').remove();
   }
+  /* Shows industry title displays.*/
+
 
   function showIndustryTitles() {
-    var industriesData = d3__WEBPACK_IMPORTED_MODULE_0__["keys"](industriesTitleX);
-    var industries = svg.selectAll('.industry').data(industriesData);
-    industries.enter().append('text').attr('class', 'industry').attr('x', function (d) {
-      return industriesTitleX[d];
+    var industrysData = d3__WEBPACK_IMPORTED_MODULE_0__["keys"](industrysTitleX);
+    var industrys = svg.selectAll('.industry').data(industrysData);
+    industrys.enter().append('text').attr('class', 'industry').attr('x', function (d) {
+      return industrysTitleX[d];
     }).attr('y', 40).attr('text-anchor', 'middle').text(function (d) {
       return d;
     });
@@ -27073,7 +27091,14 @@ function bubbleChart() {
   }
 
   chart.toggleDisplay = function (displayName) {
-    if (displayName === 'year') {
+    if (displayName === 'all') {
+      hideYearTitles();
+      hideTypeTitles();
+      hideSourceTitles();
+      hideIndustryTitles();
+      groupBubbles();
+    } else if (displayName === 'year') {
+      showYearTitles();
       hideTypeTitles();
       hideSourceTitles();
       hideIndustryTitles();
@@ -27097,9 +27122,6 @@ function bubbleChart() {
       showIndustryTitles();
       industrySplitBubbles();
     } else {
-      hideYearTitles();
-      hideTypeTitles();
-      hideSourceTitles();
       hideIndustryTitles();
       groupBubbles();
     }

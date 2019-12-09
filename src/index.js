@@ -1,7 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
     const rootDiv = document.getElementById("root");
     // ReactDOM.render(<h1>React is working</h1>, rootDiv);
-    //rootDiv.innerHTML = "works"
+    rootDiv.innerHTML = "works"
+
+    //group event listener
+
+    // let btnGroup = documnet.querySelector(".btn-group");
+    // btnGroup.addEventListener('mousedown', e => {
+    //     e.preventDefault();
+    //     let currentBtn = e.target;
+    //     let currentBtnType = currentBtn.classList[1];
+    //     let currentBtnClass;
+    //     if (currentBtnType === 'header-chart__btn') {
+    //         currentBtnClass = currentBtn.classList[0].split('-')[1];
+    //     }
+    //     if (currentBtnType === 'header-chart__btn') {
+    //         chart.updateData(currentBtnClass);
+    //         let allBtns = btnGroup.querySelectorAll('a');
+    //         allBtns.forEach(btn => {
+    //             btn.classList.remove('active');
+    //         });
+    //         currentBtn.classList.add('active');
+    //     }
+    // })
     //modal
     const modalBg = document.querySelector('.modal-bg');
     modalBg.addEventListener('click', handleModalBgClick);

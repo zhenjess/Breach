@@ -49,9 +49,8 @@ a, a:visited, a:active {
   top: 3rem;
   font-size: 1.6rem;
   cursor: pointer;
-  padding: 1rem;
   transition: all 200ms ease-in;
-  color: black;
+
 }
 
 .modal-close__btn:hover {

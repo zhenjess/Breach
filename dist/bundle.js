@@ -26629,7 +26629,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************!*\
   !*** ./src/chart.js ***!
   \**********************/
-/*! exports provided: default */
+/*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26642,11 +26642,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function bubbleChart() {
   //constants for sizing
-  // let width = window.innerWidth;
-  //console.log(id);
-  //chart(id);
-  var width = 1600;
-  var height = 1200; //tooltip for mouseover functionality
+  var width = 9000;
+  var height = 900; //tooltip for mouseover functionality
 
   var tooltip = Object(_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"])('breach_tooltip', 250); //location to move bubbles towards depending on the view mode selected
 
@@ -26801,7 +26798,7 @@ function bubbleChart() {
   } //create force layout and simulation to add force to it
 
 
-  var simulation = d3__WEBPACK_IMPORTED_MODULE_0__["forceSimulation"]().velocityDecay(0.2).force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(center.x)).force('y', d3__WEBPACK_IMPORTED_MODULE_0__["forceY"]().strength(forceStrength).y(center.y)).force('charge', d3__WEBPACK_IMPORTED_MODULE_0__["forceManyBody"]().strength(charge)) // .size([center.x - 50, 2000])
+  var simulation = d3__WEBPACK_IMPORTED_MODULE_0__["forceSimulation"]().velocityDecay(0.2).force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(center.x)).force('y', d3__WEBPACK_IMPORTED_MODULE_0__["forceY"]().strength(forceStrength).y(center.y)).force('charge', d3__WEBPACK_IMPORTED_MODULE_0__["forceManyBody"]().strength(charge)) //.size([center.x - 50, 2000])
   .on('tick', ticked); //@v4 to prevent automatic force
 
   simulation.stop(); //add color to bubbles
@@ -26858,8 +26855,7 @@ function bubbleChart() {
 
   var chart = function chart(selector, rawData) {
     nodes = createNodes(rawData);
-    svg = document.getElementById(selector).append('svg').attr('width', 1100);
-    console.log(svg).attr('height', height);
+    svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"](selector).append('svg').attr('width', width).attr('height', height);
     bubbles = svg.selectAll('.bubble').data(nodes, function (d) {
       return d.id;
     }); //create new circles where 1 circle.bubble for each object in nodes array
@@ -26951,7 +26947,7 @@ function bubbleChart() {
     hideTypeTitles();
     hideSourceTitles();
     hideIndustryTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeYearPos.x * .80));
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeYearPos));
     simulation.alpha(1).restart();
   } //const yrButton = d3.select('#year')
   // yrButton.onclick = splitBubbles;
@@ -26986,7 +26982,7 @@ function bubbleChart() {
     showTypeTitles();
     hideSourceTitles();
     hideIndustryTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeTypePos.x));
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeTypePos));
     simulation.alpha(1).restart();
   }
 
@@ -27016,7 +27012,7 @@ function bubbleChart() {
     hideYearTitles();
     hideTypeTitles();
     hideIndustryTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeSourcePos.x));
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeSourcePos));
     simulation.alpha(1).restart();
   }
 
@@ -27044,7 +27040,7 @@ function bubbleChart() {
     hideYearTitles();
     hideTypeTitles();
     hideSourceTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeIndustryPos.x));
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeIndustryPos));
     simulation.alpha(1).restart();
   }
 
@@ -27131,7 +27127,6 @@ function bubbleChart() {
   return chart;
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (bubbleChart);
 var myBubbleChart = bubbleChart();
 
 function display(error, data) {

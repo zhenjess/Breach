@@ -82,7 +82,7 @@ function bubbleChart() {
     };
 
     //X locations of the year titles
-    let yearsTitleX = {
+    let industrysTitleX = {
         "Technology": 230,
         "Retail": [(width / 4) - 100],
         "Financial": [(width / 4) + 110],

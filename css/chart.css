@@ -62,11 +62,11 @@ a, a:visited, a:active {
 
 .close-modal-btn {
   position: absolute;
-  right: 3rem;
-  top: 3rem;
+  right: 2.5rem;
+  top: 2.5rem; 
   font-size: 1.6rem;
   cursor: pointer;
-  padding: 1rem;
+  /* padding: 1rem; */
   transition: all 200ms ease-in;
   font-size: 30px;
 }
@@ -78,11 +78,11 @@ a, a:visited, a:active {
 } 
 
 .modal .title {
-  margin-bottom: 4rem;
+  margin-top: 3rem;
 }
 
 .modal .text {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .main_description {

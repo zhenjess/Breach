@@ -26642,7 +26642,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function bubbleChart() {
   //constants for sizing
-  var width = 2350;
+  var width = 2440;
   var height = 900; //tooltip for mouseover functionality
 
   var tooltip = Object(_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"])('breach_tooltip', 250); //location to move bubbles towards depending on the view mode selected
@@ -26675,82 +26675,76 @@ function bubbleChart() {
     2019: {
       x: [width / 3 + 225],
       y: [height / 2]
-    } //      2014: { x: [(width / 3) - 150], y: [height / 2] },
-    // 2015: { x: [width / 3], y: [height / 2] },
-    // 2016: { x: [(width / 2) - 150], y: [height / 2] },
-    // 2017: { x: [width / 2], y: [height / 2] },
-    // 2018: { x: [(2 * width) - 100], y: [height / 2] },
-    // 2019: { x: [(2 * width) - 50], y: [height / 2] },
-
+    }
   }; //X locations of the year titles
 
   var yearsTitleX = {
     2014: 160,
-    2015: [width / 3 - 100],
-    2016: [width / 3 + 130],
-    2017: [width / 2 + 120],
-    2018: [2 * width / 3 + 125],
-    2019: [width - 160]
+    2015: [width / 4 - 210],
+    2016: [width / 4 - 5],
+    2017: [width / 3],
+    2018: [width / 3 + 220],
+    2019: [width / 3 + 500]
   }; //X locations of the breach types
 
   var typeCenters = {
     "Account Access": {
-      x: [width / 6],
+      x: [width / 3 - 400],
       y: [height / 2]
     },
     "Existential Data": {
-      x: [2 * width / 6],
+      x: [width / 3 - 275],
       y: [height / 2]
     },
     "Financial Access": {
-      x: [3 * width / 6],
+      x: [width / 3 - 150],
       y: [height / 2]
     },
     "Identity Theft": {
-      x: [4 * width / 6],
+      x: [width / 3 - 25],
       y: [height / 2]
     },
     "Nuisance": {
-      x: [5 * width / 6],
+      x: [width / 3 + 100],
       y: [height / 2]
     }
   };
   var typesTitleX = {
-    "Account Access": [width / 6],
-    "Existential Data": [2 * width / 6 + 30],
-    "Financial Access": [3 * width / 6 + 15],
-    "Identity Theft": [4 * width / 6 + 25],
-    "Nuisance": [5 * width / 6 + 35]
+    "Account Access": 200,
+    "Existential Data": [width / 4 - 145],
+    "Financial Access": [width / 4 + 35],
+    "Identity Theft": [width / 3 + 100],
+    "Nuisance": [width / 3 + 400]
   }; // //X locations of the breach sources
 
   var sourceCenters = {
     "Malicious Outsider": {
-      x: [width / 6],
+      x: [width / 3 - 380],
       y: [height / 2]
     },
     "Malicious Insider": {
-      x: [2 * width / 6],
+      x: [width / 3 - 200],
       y: [height / 2]
     },
     "State Sponsored": {
-      x: [3 * width / 6],
+      x: [width / 3 - 50],
       y: [height / 2]
     },
     "Accidental Loss": {
-      x: [4 * width / 6],
+      x: [width / 3 + 175],
       y: [height / 2]
     },
     "Hacktivist": {
-      x: [5 * width / 6],
+      x: [width / 3 + 350],
       y: [height / 2]
     }
   };
   var sourcesTitleX = {
-    "Malicious Outsider": [width / 6],
-    "Malicious Insider": [2 * width / 6 + 30],
-    "State Sponsored": [3 * width / 6 + 15],
-    "Accidental Loss": [4 * width / 6 + 25],
-    "Hacktivist": [5 * width / 6 + 35]
+    "Malicious Outsider": 300,
+    "Malicious Insider": [width / 3 - 150],
+    "State Sponsored": [width / 3 + 60],
+    "Accidental Loss": [width / 3 + 280],
+    "Hacktivist": [width / 3 + 500]
   }; // //X locations of the industry specific breaches
 
   var industryCenters = {

@@ -1,39 +1,39 @@
-
 import bubbleChart from "./chart";
-//modal
+
 let bubbleChart;
 document.addEventListener("DOMContentLoaded", () => {
- const rootDiv = document.getElementById("root");
-//     // ReactDOM.render(<h1>React is working</h1>, rootDiv);
+    const rootDiv = document.getElementById("root");
+    // initialize data visualzation
     rootDiv.innerHTML = "works"
+    bubbleChart = new BubbleChart("svg.chart");
 
-    bubbleChart = new bubbleChart('svg.chart');
-
-    let btnGroup = document.querySelector('.btn-group');
-    btnGroup.addEventListener('mousedown', e => {
+    // button group event listener
+    let btnGroup = document.querySelector(".btn-group");
+    btnGroup.addEventListener("mousedown", e => {
         e.preventDefault();
         let currentBtn = e.target;
         let currentBtnType = currentBtn.classList[1];
         let currentBtnClass;
-        if (currentBtnType === 'header-chart__btn') {
-            currentBtnClass = currentBtn.classList[0].split('-')[1];
+        if (currentBtnType === "header-chart__btn") {
+            currentBtnClass = currentBtn.classList[0].split("-")[1];
         }
 
-        if (currentBtnType === 'header-chart__btn') {
+        if (currentBtnType === "header-chart__btn") {
             bubbleChart.updateData(currentBtnClass);
-            let allBtns = btnGroup.querySelectorAll('a');
+            let allBtns = btnGroup.querySelectorAll("a");
             allBtns.forEach(btn => {
-                btn.classList.remove('active');
+                btn.classList.remove("active");
             });
-            currentBtn.classList.add('active');
+            currentBtn.classList.add("active");
         }
     });
+
+    // modal actions
     const modalBg = document.querySelector('.modal-bg');
     modalBg.addEventListener('click', handleModalBgClick);
 });
 
-
-//close modal
+// modal close 
 function handleModalBgClick(e) {
     e.stopPropagation();
     let modalBg = document.querySelector(".modal-bg");
@@ -46,4 +46,3 @@ function handleModalBgClick(e) {
         modalBg.setAttribute("style", "opacity: 0; visibility: hidden");
     }
 }
-

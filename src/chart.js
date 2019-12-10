@@ -35,19 +35,19 @@ function bubbleChart() {
 
     //X locations of the breach types
     let typeCenters = {
-        "Account Access": { x: [(width / 3) - 400], y: [height / 2] },
-        "Existential Data": { x: [(width / 3) - 275], y: [height / 2] },
-        "Financial Access": { x: [(width / 3) - 150], y: [height / 2] },
-        "Identity Theft": { x: [(width / 3) - 25], y: [height / 2] },
-        "Nuisance": { x: [(width / 3) + 100], y: [height / 2] }
+        "Account Access": { x: [(width / 3) - 275], y: [height / 2] },
+        "Existential Data": { x: [(width / 3) - 90], y: [height / 2] },
+        "Financial Access": { x: [(width / 3) + 125], y: [height / 2] },
+        "Identity Theft": { x: [(width / 3) + 280], y: [height / 2] },
+        "Nuisance": { x: [(width / 3) + 450], y: [height / 2] }
     }
 
     let typesTitleX = {
-        "Account Access": 200,
-        "Existential Data": [(width / 4) - 145],
-        "Financial Access": [(width / 4) + 35],
-        "Identity Theft": [(width / 3) + 100],
-        "Nuisance": [(width / 3) + 400]
+        "Account Access": 300,
+        "Existential Data": [(width / 4) + 40],
+        "Financial Access": [(width / 4) + 220],
+        "Identity Theft": [(width / 3) + 360],
+        "Nuisance": [(width / 3) + 700]
     };
 
     // //X locations of the breach sources

@@ -5,7 +5,11 @@ body, html {
 html {
   background-color: #c7c7c7;
   width: 1200px;
-  height: 600px;
+  /* height: 600px; */
+}
+
+pre {
+  display: none;
 }
 
 a, a:visited, a:active {

@@ -26642,7 +26642,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function bubbleChart() {
   //constants for sizing
-  var width = 2440;
+  var width = 2100;
   var height = 900; //tooltip for mouseover functionality
 
   var tooltip = Object(_tooltip__WEBPACK_IMPORTED_MODULE_1__["default"])('breach_tooltip', 250); //location to move bubbles towards depending on the view mode selected
@@ -26653,38 +26653,38 @@ function bubbleChart() {
   };
   var yearCenters = {
     2014: {
-      x: [width / 3 - 400],
+      x: [width / 3 - 300],
       y: [height / 2]
     },
     2015: {
-      x: [width / 3 - 275],
+      x: [width / 3 - 155],
       y: [height / 2]
     },
     2016: {
-      x: [width / 3 - 150],
+      x: [width / 3 - 5],
       y: [height / 2]
     },
     2017: {
-      x: [width / 3 - 25],
+      x: [width / 3 + 120],
       y: [height / 2]
     },
     2018: {
-      x: [width / 3 + 100],
+      x: [width / 3 + 275],
       y: [height / 2]
     },
     2019: {
-      x: [width / 3 + 225],
+      x: [width / 3 + 400],
       y: [height / 2]
     }
   }; //X locations of the year titles
 
   var yearsTitleX = {
-    2014: 160,
-    2015: [width / 4 - 210],
-    2016: [width / 4 - 5],
-    2017: [width / 3],
-    2018: [width / 3 + 220],
-    2019: [width / 3 + 500]
+    2014: 230,
+    2015: [width / 4 - 100],
+    2016: [width / 4 + 110],
+    2017: [width / 3 + 175],
+    2018: [width / 3 + 390],
+    2019: [width / 3 + 600]
   }; //X locations of the breach types
 
   var typeCenters = {

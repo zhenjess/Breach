@@ -5,7 +5,7 @@ import floatingTooltip from "./tooltip";
 
 function bubbleChart() {
     //constants for sizing
-    let width = 2440;
+    let width = 2100;
     let height = 900;
 
     //tooltip for mouseover functionality
@@ -15,22 +15,22 @@ function bubbleChart() {
     let center = { x: [width / 2], y: [height / 2] };
 
     let yearCenters = {
-        2014: { x: [(width / 3) - 400], y: [height / 2] },
-        2015: { x: [(width / 3) - 275], y: [height / 2] },
-        2016: { x: [(width / 3) - 150], y: [height / 2] },
-        2017: { x: [(width / 3) - 25], y: [height / 2] },
-        2018: { x: [(width / 3) + 100], y: [height / 2] },
-        2019: { x: [(width / 3) + 225], y: [height / 2] }
+        2014: { x: [(width / 3) - 300], y: [height / 2] },
+        2015: { x: [(width / 3) - 155], y: [height / 2] },
+        2016: { x: [(width / 3) - 5], y: [height / 2] },
+        2017: { x: [(width / 3) + 120], y: [height / 2] },
+        2018: { x: [(width / 3) + 275], y: [height / 2] },
+        2019: { x: [(width / 3) + 400], y: [height / 2] }
     };
 
     //X locations of the year titles
     let yearsTitleX = {
-        2014: 160,
-        2015: [(width / 4) - 210],
-        2016: [(width / 4) - 5],
-        2017: [(width / 3)],
-        2018: [(width / 3) + 220],
-        2019: [(width / 3) + 500]
+        2014: 230,
+        2015: [(width / 4) - 100],
+        2016: [(width / 4) + 110],
+        2017: [(width / 3) + 175],
+        2018: [(width / 3) + 390],
+        2019: [(width / 3) + 600]
     };
 
     //X locations of the breach types

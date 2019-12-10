@@ -26948,7 +26948,7 @@ function bubbleChart() {
     hideTypeTitles();
     hideSourceTitles();
     hideIndustryTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeYearPos.x));
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeYearPos));
     simulation.alpha(1).restart();
   } //const yrButton = d3.select('#year')
   // yrButton.onclick = splitBubbles;
@@ -26983,7 +26983,7 @@ function bubbleChart() {
     showTypeTitles();
     hideSourceTitles();
     hideIndustryTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeTypePos.x));
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeTypePos));
     simulation.alpha(1).restart();
   }
 
@@ -27013,7 +27013,7 @@ function bubbleChart() {
     hideYearTitles();
     hideTypeTitles();
     hideIndustryTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeSourcePos.x));
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeSourcePos));
     simulation.alpha(1).restart();
   }
 
@@ -27035,33 +27035,12 @@ function bubbleChart() {
     });
   }
 
-  function groupBubbles() {
-    hideYearTitles();
-    hideTypeTitles();
-    hideSourceTitles();
-    hideIndustryTitles(); //reset 'x' force to draw bubbles to the center
-
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(center.x)); //can reset alpha value and restart simulation
-
-    simulation.alpha(1).restart();
-  }
-
-  document.getElementById('all').addEventListener('click', function () {
-    groupBubbles();
-  });
-  /*
-   * Sets visualization in "split by year mode".
-   * The year labels are shown and the force layout
-   * tick function is set to move nodes to the
-   * yearCenter of their data's year.
-   */
-
   function industrySplitBubbles() {
     hideYearTitles();
     hideTypeTitles();
     hideSourceTitles();
     showIndustryTitles();
-    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeIndustryPos.x));
+    simulation.force('x', d3__WEBPACK_IMPORTED_MODULE_0__["forceX"]().strength(forceStrength).x(nodeIndustryPos));
     simulation.alpha(1).restart();
   }
 

@@ -26753,11 +26753,11 @@ function bubbleChart() {
       y: [height / 2]
     },
     "Retail": {
-      x: [width / 3 - 155],
+      x: [width / 3 - 175],
       y: [height / 2]
     },
     "Financial": {
-      x: [width / 3 - 5],
+      x: [width / 3 - 15],
       y: [height / 2]
     },
     "Education": {
@@ -26775,14 +26775,6 @@ function bubbleChart() {
     "Other": {
       x: [width / 3 + 550],
       y: [height / 2]
-    },
-    "Hospitality": {
-      x: [width / 3 + 550],
-      y: [height / 2]
-    },
-    "Insurance": {
-      x: [width / 3 + 550],
-      y: [height / 2]
     }
   }; //X locations of the year titles
 
@@ -26793,9 +26785,7 @@ function bubbleChart() {
     "Education": [width / 3 + 175],
     "Healthcare": [width / 3 + 390],
     "Government": [width / 3 + 600],
-    "Other": [width / 3 + 700],
-    "Hospitality": [width],
-    "Insurance": [width]
+    "Other": [width / 3 + 700]
   }; //@4 strength to apply to the position forces
 
   var forceStrength = 0.03; //set in create_nodes and create_vis
@@ -26922,11 +26912,6 @@ function bubbleChart() {
   }
 
   function nodeIndustryPos(d) {
-    // console.log(x)
-    // console.log(industryCenters)
-    var x = 1;
-    console.log(industryCenters); // console.log(d)
-
     return industryCenters[d.industry].x;
   }
   /*

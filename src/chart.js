@@ -70,32 +70,26 @@ function bubbleChart() {
     };
 
     // //X locations of the industry specific breaches
+
     let industryCenters = {
-        "Technology": { x: [(width / 4) - 300], y: [height / 2] },
-        "Retail": { x: [(width / 4) - 155], y: [height / 2] },
-        "Financial": { x: [(width / 4) - 5], y: [height / 2] },
-        "Education": { x: [(width / 4) + 120], y: [height / 2] },
+        "Technology": { x: [(width / 3) - 300], y: [height / 2] },
+        "Retail": { x: [(width / 3) - 155], y: [height / 2] },
+        "Financial": { x: [(width / 3) - 5], y: [height / 2] },
+        "Education": { x: [(width / 3) + 120], y: [height / 2] },
         "Healthcare": { x: [(width / 3) + 275], y: [height / 2] },
         "Government": { x: [(width / 3) + 400], y: [height / 2] },
-
-
-        // "Technology": { x: [width / 6], y: [height / 2] },
-        // "Retail": { x: [(2 * width) / 6], y: [height / 2] },
-        // "Financial": { x: [(2.5 * width) / 6], y: [height / 2] },
-        // "Education": { x: [(3 * width) / 6], y: [height / 2] },
-        // "Healthcare": { x: [(3.5 * width) / 6], y: [height / 2] },
-        // "Government": { x: [(4 * width) / 6], y: [height / 2] },
-        // "Other": { x: [(4.6 * width) / 6], y: [height / 2] }
+        "Other": { x: [(width / 3) + 550], y: [height / 2]}
     };
 
-    let industrysTitleX = {
-        "Technology": [width / 6],
-        "Retail": [(2 * width / 6) + 30],
-        "Financial": [(2.5 * width / 6) + 15],
-        "Education": [(3 * width / 6) + 25],
-        "Healthcare": [(3.5 * width / 6) + 35],
-        "Government": [(4 * width / 6) + 10],
-        "Other": [(4.6 * width / 6) + 20]
+    //X locations of the year titles
+    let yearsTitleX = {
+        "Technology": 230,
+        "Retail": [(width / 4) - 100],
+        "Financial": [(width / 4) + 110],
+        "Education": [(width / 3) + 175],
+        "Healthcare": [(width / 3) + 390],
+        "Government": [(width / 3) + 600],
+        "Other": [(width / 3) + 700]
     };
 
     //@4 strength to apply to the position forces
@@ -278,6 +272,7 @@ function bubbleChart() {
         return industryCenters[d.industry].x;
     }
 
+
     /*
      * Sets visualization in "single group mode".
      * The year labels are hidden and the force layout
@@ -314,7 +309,7 @@ function bubbleChart() {
         hideTypeTitles();
         hideSourceTitles();
         hideIndustryTitles();
-        simulation.force('x', d3.forceX().strength(forceStrength).x((nodeYearPos)));
+        simulation.force('x', d3.forceX().strength(forceStrength).x((nodeYearPos.x)));
         simulation.alpha(1).restart();  
     }
     
@@ -355,7 +350,7 @@ function bubbleChart() {
         showTypeTitles();
         hideSourceTitles();
         hideIndustryTitles();
-        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeTypePos));
+        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeTypePos.x));
         simulation.alpha(1).restart();
     }
 
@@ -391,7 +386,7 @@ function bubbleChart() {
         hideYearTitles();
         hideTypeTitles();
         hideIndustryTitles();
-        simulation.force('x', d3.forceX().strength(forceStrength).x((nodeSourcePos)));
+        simulation.force('x', d3.forceX().strength(forceStrength).x((nodeSourcePos.x)));
         simulation.alpha(1).restart();
     }
 
@@ -420,27 +415,50 @@ function bubbleChart() {
             });
     }
 
-    //industry
-    function industrySplitBubbles() {
-        showIndustryTitles();
+    function groupBubbles() {
         hideYearTitles();
         hideTypeTitles();
         hideSourceTitles();
-        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeIndustryPos));
+        hideIndustryTitles();
+
+        //reset 'x' force to draw bubbles to the center
+        simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
+
+        //can reset alpha value and restart simulation
         simulation.alpha(1).restart();
     }
 
+    document.getElementById('all').addEventListener('click', function () {
+        groupBubbles();
+    });
+
+    /*
+     * Sets visualization in "split by year mode".
+     * The year labels are shown and the force layout
+     * tick function is set to move nodes to the
+     * yearCenter of their data's year.
+     */
+
+
+    function industrySplitBubbles() {
+        hideYearTitles();
+        hideTypeTitles();
+        hideSourceTitles();
+        showIndustryTitles();
+        simulation.force('x', d3.forceX().strength(forceStrength).x((nodeIndustryPos.x)));
+        simulation.alpha(1).restart();
+    }
 
     document.getElementById('industry').addEventListener('click', function() {
         industrySplitBubbles();
     });
 
-    /*Hides industry title displays.*/
+    /*Hides Industry title displays.*/
     function hideIndustryTitles() {
         svg.selectAll('.industry').remove();
     }
 
-    /* Shows industry title displays.*/
+    /* Shows Industry title displays.*/
     function showIndustryTitles() {
         let industrysData = d3.keys(industrysTitleX);
         let industrys = svg.selectAll('.industry')
@@ -458,7 +476,7 @@ function bubbleChart() {
             });
     }
 
-    
+  
     /*
      * Function called on mouseover to display the
      * details of a bubble in the tooltip.
@@ -526,7 +544,6 @@ function bubbleChart() {
             showIndustryTitles();
             industrySplitBubbles();
         } else {
-            hideIndustryTitles();
             groupBubbles();
         }
     };

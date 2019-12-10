@@ -167,7 +167,7 @@ AT&T,165,Identity Theft,Malicious Insider,Mexico,North America,Retail,2015,28000
 "Department of Labor, Florida Department of Economic Opportunity",166,Identity Theft,Malicious Outsider,United States,North America,Government,2015,200000
 mSpy,167,Identity Theft,Malicious Outsider,United States,North America,Technology,2015,400000
 Seki Co,168,Financial Access,Malicious Outsider,Japan,Asia,Other,2015,267000
-Systema Software/Golden State Risk Management Authority (Kansas State Self Insurance Fund/CSAC-EIA and York Insurance Services Group/Salt Lake County),169,Identity Theft,Accidental Loss,United States,North America,Insurance,2015,1500000
+Systema Software/Golden State Risk Management Authority (Kansas State Self Insurance Fund/CSAC-EIA and York Insurance Services Group/Salt Lake County),169,Identity Theft,Accidental Loss,United States,North America,Other,2015,1500000
 VK Music,170,Account Access,Malicious Insider,Russia,Europe,Other,2015,500000
 Advantage Dental,171,Identity Theft,Malicious Outsider,United States,North America,Healthcare,2015,151626
 Career Education Corporation,172,Identity Theft,Malicious Outsider,United States,North America,Healthcare,2015,151626
@@ -216,7 +216,7 @@ Mail.ru / Cross Fire / ParaPa Dance City / Ground War Tank game,214,Account Acce
 "U.S. Department of Health and Human Services Office of Child Support Enforcement, the National Federation of Independent Business, the Federal Highway Administration and Lightspeed Retail.",215,Identity Theft,Malicious Outsider,United States,North America,Government,2016,5000000
 U.S. Voter/Amazon/Google,216,Nuisance,Accidental Loss,United States,North America,Government,2016,154000000
 Banner Health,217,Identity Theft,Malicious Outsider,United States,North America,Healthcare,2016,3700000
-JTB Corp,218,Identity Theft,Malicious Outsider,Japan,Asia,Hospitality,2016,7930000
+JTB Corp,218,Identity Theft,Malicious Outsider,Japan,Asia,Other,2016,7930000
 Mossack Fonseca,219,Identity Theft,Malicious Insider,Panama,North America,Financial,2016,11500000
 ClixSense,220,Account Access,Malicious Outsider,United States,North America,Technology,2016,6600000
 Heritage Auctions and Christies,221,Existential Data,Malicious Outsider,United Kingdom,Europe,Retail,2016,2700000
@@ -231,7 +231,7 @@ Naughty America,229,Account Access,Malicious Outsider,United States,North Americ
 Photobucket,230,Identity Theft,Malicious Outsider,United States,North America,Other,2016,1900000
 E-Sports Entertainment Association,231,Identity Theft,Malicious Outsider,United States,North America,Technology,2016,1503707
 Interpark Corp,232,Nuisance,State Sponsored,South Korea,Asia,Retail,2016,10300000
-Aerticket,233,Financial Access,Malicious Outsider,Germany,Europe,Hospitality,2016,1500000
+Aerticket,233,Financial Access,Malicious Outsider,Germany,Europe,Other,2016,1500000
 Capgemini,234,Identity Theft,Accidental Loss,France,Europe,Technology,2016,10000000
 i-Dressup,235,Account Access,Malicious Outsider,United States,North America,Other,2016,5500000
 Kentucky Fried Chicken KFC,236,Identity Theft,Malicious Outsider,United States,North America,Retail,2016,1200000

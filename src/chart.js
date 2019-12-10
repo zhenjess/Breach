@@ -12,7 +12,7 @@ function bubbleChart() {
     let tooltip = floatingTooltip('breach_tooltip', 250);
 
     //location to move bubbles towards depending on the view mode selected
-    let center = { x: [width / 2], y: [height / 2] };
+    let center = { x: [width / 3], y: [height / 2] };
 
     let yearCenters = {
         2014: { x: [(width / 3) - 300], y: [height / 2] },
@@ -53,31 +53,39 @@ function bubbleChart() {
     // //X locations of the breach sources
 
     let sourceCenters = {
-        "Malicious Outsider": { x: [(width / 3) - 380], y: [height / 2] },
-        "Malicious Insider": { x: [(width / 3) - 200], y: [height / 2] },
-        "State Sponsored": { x: [(width / 3) - 50], y: [height / 2] },
-        "Accidental Loss": { x: [(width / 3) + 175], y: [height / 2] },
-        "Hacktivist": { x: [(width / 3) + 350], y: [height / 2] }
+        "Malicious Outsider": { x: [(width / 3) - 275], y: [height / 2] },
+        "Malicious Insider": { x: [(width / 3) - 90], y: [height / 2] },
+        "State Sponsored": { x: [(width / 3) + 125], y: [height / 2] },
+        "Accidental Loss": { x: [(width / 3) + 280], y: [height / 2] },
+        "Hacktivist": { x: [(width / 3) + 450], y: [height / 2] }
     };
 
 
     let sourcesTitleX = {
         "Malicious Outsider": 300,
-        "Malicious Insider": [(width / 3) - 150],
-        "State Sponsored": [(width / 3) + 60],
-        "Accidental Loss": [(width / 3) + 280],
-        "Hacktivist": [(width / 3) + 500]
+        "Malicious Insider": [(width / 3) + 20],
+        "State Sponsored": [(width / 3) + 200],
+        "Accidental Loss": [(width / 3) + 400],
+        "Hacktivist": [(width / 3) + 650]
     };
 
     // //X locations of the industry specific breaches
     let industryCenters = {
-        "Technology": { x: [width / 6], y: [height / 2] },
-        "Retail": { x: [(2 * width) / 6], y: [height / 2] },
-        "Financial": { x: [(2.5 * width) / 6], y: [height / 2] },
-        "Education": { x: [(3 * width) / 6], y: [height / 2] },
-        "Healthcare": { x: [(3.5 * width) / 6], y: [height / 2] },
-        "Government": { x: [(4 * width) / 6], y: [height / 2] },
-        "Other": { x: [(4.6 * width) / 6], y: [height / 2] }
+        "Technology": { x: [(width / 4) - 300], y: [height / 2] },
+        "Retail": { x: [(width / 4) - 155], y: [height / 2] },
+        "Financial": { x: [(width / 4) - 5], y: [height / 2] },
+        "Education": { x: [(width / 4) + 120], y: [height / 2] },
+        "Healthcare": { x: [(width / 3) + 275], y: [height / 2] },
+        "Government": { x: [(width / 3) + 400], y: [height / 2] },
+
+
+        // "Technology": { x: [width / 6], y: [height / 2] },
+        // "Retail": { x: [(2 * width) / 6], y: [height / 2] },
+        // "Financial": { x: [(2.5 * width) / 6], y: [height / 2] },
+        // "Education": { x: [(3 * width) / 6], y: [height / 2] },
+        // "Healthcare": { x: [(3.5 * width) / 6], y: [height / 2] },
+        // "Government": { x: [(4 * width) / 6], y: [height / 2] },
+        // "Other": { x: [(4.6 * width) / 6], y: [height / 2] }
     };
 
     let industrysTitleX = {

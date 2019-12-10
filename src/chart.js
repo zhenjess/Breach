@@ -72,8 +72,8 @@ function bubbleChart() {
     // //X locations of the industry specific breaches
 
     let industryCenters = {
-        "Technology": { x: [(width / 3) - 300], y: [height / 2] },
-        "Retail": { x: [(width / 3) - 175], y: [height / 2] },
+        "Technology": { x: [(width / 3) - 275], y: [height / 2] },
+        "Retail": { x: [(width / 3) - 120], y: [height / 2] },
         "Financial": { x: [(width / 3) - 15], y: [height / 2] },
         "Education": { x: [(width / 3) + 120], y: [height / 2] },
         "Healthcare": { x: [(width / 3) + 275], y: [height / 2] },
@@ -83,13 +83,13 @@ function bubbleChart() {
 
     //X locations of the year titles
     let industrysTitleX = {
-        "Technology": 230,
-        "Retail": [(width / 4) - 100],
-        "Financial": [(width / 4) + 110],
-        "Education": [(width / 3) + 175],
-        "Healthcare": [(width / 3) + 390],
-        "Government": [(width / 3) + 600],
-        "Other": [(width / 3) + 700]
+        "Technology": 273,
+        "Retail": [(width / 4) + 80],
+        "Financial": [(width / 4) + 240],
+        "Education": [(width / 3) + 225],
+        "Healthcare": [(width / 3) + 360],
+        "Government": [(width / 3) + 530],
+        "Other": [(width / 3) + 750]
     };
 
     //@4 strength to apply to the position forces

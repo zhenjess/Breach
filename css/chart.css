@@ -185,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 100ms ease-in;
   text-transform: uppercase;
   font-weight: 900;
-  margin-right: 5px;
+  margin-left: 75px;
 }
 
 .header {
@@ -239,7 +239,7 @@ i.fab.fa-angellist {
 .header_link-wrapper{
     display: flex;
     justify-content: space-evenly;
-    margin-left: -10px;
+    margin-right: 22rem;
 }
 
 .fab {
@@ -259,7 +259,7 @@ i.fab.fa-angellist {
 
 
 .header_btn-group {
-  margin-left: 30px;
+  margin-left: 2rem;
   font-size: 16px;
 }
 

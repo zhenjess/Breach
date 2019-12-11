@@ -185,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 100ms ease-in;
   text-transform: uppercase;
   font-weight: 900;
-  margin-right: 50px;
+  margin-right: 5px;
 }
 
 .header {
@@ -202,7 +202,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* header */
 .header {
-  margin-left: 12rem;
+  margin-left: 5rem;
   z-index: 99999;
   position: relative;
 }
@@ -519,9 +519,9 @@ i.fab.fa-angellist {
     margin-top: 25px;
 } */
 
-#toolbar {
+/* #toolbar {
   margin-top: 10px;
-}
+} */
 
 .year {
   font-size: 21px;

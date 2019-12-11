@@ -53,10 +53,10 @@ h1, h2, h3, h4, h5, h6 {
 .header_content {
   flex: 1;
   padding-right: 3rem;  
-  max-width: 650px;
+  max-width: 750px;
 }
 .header_tooltop {
-  min-width: 320px;
+  min-width: 420px;
 }
 .main_header {
   font-size: 1.8rem;
@@ -65,6 +65,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 100ms ease-in;
   /* text-transform: uppercase; */
   font-weight: 900;
+  margin-left: -90px;
 }
 
 .header {

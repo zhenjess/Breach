@@ -22,9 +22,16 @@ a, a:visited, a:active {
 
 
 /* sources */
-.sources {
+/* .sources {
   z-index: 99999;
   position: relative;
+} */
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
 }
 
 /* modal */

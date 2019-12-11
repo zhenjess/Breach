@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5rem;
   color: initial;
   transition: all 100ms ease-in;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 900;
 }
 
@@ -146,7 +146,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 99999;
   position: relative;
 }
-.header_link {
+/* .header_link {
   color: rgb(85, 61, 61);
   transition: all 100ms ease-in;
 }
@@ -156,11 +156,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .header_link i {
   font-size: 2rem;
-}
+} */
 
-i.fab.fa-angellist {
+/* i.fab.fa-angellist {
   font-size: 1.9rem;
-}
+} */
 
 
 .header_container {
@@ -202,6 +202,7 @@ i.fab.fa-angellist {
   z-index: 99999;
   position: relative;
 }
+
 .header_link {
   color: rgb(85, 61, 61);
   transition: all 100ms ease-in;
@@ -218,12 +219,46 @@ i.fab.fa-angellist {
   font-size: 1.9rem;
 }
 
+.fa-linkedin{
+    background: #007bb5;
+    color: white;
+}
+.fa-github-square{
+    color: white;
+    background: black;
+    border-radius: 60px;
+}
+
+.fa-angellist{
+    color: white;
+}
+.header_link-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.fab {
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fab:hover {
+    opacity: 0.7;
+}
+
+i.fab.fa-angellist {
+  font-size: 1.9rem;
+}
+
+
 .header_btn-group {
   margin-right: 2rem;
 }
 
 /* nav dropdown */
-.nav__dropdown {
+.nav_dropdown {
   opacity: 0;
   visibility: hidden;
   position: absolute;
@@ -240,7 +275,7 @@ i.fab.fa-angellist {
   /* font-size: .8rem; */
 }
 
-.nav__dropdown:before {
+.nav_dropdown:before {
   content: '';
   display: block;
   width: 0;

@@ -185,6 +185,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 100ms ease-in;
   text-transform: uppercase;
   font-weight: 900;
+  margin-right: 50px;
 }
 
 .header {
@@ -201,6 +202,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* header */
 .header {
+  margin-left: 12rem;
   z-index: 99999;
   position: relative;
 }
@@ -224,19 +226,20 @@ i.fab.fa-angellist {
 .fa-linkedin{
     background: #007bb5;
     color: white;
+    font-size: 4rem;
 }
 .fa-github-square{
     color: white;
     background: black;
     border-radius: 60px;
+    font-size: 4rem;
 }
 
-.fa-angellist{
-    color: white;
-}
+
 .header_link-wrapper{
     display: flex;
     justify-content: space-evenly;
+    margin-left: -10px;
 }
 
 .fab {
@@ -256,7 +259,8 @@ i.fab.fa-angellist {
 
 
 .header_btn-group {
-  margin-right: 2rem;
+  margin-left: 30px;
+  font-size: 16px;
 }
 
 /* nav dropdown */
@@ -289,6 +293,7 @@ i.fab.fa-angellist {
   left: 2%;
   top: -8px;
 }
+
 
 /* modal */
 

@@ -519,9 +519,13 @@ i.fab.fa-angellist {
     margin-top: 25px;
 } */
 
-/* #toolbar {
+#toolbar {
+  margin-left: 50px;
   margin-top: 10px;
-} */
+  display: flex;
+  flex-direction: column;
+  
+}
 
 .year {
   font-size: 21px;

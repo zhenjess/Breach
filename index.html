@@ -188,7 +188,7 @@
                         <p class="nav_dropdown"><strong>Breaches</strong> per<br /><strong>Source</strong></p>
                     </a>
                     &nbsp;&nbsp;
-                        <a href="#" data-text="Industry" id="industry" class="btn-chartIndustry header-chart_btn">Industry
+                        <a href="#" data-text="Industry" id="industry" class="btn-chartIndustry header-chart__btn">Industry
                             <p class="nav_dropdown"><strong>Breaches</strong> per<br /><strong>Industry</strong></p>
                         </a>
                         &nbsp;&nbsp;
@@ -207,20 +207,22 @@
             </div>
         </div>
         <br>
-        <!-- <div id="toolbar">
-             <button  id="year">Breaches by Year</button> -->
+        <div id="toolbar">
+            <!-- <button  id="year">Breaches by Year</button> -->
             <!-- <button onclick="splitBubbles()">Breaches by Year</button> -->
             <!-- <a href="#" id="all" class="button active">All Data Breaches</a>
                 <a href="#" id="year" class="button">Breaches by Year</a>
                 <a href="#" id="type" class="button">Breaches by Type</a>
                 <a href="#" id="source" class="button">Breaches by Source</a>
                 <a href="#" id="industry" class="button">Breaches by Industry</a> -->
-            <!-- <button id="all">All Data Breaches</button>
-            <button id="year">Breaches by Year</button>
-            <button id="type">Breaches by Type</button>
-            <button id="source">Breaches by Source</button>
-            <button id="industry">Breaches by Industry</button>     
-        </div>  -->
+            <text x="1" y="130" font-weight="bold">Trends and Patterns</text>
+            <text x="20" y="150">1. Through the years 2014-2019, there is an upward trend in the number of
+                reported data records breached.<br/> As the amount of data produced around the world increases,
+                the amount of data breach incidents also fluctuates. </text>
+            <text x="20" y="170">2. Identity theft is the most prevalent data breach type tracked.</text>
+            <text x="20" y="190">3. Data Breaches are heavily conducted by those considered to be malicious
+                outsiders.</text>
+        </div>
             <!-- <script src="./src/chart.js"></script> -->
             
             <!-- <script>
@@ -228,59 +230,6 @@
                     document.getElementById("year").innerHTML = "Hello World";
                 }
         </script> -->
-
-        <div id="charts_container">
-        
-            <div id="vis">
-                <svg width="1600" height="50"></svg>
-            </div>
-        
-            <div id="right_float_middle">
-                <text x="1" y="130" font-weight="bold">Trends and Patterns</text>
-                <text x="20" y="150">1. Through the years 2014-2019, there is an upward trend in the number of
-                    reported data records breached. As the amount of data produced around the world increases,
-                    the amount of data breach incidents also fluctuates. </text>
-                <text x="20" y="170">2. Identity theft is the most prevalent data breach type tracked.</text>
-                <text x="20" y="190">3. Data Breaches are heavily conducted by those considered to be malicious
-                    outsiders.</text>
-
-                <svg width="700" height="450">
-                    <circle cx="125" cy="100" r="50" stroke="black" stroke-width="4" fill="none" stroke-dasharray="5" />
-                    <!-- CyberVor 1.2 Billion Records -->
-                    <circle cx="125" cy="75" r="40" stroke="black" stroke-width="4" fill="none" stroke-dasharray="5" />
-                    <!-- AliExpress 500 Million Records -->
-                    <circle cx="125" cy="50" r="30" stroke="black" stroke-width="4" fill="none" stroke-dasharray="5" />
-                    <!-- AliExpress 100 Million Records -->
-                    <circle cx="125" cy="25" r="20" stroke="black" stroke-width="4" fill="none" stroke-dasharray="5" />
-                    <!-- 17 Media 50 Million Records -->
-                    <line x1="125" y1="45" x2="250" y2="45" style="stroke:rgb(72,61,139);stroke-width:2" />
-                    <line x1="125" y1="80" x2="250" y2="80" style="stroke:rgb(72,61,139);stroke-width:2" />
-                    <line x1="125" y1="115" x2="250" y2="115" style="stroke:rgb(72,61,139);stroke-width:2" />
-                    <line x1="125" y1="150" x2="250" y2="150" style="stroke:rgb(72,61,139);stroke-width:2" />
-                    <text x="255" y="150" font-weight="bold">1.2 Billion Records</text>
-                    <text x="255" y="115" font-weight="bold">500 Million Records</text>
-                    <text x="255" y="80" font-weight="bold">100 Million Records</text>
-                    <text x="255" y="45" font-weight="bold">50 Million Records</text>
-                </svg>
-        
-                <svg width="900" height="250">
-                    <text x="1" y="15" font-weight="bold">Continents of the World</text>
-                    <circle cx="800" cy="40" r="15" stroke="black" stroke-width="2" fill='#19ecc2' />
-                    <text x="825" y="45" font-weight="bold">Global</text>
-                    <circle cx="20" cy="40" r="15" stroke="black" stroke-width="2" fill='#ff1f5a' />
-                    <text x="50" y="45" font-weight="bold">Asia</text>
-                    <circle cx="140" cy="40" r="15" stroke="black" stroke-width="2" fill='#ec7b19' />
-                    <text x="170" y="45" font-weight="bold">Africa</text>
-                    <circle cx="250" cy="40" r="15" stroke="black" stroke-width="2" fill='#7cbd1e' />
-                    <text x="280" y="45" font-weight="bold">Australia</text>
-                    <circle cx="370" cy="40" r="15" stroke="black" stroke-width="2" fill='#2fc5cc' />
-                    <text x="400" y="45" font-weight="bold">Europe</text>
-                    <circle cx="500" cy="40" r="15" stroke="black" stroke-width="2" fill='#303481' />
-                    <text x="525" y="45" font-weight="bold">North America</text>
-                    <circle cx="655" cy="40" r="15" stroke="black" stroke-width="2" fill='#ecec19' />
-                    <text x="675" y="45" font-weight="bold">South America</text>
-                </svg>
-            </div>
     </div> 
 
     <div id="charts_container">

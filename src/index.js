@@ -85,11 +85,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentBtn = e.target;
     let currentBtnType = currentBtn.classList[1];
     let currentBtnClass;
-    if (currentBtnType === "header-graph__btn") {
+    if (currentBtnType === "header-chart_btn") {
       currentBtnClass = currentBtn.classList[0].split("-")[1];
     }
 
-    if (currentBtnType === "header-graph__btn") {
+    if (currentBtnType === "header-chart_btn") {
     //   worldGraph.updateData(currentBtnClass);
       let allBtns = btnGroup.querySelectorAll("a");
       allBtns.forEach(btn => {

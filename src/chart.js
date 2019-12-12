@@ -527,6 +527,7 @@ function bubbleChart() {
     return chart;
 }
 
+// export default bubbleChart;
 
 let myBubbleChart = bubbleChart();
 

@@ -27124,7 +27124,8 @@ function bubbleChart() {
 
 
   return chart;
-}
+} // export default bubbleChart;
+
 
 var myBubbleChart = bubbleChart();
 

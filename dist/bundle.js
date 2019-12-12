@@ -26856,7 +26856,10 @@ function bubbleChart() {
 
   var chart = function chart(selector, rawData) {
     nodes = createNodes(rawData);
-    svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"](selector).append('svg').attr('width', width).attr('height', height);
+    svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"](selector).append('svg').attr('width', width).attr('height', height).attr('transform', 'scale(0.70)');
+    console.log(svg);
+    console.log(svg.viewBox);
+    console.log("hello");
     bubbles = svg.selectAll('.bubble').data(nodes, function (d) {
       return d.id;
     }); //create new circles where 1 circle.bubble for each object in nodes array

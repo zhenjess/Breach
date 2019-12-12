@@ -194,8 +194,11 @@ function bubbleChart() {
         svg = d3.select(selector)
             .append('svg')
             .attr('width', width)
-            .attr('height', height);
-
+            .attr('height', height)
+            .attr('transform', 'scale(0.70)');
+        console.log(svg);
+        console.log(svg.viewBox);
+        console.log("hello");
 
         bubbles = svg.selectAll('.bubble')
             .data(nodes, function(d) { 
@@ -317,6 +320,7 @@ function bubbleChart() {
     // yrButton.onclick = splitBubbles;
     //yrButton.onclick = () => console.log('hello');
     // document.getElementById('year')
+
     document.getElementById('year').addEventListener('click', function() {
       splitBubbles();
     });

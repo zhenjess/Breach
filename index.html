@@ -47,16 +47,17 @@
         }
 
         #charts_container {
-            position: fixed;
-            left: 0px;
+            position: relative;
+            left: -100px;
             right: 0px;
             top: 0px;
-            bottom: 0px;
+            bottom: 100px;
             width: 100%; 
             overflow: hidden;
-            display: contents;
+            /* display: contents; */
+            display: flex;
             justify-content: center;
-            flex-direction: row;
+            flex-direction: column;
         }
     </style>
 
@@ -236,7 +237,7 @@
     <div id="charts_container">
 
         <div id="vis">
-            <svg width="1600" height="50"></svg>
+            <!-- <svg width="1600" height="50"></svg> -->
         </div>
 
         <div id="right_float_middle">

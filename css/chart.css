@@ -75,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header_btn-group {
-  margin-right: 2rem;
+  margin-left: 25rem;
 }
 
 .header-chart_btn {
@@ -239,7 +239,7 @@ i.fab.fa-angellist {
 .header_link-wrapper{
     display: flex;
     justify-content: space-evenly;
-    margin-right: 22rem;
+    margin-right: 20rem;
 }
 
 .fab {

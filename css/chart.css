@@ -3,10 +3,10 @@ body, html {
 }
 
 /* html {
-  background-color: #c7c7c7;
+  background-color: #F1EBE7;
   width: 1200px;
-  height: 600px;
-} */
+  height: 600px; 
+}  */
 
 pre {
   display: none;
@@ -31,7 +31,7 @@ a, a:visited, a:active {
 body {
   font-family: "Work Sans", sans-serif;
   font-size: 16px;
-  /* background-color: #fcfdef; */
+  /* background-color: #F1EBE7;  */
   width: 113vw;
   position: relative;
 }

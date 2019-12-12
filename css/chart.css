@@ -524,7 +524,7 @@ i.fab.fa-angellist {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
-  
+  font-weight: bold;
 }
 
 .year {

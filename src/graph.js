@@ -84,6 +84,25 @@ export const trendGraph = (selection, props) => {
             .call(yAxis)
             .selectAll('.domain').remove();
 
+    //set x-axis label
+    const xAxisLabelText = xAxisGroupEnter
+        .append('text')
+            .attr('class', 'axis-label')
+            .attr('y', 50)
+        .merge(xAxisGroup.select('.axis-label'))
+            .attr('x', innerWidth / 2)
+            .text(xAxisLabel);
+    
+    //set y-axis label
+    const yAxisLabelText = yAxisGroupEnter
+        .append('text')
+            .attr('class', 'axis-label')
+            .attr('y', -50)
+            .attr('transform', 'rotate(-90)')
+            .attr('text-anchor', 'middle')
+        .merge(yAxisGroup.select('.axis-label'))
+            .attr('y', -innerHeight / 2)
+            .text(yAxisLabel);
     
 
     

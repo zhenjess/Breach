@@ -45,4 +45,35 @@ export const trendGraph = (selection, props) => {
         .range([0, innerHeight])
         .nice();
 
+    //set x-axis
+    const axisTickFormat = (number) => format('~s')(number);
+
+    const xAxis = axisBottom(xScale)
+        .tickFormat(axisTickFormat)
+        .tickSize(-innerHeight)
+        .tickPadding(10);
+
+    const xAxisGroup = g.select('.x-axis');
+
+    const xAxisGroupEnter = gEnter  
+        .append('g')
+            .attr('class', 'x-axis');
+
+    xAxisGroup
+        .merge(xAxisGroupEnter)
+            .attr('transform', `translate(0, ${innerHeight})`)
+            .call(xAxis)
+            .selectAll('.domain').remove();
+
+
+
+    //set y-axis
+    const yAxis = axisLeft(yScale)
+        .tickFormat(axisTickFormat)
+        .tickSize(-innerWidth)
+        .tickPadding(10);
+
+    
+
+    
 }

@@ -121,5 +121,20 @@ export const trendGraph = (selection, props) => {
             .attr('cx', d => xScale(xValue(d)))
             .attr('r', circleRadius);
 
-    //
-}
+    //render graph label
+    const titleGroup = g.select('.graph-label');
+
+    const titleGroupEnter = gEnter
+        .append('g')
+            .attr('class', 'graph-label');
+
+    titleGroup
+        .merge(titleGroupEnter);
+
+    const graphTitle = titleGroupEnter
+        .append('text')
+            .attr('class', 'graph-label')
+            .attr('y', -25)
+        .merge(titleGroup.select('.graph-label'))
+            .text(title);
+};

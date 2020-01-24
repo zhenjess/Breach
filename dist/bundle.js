@@ -26636,7 +26636,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
 /* harmony import */ var _tooltip__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tooltip */ "./src/tooltip.js");
-/* Inspired by and Referred to https://bost.ocks.org/mike/chart/ for bubble chart*/
+/* Inspired by and Referred to \ for bubble chart*/
 
 
 

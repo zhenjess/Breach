@@ -73,7 +73,8 @@
 
 // let bubbleChart;
 
-import { select, csv } from 'd3';
+// import { select, csv } from 'd3';
+import * as d3 from "d3";
 
 import { trendGraph } from './graph';
 
@@ -134,7 +135,7 @@ function handleModalOnClick(e) {
 
 
 //get and display graph
-const graph = select('#trend-graph');
+const graph = d3.select('#trend-graph');
 
 //parse width and height graph areas into nums
 const width = +graph.attr('width');

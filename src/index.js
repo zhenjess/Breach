@@ -145,4 +145,33 @@ let data;
 let xColumnLabel;
 let yColumnLabel;
 
-//
+
+//render graph
+graph.call((trendGraph), {
+  title: `${xColumnLabel} vs ${yColumnLabel}`,
+  xValue: (d) => d[xColumnLabel],
+  xAxisLabel: xColumnLabel,
+  yValue: (d) => d[yColumnLabel],
+  yAxisLabel: yColumnLabel,
+  circleRadius: 10,
+  margin: { top: 80, right: 100, bottom: 100, left: 100 },
+  width,
+  height,
+  data
+});
+
+
+//render changed str to integer values to read data
+csv('../data/breach_data.csv').then(loadedData => {
+  data = loadedData;
+  data.forEach((d) => {
+    columnLabels.forEach(column => {
+      d[column] = +d[column];
+    })
+  });
+  xColumnLabel = columnLabels[5];
+  yColumnLabel = columnLabels[25];
+  render();
+});
+
+

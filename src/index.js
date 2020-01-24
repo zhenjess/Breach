@@ -162,7 +162,7 @@ graph.call((trendGraph), {
 
 
 //render changed str to integer values to read data
-csv('../data/breach_data.csv').then(loadedData => {
+d3.csv('../data/breach_data.csv', function(loadedData) {
   data = loadedData;
   data.forEach((d) => {
     columnLabels.forEach(column => {

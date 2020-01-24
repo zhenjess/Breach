@@ -105,5 +105,21 @@ export const trendGraph = (selection, props) => {
             .text(yAxisLabel);
     
 
-    
+    //render graph content
+    const circles = g.merge(gEnter)
+        .selectAll('circle').data(data)
+
+    circles
+        .enter().append('circle')
+            .attr('cx', innerWidth / 2)
+            .attr('cy', innerHeight / 2)
+            .attr('r', 0)
+        .merge(circles)
+        .transition().duration(2500)
+        .delay((d, i) => i)
+            .attr('cy', d => yScale(yValue(d)))
+            .attr('cx', d => xScale(xValue(d)))
+            .attr('r', circleRadius);
+
+    //
 }

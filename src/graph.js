@@ -1,10 +1,12 @@
-import {
-    scaleLinear, 
-    format, 
-    extent,
-    axisLeft,
-    axisBottom,
-} from 'd3';
+// import {
+//     scaleLinear, 
+//     format, 
+//     extent,
+//     axisLeft,
+//     axisBottom,
+// } from 'd3';
+
+import * as d3 from "d3";
 
 export const trendGraph = (selection, props) => {
     const {
@@ -24,7 +26,7 @@ export const trendGraph = (selection, props) => {
     const innerWidth = width - margin.left - margin.right;
 
     //initialize graph container
-    const g = selection.selectAll('.graph-container').data([null]);
+    const g = selection.d3.selectAll('.graph-container').data([null]);
     const gEnter = g
         .enter().append('g')
             .attr('class', 'graph-container');
@@ -34,21 +36,21 @@ export const trendGraph = (selection, props) => {
             .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
     //map data x-range to graph range
-    const xScale = scaleLinear()
-        .domain(extent(data, xValue))
+    const xScale = d3.scaleLinear()
+        .domain(d3.extent(data, xValue))
         .range([0, innerWidth])
         .nice();
 
     //map data y-range to graph range
-    const yScale = scaleLinear()
-        .domain(extent(data, yValue).reverse())
+    const yScale = d3.scaleLinear()
+        .domain(d3.extent(data, yValue).reverse())
         .range([0, innerHeight])
         .nice();
 
     //set x-axis
-    const axisTickFormat = (number) => format('~s')(number);
+    const axisTickFormat = (number) => d3.format('~s')(number);
 
-    const xAxis = axisBottom(xScale)
+    const xAxis = d3.axisBottom(xScale)
         .tickFormat(axisTickFormat)
         .tickSize(-innerHeight)
         .tickPadding(10);
@@ -68,12 +70,12 @@ export const trendGraph = (selection, props) => {
 
 
     //set y-axis
-    const yAxis = axisLeft(yScale)
+    const yAxis = d3.axisLeft(yScale)
         .tickFormat(axisTickFormat)
         .tickSize(-innerWidth)
         .tickPadding(10);
 
-    const yAxisGroup = g.select('.y-axis');
+    const yAxisGroup = g.d3.select('.y-axis');
 
     const yAxisGroupEnter = gEnter
         .append('g')
@@ -81,15 +83,15 @@ export const trendGraph = (selection, props) => {
     
     yAxisGroup
         .merge(yAxisGroupEnter)
-            .call(yAxis)
-            .selectAll('.domain').remove();
+            .d3.call(yAxis)
+            .d3.selectAll('.domain').remove();
 
     //set x-axis label
     const xAxisLabelText = xAxisGroupEnter
         .append('text')
             .attr('class', 'axis-label')
             .attr('y', 50)
-        .merge(xAxisGroup.select('.axis-label'))
+        .merge(xAxisGroup.d3.select('.axis-label'))
             .attr('x', innerWidth / 2)
             .text(xAxisLabel);
     
@@ -100,13 +102,13 @@ export const trendGraph = (selection, props) => {
             .attr('y', -50)
             .attr('transform', 'rotate(-90)')
             .attr('text-anchor', 'middle')
-        .merge(yAxisGroup.select('.axis-label'))
+        .merge(yAxisGroup.d3.select('.axis-label'))
             .attr('y', -innerHeight / 2)
             .text(yAxisLabel);
     
 
     //render graph content
-    const circles = g.merge(gEnter)
+    const circles = g.d3.merge(gEnter)
         .selectAll('circle').data(data)
 
     circles
@@ -122,19 +124,20 @@ export const trendGraph = (selection, props) => {
             .attr('r', circleRadius);
 
     //render graph label
-    const titleGroup = g.select('.graph-label');
+    const titleGroup = g.d3.select('.graph-label');
 
     const titleGroupEnter = gEnter
         .append('g')
             .attr('class', 'graph-label');
 
     titleGroup
-        .merge(titleGroupEnter);
+        .d3.merge(titleGroupEnter);
 
     const graphTitle = titleGroupEnter
         .append('text')
             .attr('class', 'graph-label')
             .attr('y', -25)
-        .merge(titleGroup.select('.graph-label'))
+        .d3.merge(titleGroup.select('.graph-label'))
             .text(title);
 };
+

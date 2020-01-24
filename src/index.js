@@ -76,7 +76,7 @@
 // import { select, csv } from 'd3';
 import * as d3 from "d3";
 
-import { trendGraph } from './graph';
+import trendGraph from './graph';
 
 document.addEventListener("DOMContentLoaded", () => {
    // const rootDiv = document.getElementById("root");

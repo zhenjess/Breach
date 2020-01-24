@@ -8,7 +8,7 @@
 
 import * as d3 from "d3";
 
-export const trendGraph = (selection, props) => {
+function trendGraph(selection, props) {
     const {
         title,
         margin,
@@ -18,7 +18,7 @@ export const trendGraph = (selection, props) => {
         yValue,
         yAxisLabel,
         width,
-        height, 
+        height,
         circleRadius
     } = props;
 
@@ -29,12 +29,12 @@ export const trendGraph = (selection, props) => {
     const g = d3.selection.selectAll('.graph-container').data([null]);
     const gEnter = g
         .enter().append('g')
-            .attr('class', 'graph-container');
+        .attr('class', 'graph-container');
 
     gEnter
         .merge(g)
-            .attr('transform', `translate(${margin.left}, ${margin.top})`);
-
+        .attr('transform', `translate(${margin.left}, ${margin.top})`);
+    
     //map data x-range to graph range
     const xScale = d3.scaleLinear()
         .domain(d3.extent(data, xValue))
@@ -55,18 +55,17 @@ export const trendGraph = (selection, props) => {
         .tickSize(-innerHeight)
         .tickPadding(10);
 
-    const xAxisGroup = d3.g.select('.x-axis');
+    const xAxisGroup = g.select('.x-axis');
 
-    const xAxisGroupEnter = gEnter  
+    const xAxisGroupEnter = gEnter
         .append('g')
-            .attr('class', 'x-axis');
+        .attr('class', 'x-axis');
 
     xAxisGroup
         .merge(xAxisGroupEnter)
-            .attr('transform', `translate(0, ${innerHeight})`)
-            .call(xAxis)
-            .selectAll('.domain').remove();
-
+        .attr('transform', `translate(0, ${innerHeight})`)
+        .call(xAxis)
+        .selectAll('.domain').remove();
 
 
     //set y-axis
@@ -75,37 +74,36 @@ export const trendGraph = (selection, props) => {
         .tickSize(-innerWidth)
         .tickPadding(10);
 
-    const yAxisGroup = d3.g.select('.y-axis');
+    const yAxisGroup = g.select('.y-axis');
 
     const yAxisGroupEnter = gEnter
         .append('g')
-            .attr('class', 'y-axis');
-    
+        .attr('class', 'y-axis');
+
     yAxisGroup
         .merge(yAxisGroupEnter)
-            .d3.call(yAxis)
-            .d3.selectAll('.domain').remove();
+        .call(yAxis)
+        .selectAll('.domain').remove();
 
     //set x-axis label
     const xAxisLabelText = xAxisGroupEnter
         .append('text')
-            .attr('class', 'axis-label')
-            .attr('y', 50)
-        .merge(xAxisGroup.d3.select('.axis-label'))
-            .attr('x', innerWidth / 2)
-            .text(xAxisLabel);
-    
+        .attr('class', 'axis-label')
+        .attr('y', 50)
+        .merge(xAxisGroup.select('.axis-label'))
+        .attr('x', innerWidth / 2)
+        .text(xAxisLabel);
+
     //set y-axis label
     const yAxisLabelText = yAxisGroupEnter
         .append('text')
-            .attr('class', 'axis-label')
-            .attr('y', -50)
-            .attr('transform', 'rotate(-90)')
-            .attr('text-anchor', 'middle')
-        .merge(yAxisGroup.d3.select('.axis-label'))
-            .attr('y', -innerHeight / 2)
-            .text(yAxisLabel);
-    
+        .attr('class', 'axis-label')
+        .attr('y', -50)
+        .attr('transform', 'rotate(-90)')
+        .attr('text-anchor', 'middle')
+        .merge(yAxisGroup.select('.axis-label'))
+        .attr('y', -innerHeight / 2)
+        .text(yAxisLabel);
 
     //render graph content
     const circles = d3.g.merge(gEnter)
@@ -113,31 +111,33 @@ export const trendGraph = (selection, props) => {
 
     circles
         .enter().append('circle')
-            .attr('cx', innerWidth / 2)
-            .attr('cy', innerHeight / 2)
-            .attr('r', 0)
+        .attr('cx', innerWidth / 2)
+        .attr('cy', innerHeight / 2)
+        .attr('r', 0)
         .merge(circles)
         .transition().duration(2500)
         .delay((d, i) => i)
-            .attr('cy', d => yScale(yValue(d)))
-            .attr('cx', d => xScale(xValue(d)))
-            .attr('r', circleRadius);
+        .attr('cy', d => yScale(yValue(d)))
+        .attr('cx', d => xScale(xValue(d)))
+        .attr('r', circleRadius);
 
     //render graph label
-    const titleGroup = d3.g.select('.graph-label');
+    const titleGroup = g.select('.graph-label');
 
     const titleGroupEnter = gEnter
         .append('g')
-            .attr('class', 'graph-label');
+        .attr('class', 'graph-label');
 
     titleGroup
-        .d3.merge(titleGroupEnter);
+        .merge(titleGroupEnter);
 
     const graphTitle = titleGroupEnter
         .append('text')
-            .attr('class', 'graph-label')
-            .attr('y', -25)
-        .d3.merge(titleGroup.d3.select('.graph-label'))
-            .text(title);
-};
+        .attr('class', 'graph-label')
+        .attr('y', -25)
+        .merge(titleGroup.select('.graph-label'))
+        .text(title);
+}
+
+export default trendGraph;
 

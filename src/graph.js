@@ -73,6 +73,17 @@ export const trendGraph = (selection, props) => {
         .tickSize(-innerWidth)
         .tickPadding(10);
 
+    const yAxisGroup = g.select('.y-axis');
+
+    const yAxisGroupEnter = gEnter
+        .append('g')
+            .attr('class', 'y-axis');
+    
+    yAxisGroup
+        .merge(yAxisGroupEnter)
+            .call(yAxis)
+            .selectAll('.domain').remove();
+
     
 
     

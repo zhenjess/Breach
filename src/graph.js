@@ -26,7 +26,7 @@ export const trendGraph = (selection, props) => {
     const innerWidth = width - margin.left - margin.right;
 
     //initialize graph container
-    const g = selection.d3.selectAll('.graph-container').data([null]);
+    const g = d3.selection.selectAll('.graph-container').data([null]);
     const gEnter = g
         .enter().append('g')
             .attr('class', 'graph-container');
@@ -55,7 +55,7 @@ export const trendGraph = (selection, props) => {
         .tickSize(-innerHeight)
         .tickPadding(10);
 
-    const xAxisGroup = g.select('.x-axis');
+    const xAxisGroup = d3.g.select('.x-axis');
 
     const xAxisGroupEnter = gEnter  
         .append('g')
@@ -75,7 +75,7 @@ export const trendGraph = (selection, props) => {
         .tickSize(-innerWidth)
         .tickPadding(10);
 
-    const yAxisGroup = g.d3.select('.y-axis');
+    const yAxisGroup = d3.g.select('.y-axis');
 
     const yAxisGroupEnter = gEnter
         .append('g')
@@ -108,7 +108,7 @@ export const trendGraph = (selection, props) => {
     
 
     //render graph content
-    const circles = g.d3.merge(gEnter)
+    const circles = d3.g.merge(gEnter)
         .selectAll('circle').data(data)
 
     circles
@@ -124,7 +124,7 @@ export const trendGraph = (selection, props) => {
             .attr('r', circleRadius);
 
     //render graph label
-    const titleGroup = g.d3.select('.graph-label');
+    const titleGroup = d3.g.select('.graph-label');
 
     const titleGroupEnter = gEnter
         .append('g')
@@ -137,7 +137,7 @@ export const trendGraph = (selection, props) => {
         .append('text')
             .attr('class', 'graph-label')
             .attr('y', -25)
-        .d3.merge(titleGroup.select('.graph-label'))
+        .d3.merge(titleGroup.d3.select('.graph-label'))
             .text(title);
 };
 

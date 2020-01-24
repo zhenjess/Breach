@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 .header_tooltop {
   min-width: 420px;
 }
-.main_header {
+.main-header {
   font-size: 1.8rem;
   line-height: 1.5rem;
   color: initial;
@@ -178,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 650px;
 }
 
-.main_header {
+.main-header {
   font-size: 1.8rem;
   line-height: 1.5rem;
   color: initial;

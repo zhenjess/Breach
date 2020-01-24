@@ -72,6 +72,11 @@
 // import BubbleChart from "./chart";
 
 // let bubbleChart;
+
+import { select, csv } from 'd3';
+
+import { trendGraph } from './graph';
+
 document.addEventListener("DOMContentLoaded", () => {
    // const rootDiv = document.getElementById("root");
    // rootDiv.innerHTML = "works"
@@ -113,6 +118,7 @@ document.querySelector(".close-modal-btn").addEventListener("click", e => {
 // modal close 
 function handleModalOnClick(e) {
     console.log("hi");
+}
   //e.stopPropagation();
 //   let modal = document.querySelector(".modal");
 //   let modalContent = document.querySelector('.modal-content');
@@ -125,4 +131,18 @@ function handleModalOnClick(e) {
 //     modal.setAttribute("style", "opacity: 0; visibility: hidden");
 //     closeModal.setAttribute("style", "display: none");
 //   }  
-}
+
+
+//get and display graph
+const graph = select('#trend-graph');
+
+//parse width and height graph areas into nums
+const width = +graph.attr('width');
+const height = +graph.attr('height');
+
+//initialize data and column
+let data;
+let xColumnLabel;
+let yColumnLabel;
+
+//

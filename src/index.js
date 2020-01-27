@@ -74,9 +74,9 @@
 // let bubbleChart;
 
 // import { select, csv } from 'd3';
-import * as d3 from "d3";
+// import * as d3 from "d3";
 
-import trendGraph from './graph';
+// import trendGraph from './graph';
 
 document.addEventListener("DOMContentLoaded", () => {
    // const rootDiv = document.getElementById("root");
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // modal actions
-    const modal = document.querySelector(".close-modal-btn");
+  const modal = document.querySelector(".close-modal-btn");
   console.log(modal);
   modal.addEventListener('click', console.log("hi"));
 });
@@ -135,44 +135,44 @@ function handleModalOnClick(e) {
 
 
 //get and display graph
-const graph = d3.select('#trend-graph');
+// const graph = d3.select('#trend-graph');
 
-//parse width and height graph areas into nums
-const width = +graph.attr('width');
-const height = +graph.attr('height');
+// //parse width and height graph areas into nums
+// const width = +graph.attr('width');
+// const height = +graph.attr('height');
 
-//initialize data and column
-let data;
-let xColumnLabel;
-let yColumnLabel;
+// //initialize data and column
+// let data;
+// let xColumnLabel;
+// let yColumnLabel;
 
 
 //render graph
-graph.call((trendGraph), {
-  title: `${xColumnLabel} vs ${yColumnLabel}`,
-  xValue: (d) => d[xColumnLabel],
-  xAxisLabel: xColumnLabel,
-  yValue: (d) => d[yColumnLabel],
-  yAxisLabel: yColumnLabel,
-  circleRadius: 10,
-  margin: { top: 80, right: 100, bottom: 100, left: 100 },
-  width,
-  height,
-  data
-});
+// graph.call((trendGraph), {
+//   title: `${xColumnLabel} vs ${yColumnLabel}`,
+//   xValue: (d) => d[xColumnLabel],
+//   xAxisLabel: xColumnLabel,
+//   yValue: (d) => d[yColumnLabel],
+//   yAxisLabel: yColumnLabel,
+//   circleRadius: 10,
+//   margin: { top: 80, right: 100, bottom: 100, left: 100 },
+//   width,
+//   height,
+//   data
+// });
 
 
 //render changed str to integer values to read data
-d3.csv('../data/breach_data.csv', function(loadedData) {
-  data = loadedData;
-  data.forEach((d) => {
-    columnLabels.forEach(column => {
-      d[column] = +d[column];
-    })
-  });
-  xColumnLabel = columnLabels[5];
-  yColumnLabel = columnLabels[25];
-  render();
-});
+// d3.csv('../data/breach_data.csv', function(loadedData) {
+//   data = loadedData;
+//   data.forEach((d) => {
+//     columnLabels.forEach(column => {
+//       d[column] = +d[column];
+//     })
+//   });
+//   xColumnLabel = columnLabels[5];
+//   yColumnLabel = columnLabels[25];
+//   render();
+// });
 
 

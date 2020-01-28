@@ -40,9 +40,10 @@ CSS3
 Data Chart (D3.js)
 Clean and modular code through use of ES6 classes and inheritance.
         
-   let chart = function chart(selector, rawData) {
-       nodes = createNodes(rawData);
 
+
+      let chart = function chart(selector, rawData) {
+        nodes = createNodes(rawData);
         svg = d3.select(selector)
             .append('svg')
             .attr('width', width)

@@ -95,7 +95,8 @@ Clean and modular code through use of ES6 classes and inheritance.
 
 A parent class, Chart, was implemented to initialize the base configuration for the (D3.js) visualization. New node objects were created from raw data to generate a bubble group.
 
-Data (JSON)
+Data (CSV)
+
 Data was aggregated from multiple sources and formatted into CSV. The CSV file is loaded asynchronously into the D3 visualization.
 
 

@@ -21,7 +21,14 @@ Data provided by [Breach Level Index](https://breachlevelindex.com/)
 Visualization created by [Jessica Zhen] 
 
 ## Screenshots
-Global Data Breach Report screenshot
+Global Data Breach Report screenshots:
+![Screen Shot 2020-01-28 at 11 20 16 AM](https://user-images.githubusercontent.com/35883332/73297876-33b1b800-41c1-11ea-8ee8-0e3f1c070002.png)
+![Screen Shot 2020-01-28 at 11 20 28 AM](https://user-images.githubusercontent.com/35883332/73297917-46c48800-41c1-11ea-96cb-5af65c1f245d.png)
+![Screen Shot 2020-01-28 at 11 20 40 AM](https://user-images.githubusercontent.com/35883332/73297947-55ab3a80-41c1-11ea-90f2-c19c45887720.png)
+
+
+![Screen Shot 2020-01-28 at 11 21 03 AM](https://user-images.githubusercontent.com/35883332/73297987-62c82980-41c1-11ea-94a3-6dd45f2d3762.png)
+![Screen Shot 2020-01-28 at 11 21 15 AM](https://user-images.githubusercontent.com/35883332/73298015-71164580-41c1-11ea-9bbf-b19f796e2293.png)
 
 ## Technologies
 D3.js for DOM manipulation and rendering
@@ -89,8 +96,6 @@ Clean and modular code through use of ES6 classes and inheritance.
     };
 
 A parent class, Chart, was implemented to initialize the base configuration for the (D3.js) visualization. New node objects were created from raw data to generate a bubble group.
-
-
 
 Data (JSON)
 Data was aggregated from multiple sources and formatted into CSV. The CSV file is loaded asynchronously into the D3 visualization.

@@ -1,5 +1,6 @@
 ## Global Data Breaches (2014 - 2019) Report (Data Visualization)
-Check out the [Live App]: https://zhenjess.github.io/Breach/
+
+[Live Link](https://zhenjess.github.io/Breach/)
 
 ### Background and Overview
 Global Data Breach (2014 - 2019) Report is an interactive data visualization based off the based off the annual Breach Level Index Report. An estimate of 400 breach incident data points over 6 years (2014 - 2019) were 

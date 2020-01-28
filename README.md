@@ -1,6 +1,4 @@
-## Global Data Breaches Visualization 
-
-Global Data Breach (2014 - 2019) Report (Data Visualization)
+## Global Data Breaches (2014 - 2019) Report (Data Visualization)
 Check out the live app https://zhenjess.github.io/Breach/
 
 ### Background and Overview

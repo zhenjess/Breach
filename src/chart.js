@@ -189,8 +189,6 @@ function bubbleChart() {
 
         nodes = createNodes(rawData);
 
-
-
         svg = d3.select(selector)
             .append('svg')
             .attr('width', width)

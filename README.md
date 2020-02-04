@@ -10,10 +10,6 @@
 ![Screen Shot 2020-01-28 at 11 20 28 AM](https://user-images.githubusercontent.com/35883332/73297917-46c48800-41c1-11ea-96cb-5af65c1f245d.png)
 ![Screen Shot 2020-01-28 at 11 20 40 AM](https://user-images.githubusercontent.com/35883332/73297947-55ab3a80-41c1-11ea-90f2-c19c45887720.png)
 
-
-![Screen Shot 2020-01-28 at 11 21 03 AM](https://user-images.githubusercontent.com/35883332/73297987-62c82980-41c1-11ea-94a3-6dd45f2d3762.png)
-![Screen Shot 2020-01-28 at 11 21 15 AM](https://user-images.githubusercontent.com/35883332/73298015-71164580-41c1-11ea-9bbf-b19f796e2293.png)
-
 ### Background and Overview
 Global Data Breach (2014 - 2019) Report is an interactive data visualization based off the based off the annual Breach Level Index Report. An estimate of 400 breach incident data points over 6 years (2014 - 2019) were 
 aggregated to give an exploratory visual of the state of breach incidents.
@@ -33,18 +29,20 @@ Visualization created by [Jessica Zhen]
 
 
 ## Technologies
-D3.js for DOM manipulation and rendering
-JavaScript (ES6) for general application logic
-Webpack
-Babel
-HTML5
-CSS3
+* D3.js for DOM manipulation and rendering
+* JavaScript (ES6) for general application logic
+* Webpack
+* Babel
+* HTML5
+* CSS3
 
 ## Features
-* Users can interact with the individual data points to see further data on each country on hover
-* Users can develop correlation hypotheses on year, source, type, industry, and location
+* Users can interact with the individual data points to see further data on each country (bubble) on hover
+* Users can develop correlation hypotheses on year, source, type, and industry
 * Users can filter data by both breach incidents and metrics 
 
+![Screen Shot 2020-01-28 at 11 21 03 AM](https://user-images.githubusercontent.com/35883332/73297987-62c82980-41c1-11ea-94a3-6dd45f2d3762.png)
+![Screen Shot 2020-01-28 at 11 21 15 AM](https://user-images.githubusercontent.com/35883332/73298015-71164580-41c1-11ea-9bbf-b19f796e2293.png)
 
 Data Chart (D3.js)
 Clean and modular code through use of ES6 classes and inheritance.

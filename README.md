@@ -2,6 +2,14 @@
 
 [Live Link](https://zhenjess.github.io/Breach/)
 
+![Screen Shot 2020-02-04 at 12 49 39 PM](https://user-images.githubusercontent.com/35883332/73785848-fd3de500-474c-11ea-84bd-9e284a7bdf3f.png)
+![Screen Shot 2020-02-04 at 12 49 53 PM](https://user-images.githubusercontent.com/35883332/73785862-029b2f80-474d-11ea-949a-b5d2818fc44e.png)
+![Screen Shot 2020-02-04 at 12 50 07 PM](https://user-images.githubusercontent.com/35883332/73785871-05962000-474d-11ea-84a2-9d49a4eb137e.png)
+
+![Screen Shot 2020-01-28 at 11 20 16 AM](https://user-images.githubusercontent.com/35883332/73297876-33b1b800-41c1-11ea-8ee8-0e3f1c070002.png)
+![Screen Shot 2020-01-28 at 11 20 28 AM](https://user-images.githubusercontent.com/35883332/73297917-46c48800-41c1-11ea-96cb-5af65c1f245d.png)
+![Screen Shot 2020-01-28 at 11 20 40 AM](https://user-images.githubusercontent.com/35883332/73297947-55ab3a80-41c1-11ea-90f2-c19c45887720.png)
+
 ### Background and Overview
 Global Data Breach (2014 - 2019) Report is an interactive data visualization based off the based off the annual Breach Level Index Report. An estimate of 400 breach incident data points over 6 years (2014 - 2019) were 
 aggregated to give an exploratory visual of the state of breach incidents.
@@ -19,34 +27,29 @@ When users hover over a bubble, a tooltip will be rendered to display the detail
 Data provided by [Breach Level Index](https://breachlevelindex.com/) 
 Visualization created by [Jessica Zhen] 
 
-## Screenshots
-Global Data Breach Report screenshots:
-![Screen Shot 2020-01-28 at 11 20 16 AM](https://user-images.githubusercontent.com/35883332/73297876-33b1b800-41c1-11ea-8ee8-0e3f1c070002.png)
-![Screen Shot 2020-01-28 at 11 20 28 AM](https://user-images.githubusercontent.com/35883332/73297917-46c48800-41c1-11ea-96cb-5af65c1f245d.png)
-![Screen Shot 2020-01-28 at 11 20 40 AM](https://user-images.githubusercontent.com/35883332/73297947-55ab3a80-41c1-11ea-90f2-c19c45887720.png)
-
-
-![Screen Shot 2020-01-28 at 11 21 03 AM](https://user-images.githubusercontent.com/35883332/73297987-62c82980-41c1-11ea-94a3-6dd45f2d3762.png)
-![Screen Shot 2020-01-28 at 11 21 15 AM](https://user-images.githubusercontent.com/35883332/73298015-71164580-41c1-11ea-9bbf-b19f796e2293.png)
 
 ## Technologies
-D3.js for DOM manipulation and rendering
-JavaScript (ES6) for general application logic
-Webpack
-Babel
-HTML5
-CSS3
+* D3.js for DOM manipulation and rendering
+* JavaScript (ES6) for general application logic
+* Webpack
+* Babel
+* HTML5
+* CSS3
 
 ## Features
-* Users can interact with the individual data points to see further data on each country on hover
-* Users can develop correlation hypotheses on year, source, type, industry, and location
+* Users can interact with the individual data points to see further data on each country (bubble) on hover
+* Users can develop correlation hypotheses on year, source, type, and industry
 * Users can filter data by both breach incidents and metrics 
 
 
 Data Chart (D3.js)
 Clean and modular code through use of ES6 classes and inheritance.
-        
 
+A parent class, Chart, was implemented to initialize the base configuration for the (D3.js) visualization. New node objects were created from raw data to generate a bubble group.
+
+![Screen Shot 2020-02-04 at 12 49 39 PM](https://user-images.githubusercontent.com/35883332/73785848-fd3de500-474c-11ea-84bd-9e284a7bdf3f.png)
+![Screen Shot 2020-02-04 at 12 49 53 PM](https://user-images.githubusercontent.com/35883332/73785862-029b2f80-474d-11ea-949a-b5d2818fc44e.png)
+![Screen Shot 2020-02-04 at 12 50 07 PM](https://user-images.githubusercontent.com/35883332/73785871-05962000-474d-11ea-84a2-9d49a4eb137e.png)
 
       let chart = function chart(selector, rawData) {
         nodes = createNodes(rawData);
@@ -93,8 +96,91 @@ Clean and modular code through use of ES6 classes and inheritance.
         //initially start as 1 bubble group
         groupBubbles();
     };
+    
+    
+![Screen Shot 2020-01-28 at 11 21 03 AM](https://user-images.githubusercontent.com/35883332/73297987-62c82980-41c1-11ea-94a3-6dd45f2d3762.png)
+![Screen Shot 2020-01-28 at 11 21 15 AM](https://user-images.githubusercontent.com/35883332/73298015-71164580-41c1-11ea-9bbf-b19f796e2293.png)
+        
+   * The source labels are shown and the force layout tick function is set to move nodes to the sourceCenter of their 
+       data's source.
 
-A parent class, Chart, was implemented to initialize the base configuration for the (D3.js) visualization. New node objects were created from raw data to generate a bubble group.
+    //split group bubble per type
+    function splitBubbles() {
+        showYearTitles();
+        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeYearPos));
+        simulation.alpha(1).restart();  
+    }
+
+    //type
+    function typeSplitBubbles() {
+        showTypeTitles();
+        hideYearTitles();
+        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeTypePos));
+        simulation.alpha(1).restart();
+    }
+
+    document.getElementById('type').addEventListener('click', function () {
+        typeSplitBubbles();
+    });
+
+    function hideTypeTitles() {
+        svg.selectAll('.type').remove();
+    }
+
+    /* Shows Type title displays.*/
+    function showTypeTitles() {
+        let typesData = d3.keys(typesTitleX);
+        let types = svg.selectAll('.type')
+            .data(typesData);
+
+        types.enter().append('text')
+            .attr('class', 'type')
+            .attr('x', function(d) { 
+                return typesTitleX[d]; 
+            })
+            .attr('y', 40)
+            .attr('text-anchor', 'middle')
+            .text(function(d) { 
+                return d;
+            });
+    }
+
+    //source
+    function sourceSplitBubbles() {
+        showSourceTitles();
+        hideYearTitles();
+        hideTypeTitles();
+        simulation.force('x', d3.forceX().strength(forceStrength).x(nodeSourcePos));
+        simulation.alpha(1).restart();
+    }
+
+    document.getElementById('source').addEventListener('click', function () {
+        sourceSplitBubbles();
+    });
+
+    /*Hides Source title displays.*/
+    function hideSourceTitles() {
+        svg.selectAll('.source').remove();
+    }
+
+    /* Shows Source title displays.*/
+    function showSourceTitles() {
+        let sourcesData = d3.keys(sourcesTitleX);
+        let sources = svg.selectAll('.source')
+            .data(sourcesData);
+
+        sources.enter().append('text')
+            .attr('class', 'source')
+            .attr('x', function(d) { 
+                return sourcesTitleX[d]; 
+            })
+            .attr('y', 40)
+            .attr('text-anchor', 'middle')
+            .text(function(d) { 
+                return d; 
+            });
+    }
+
 
 Data (CSV)
 

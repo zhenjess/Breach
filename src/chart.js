@@ -1,6 +1,7 @@
 /* Inspired by and Referred to \ for bubble chart*/
 import * as d3 from "d3";
 import floatingTooltip from "./tooltip";
+import yrTrend from './yrtrend';
 
 
 function bubbleChart() {
@@ -321,6 +322,7 @@ function bubbleChart() {
 
     document.getElementById('year').addEventListener('click', function() {
       splitBubbles();
+      yrTrend();
     });
 
     /*Hides Year title displays.*/

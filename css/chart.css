@@ -372,6 +372,10 @@ i.fab.fa-angellist {
   color: #000;
   font-weight: bold;
 }
+
+.footer {
+    padding: 5rem 0;
+}
 /* modal
 .button {
   background: coral;
